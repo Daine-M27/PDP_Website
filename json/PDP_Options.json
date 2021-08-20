@@ -1,0 +1,1683 @@
+{
+    "options": [
+        {
+            "name": "Pipe Size",
+            "optionGroup": 1,
+            "choices": [
+                {
+                    "displayValue": "1.5 Inch",
+                    "partNumberValue": "1.5",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 1
+                },
+                {
+                    "displayValue": "2 Inch",
+                    "partNumberValue": "2",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 2
+                }
+            ],
+            "description": [
+                "1.5\" Standard theatrical pipe size (1.9\" OD), rated for 30 pounds per foot.",
+                "2\" pipe size (2.375\" OD) is extra strong, rated for 50 pounds per foot. \"MAY NOT FIT ALL CLAMP SIZES\""
+            ]
+        },
+        {
+            "name": "Color",
+            "optionGroup": 2,
+            "choices": [
+                {
+                    "displayValue": "Matte Black",
+                    "partNumberValue": "B",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 3
+                },
+                {
+                    "displayValue": "Semi-Gloss Black",
+                    "partNumberValue": "BG",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 4
+                },
+                {
+                    "displayValue": "Matte White",
+                    "partNumberValue": "W",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 5
+                },
+                {
+                    "displayValue": "Semi-Gloss White",
+                    "partNumberValue": "WG",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 6
+                }
+            ],
+            "description": [
+                "Black is standard",
+                "White will add a few days to production time.",
+                "Custom colors are available but add cost and production time to your order."
+            ]
+        },
+        {
+            "name": "Total Length",
+            "optionGroup": 3,
+            "choices": [
+                {
+                    "displayValue": "4' 0\"",
+                    "partNumberValue": "48",
+                    "eliminates": [
+                        83, 84, 85
+                    ],
+                    "eliminationId": 7
+                },
+                {
+                    "displayValue": "5' 4\"",
+                    "partNumberValue": "64",
+                    "eliminates": [
+                        84, 85
+                    ],
+                    "eliminationId": 8
+                },
+                {
+                    "displayValue": "6' 8\"",
+                    "partNumberValue": "80",
+                    "eliminates": [
+                        85
+                    ],
+                    "eliminationId": 9
+                },
+                {
+                    "displayValue": "8' 0\"",
+                    "partNumberValue": "96",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 10
+                },
+                {
+                    "displayValue": "9' 4\"",
+                    "partNumberValue": "112",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 11
+                },
+                {
+                    "displayValue": "10' 8\"",
+                    "partNumberValue": "128",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 12
+                },
+                {
+                    "displayValue": "12' 0\"",
+                    "partNumberValue": "144",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 13
+                },
+                {
+                    "displayValue": "13' 4\"",
+                    "partNumberValue": "160",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 14
+                },
+                {
+                    "displayValue": "14' 8\"",
+                    "partNumberValue": "176",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 15
+                },
+                {
+                    "displayValue": "16' 0\"",
+                    "partNumberValue": "192",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 16
+                },
+                {
+                    "displayValue": "17' 4\"",
+                    "partNumberValue": "208",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 17
+                },
+                {
+                    "displayValue": "18' 8\"",
+                    "partNumberValue": "224",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 18
+                },
+                {
+                    "displayValue": "20' 0\"",
+                    "partNumberValue": "240",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 19
+                },
+                {
+                    "displayValue": "21' 4\"",
+                    "partNumberValue": "256",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 20
+                },
+                {
+                    "displayValue": "22' 8\"",
+                    "partNumberValue": "272",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 21
+                },
+                {
+                    "displayValue": "24' 0\"",
+                    "partNumberValue": "288",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 22
+                },
+                {
+                    "displayValue": "25' 4\"",
+                    "partNumberValue": "304",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 23
+                },
+                {
+                    "displayValue": "26' 8\"",
+                    "partNumberValue": "320",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 24
+                },
+                {
+                    "displayValue": "28' 0\"",
+                    "partNumberValue": "336",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 25
+                },
+                {
+                    "displayValue": "29' 4\"",
+                    "partNumberValue": "352",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 26
+                },
+                {
+                    "displayValue": "30' 8\"",
+                    "partNumberValue": "368",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 27
+                },
+                {
+                    "displayValue": "32' 0\"",
+                    "partNumberValue": "384",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 28
+                },
+                {
+                    "displayValue": "33' 4\"",
+                    "partNumberValue": "400",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 29
+                },
+                {
+                    "displayValue": "34' 8\"",
+                    "partNumberValue": "416",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 30
+                },
+                {
+                    "displayValue": "36' 0\"",
+                    "partNumberValue": "432",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 31
+                },
+                {
+                    "displayValue": "37' 4\"",
+                    "partNumberValue": "448",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 32
+                },
+                {
+                    "displayValue": "38' 8\"",
+                    "partNumberValue": "464",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 33
+                },
+                {
+                    "displayValue": "40' 0\"",
+                    "partNumberValue": "480",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 34
+                },
+                {
+                    "displayValue": "41' 4\"",
+                    "partNumberValue": "496",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 35
+                },
+                {
+                    "displayValue": "42' 8\"",
+                    "partNumberValue": "512",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 36
+                },
+                {
+                    "displayValue": "44' 0\"",
+                    "partNumberValue": "528",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 37
+                },
+                {
+                    "displayValue": "45' 4\"",
+                    "partNumberValue": "544",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 38
+                },
+                {
+                    "displayValue": "46' 8\"",
+                    "partNumberValue": "560",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 39
+                },
+                {
+                    "displayValue": "48' 0\"",
+                    "partNumberValue": "576",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 40
+                },
+                {
+                    "displayValue": "49' 4\"",
+                    "partNumberValue": "592",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 41
+                },
+                {
+                    "displayValue": "50' 8\"",
+                    "partNumberValue": "608",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 42
+                },
+                {
+                    "displayValue": "52' 0\"",
+                    "partNumberValue": "624",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 43
+                },
+                {
+                    "displayValue": "53' 4\"",
+                    "partNumberValue": "640",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 44
+                },
+                {
+                    "displayValue": "54' 8\"",
+                    "partNumberValue": "656",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 45
+                },
+                {
+                    "displayValue": "56' 0\"",
+                    "partNumberValue": "672",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 46
+                },
+                {
+                    "displayValue": "57' 4\"",
+                    "partNumberValue": "688",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 47
+                },
+                {
+                    "displayValue": "58' 8\"",
+                    "partNumberValue": "704",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 48
+                },
+                {
+                    "displayValue": "60' 0\"",
+                    "partNumberValue": "720",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 49
+                },
+                {
+                    "displayValue": "61' 4\"",
+                    "partNumberValue": "736",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 50
+                },
+                {
+                    "displayValue": "62' 8\"",
+                    "partNumberValue": "752",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 51
+                },
+                {
+                    "displayValue": "64' 0\"",
+                    "partNumberValue": "768",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 52
+                },
+                {
+                    "displayValue": "65' 4\"",
+                    "partNumberValue": "784",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 53
+                },
+                {
+                    "displayValue": "66' 8\"",
+                    "partNumberValue": "800",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 54
+                },
+                {
+                    "displayValue": "68' 0\"",
+                    "partNumberValue": "816",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 55
+                },
+                {
+                    "displayValue": "69' 4\"",
+                    "partNumberValue": "832",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 56
+                },
+                {
+                    "displayValue": "70' 8\"",
+                    "partNumberValue": "848",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 57
+                },
+                {
+                    "displayValue": "72' 0\"",
+                    "partNumberValue": "864",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 58
+                },
+                {
+                    "displayValue": "73' 4\"",
+                    "partNumberValue": "880",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 59
+                },
+                {
+                    "displayValue": "74' 8\"",
+                    "partNumberValue": "896",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 60
+                },
+                {
+                    "displayValue": "76' 0\"",
+                    "partNumberValue": "912",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 61
+                },
+                {
+                    "displayValue": "77' 4\"",
+                    "partNumberValue": "928",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 62
+                },
+                {
+                    "displayValue": "78' 8\"",
+                    "partNumberValue": "944",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 63
+                },
+                {
+                    "displayValue": "80' 0\"",
+                    "partNumberValue": "960",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 64
+                },
+                {
+                    "displayValue": "81' 4\"",
+                    "partNumberValue": "976",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 65
+                },
+                {
+                    "displayValue": "82' 8\"",
+                    "partNumberValue": "992",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 66
+                },
+                {
+                    "displayValue": "84' 0\"",
+                    "partNumberValue": "1008",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 67
+                },
+                {
+                    "displayValue": "85' 4\"",
+                    "partNumberValue": "1024",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 68
+                },
+                {
+                    "displayValue": "86' 8\"",
+                    "partNumberValue": "1040",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 69
+                },
+                {
+                    "displayValue": "88' 0\"",
+                    "partNumberValue": "1056",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 70
+                },
+                {
+                    "displayValue": "89' 4\"",
+                    "partNumberValue": "1072",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 71
+                },
+                {
+                    "displayValue": "90' 8\"",
+                    "partNumberValue": "1088",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 72
+                },
+                {
+                    "displayValue": "92' 0\"",
+                    "partNumberValue": "1104",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 73
+                },
+                {
+                    "displayValue": "93' 4\"",
+                    "partNumberValue": "1120",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 74
+                },
+                {
+                    "displayValue": "94' 8\"",
+                    "partNumberValue": "1136",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 75
+                },
+                {
+                    "displayValue": "96' 0\"",
+                    "partNumberValue": "1152",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 76
+                },
+                {
+                    "displayValue": "97' 4\"",
+                    "partNumberValue": "1168",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 77
+                },
+                {
+                    "displayValue": "98' 8\"",
+                    "partNumberValue": "1184",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 78
+                },
+                {
+                    "displayValue": "100' 0\"",
+                    "partNumberValue": "1200",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 79
+                }
+            ],
+            "description": [
+                "Any multiple of 16\" up to 100'. It may be easier to install multiple shorter MEGABATTENS."
+            ]
+        },
+        {
+            "name":"Number of Power Circuits",
+            "optionGroup": 4,
+            "choices":[
+                {
+                    "displayValue": "1",
+                    "partNumberValue": "1",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 80
+                },
+                {
+                    "displayValue": "2",
+                    "partNumberValue": "2",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 81
+                },
+                {
+                    "displayValue": "3",
+                    "partNumberValue": "3",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 82
+                },
+                {
+                    "displayValue": "4",
+                    "partNumberValue": "4",
+                    "eliminates": [
+                        7, 88, 92
+                    ],
+                    "eliminationId": 83
+                },
+                {
+                    "displayValue": "5",
+                    "partNumberValue": "5",
+                    "eliminates": [
+                        7, 8, 88, 92 
+                    ],
+                    "eliminationId": 84
+                },
+                {
+                    "displayValue": "6",
+                    "partNumberValue": "6",
+                    "eliminates": [
+                        7, 8, 9, 88, 92
+                    ],
+                    "eliminationId": 85
+                }
+
+            ],
+            "description":[
+                "1 to 6 circuits available, more than 4 circuits adds some extra cost. 6-16 LED fixtures can typically run on one 20 amp circuit."
+            ]
+        },
+        {
+            "name": "Power Input Type",
+            "optionGroup": 5,
+            "choices": [
+                {
+                    "displayValue": "Leads",
+                    "partNumberValue": "L1",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 86
+                },
+                {
+                    "displayValue": "19 Pin Connector",
+                    "partNumberValue": "S1",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 87
+                },
+                {
+                    "displayValue": "Whip",
+                    "partNumberValue": "W1",
+                    "eliminates": [
+                        83, 84, 85
+                    ],
+                    "eliminationId": 88
+                },
+                {
+                    "displayValue": "Conduit Box",
+                    "partNumberValue": "C1",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 89
+                },
+                {
+                    "displayValue": "Double Leads",
+                    "partNumberValue": "L2",
+                    "eliminates": [
+                        195, 196
+                    ],
+                    "eliminationId": 90
+                },
+                {
+                    "displayValue": "Double 19 Pin Connector",
+                    "partNumberValue": "S2",
+                    "eliminates": [
+                        195, 196
+                    ],
+                    "eliminationId": 91
+                },
+                {
+                    "displayValue": "Double Whip",
+                    "partNumberValue": "W2",
+                    "eliminates": [
+                        83, 84, 85, 195, 196
+                    ],
+                    "eliminationId": 92
+                },
+                {
+                    "displayValue": "Double Conduit Box",
+                    "partNumberValue": "C2",
+                    "eliminates": [
+                        195, 196
+                    ],
+                    "eliminationId": 93
+                }
+            ],
+            "description": [
+                "Wire Leads to be run in customer supplied metallic flex or conduit for permanent wiring to customers junction box.",
+                "19 pin Circular connector allows temporary connection of up to 6 circuits.",
+                "Wire Whips allows easy connection of up to 3 circuits with customer installed plugs.",
+                "Junction Box has wiring space for electrical connections for connecting permanent wiring from building.",
+                "Double selections add an additional power input to the opposite side of the MEGABATTEN."
+            ]
+        },
+        {
+            "name": "Power Lead or Whip Lenght",
+            "optionGroup": 6,
+            "choices": [
+                [
+                    {
+                        "displayValue": "1' 6\"",
+                        "partNumberValue": "18",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 94
+                    },
+                    {
+                        "displayValue": "2' 0\"",
+                        "partNumberValue": "24",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 95
+                    },
+                    {
+                        "displayValue": "2' 6\"",
+                        "partNumberValue": "30",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 96
+                    },
+                    {
+                        "displayValue": "3' 0\"",
+                        "partNumberValue": "36",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 97
+                    },
+                    {
+                        "displayValue": "3' 6\"",
+                        "partNumberValue": "42",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 98
+                    },
+                    {
+                        "displayValue": "4' 0\"",
+                        "partNumberValue": "48",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 99
+                    },
+                    {
+                        "displayValue": "4' 6\"",
+                        "partNumberValue": "54",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 100
+                    },
+                    {
+                        "displayValue": "5' 0\"",
+                        "partNumberValue": "60",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 101
+                    },
+                    {
+                        "displayValue": "5' 6\"",
+                        "partNumberValue": "66",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 102
+                    },
+                    {
+                        "displayValue": "6' 0\"",
+                        "partNumberValue": "72",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 103
+                    },
+                    {
+                        "displayValue": "6' 6\"",
+                        "partNumberValue": "78",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 104
+                    },
+                    {
+                        "displayValue": "7' 0\"",
+                        "partNumberValue": "84",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 105
+                    },
+                    {
+                        "displayValue": "7' 6\"",
+                        "partNumberValue": "90",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 106
+                    },
+                    {
+                        "displayValue": "8' 0\"",
+                        "partNumberValue": "96",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 107
+                    },
+                    {
+                        "displayValue": "8' 6\"",
+                        "partNumberValue": "102",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 108
+                    },
+                    {
+                        "displayValue": "9' 0\"",
+                        "partNumberValue": "108",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 109
+                    },
+                    {
+                        "displayValue": "9' 6\"",
+                        "partNumberValue": "114",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 110
+                    },
+                    {
+                        "displayValue": "10' 0\"",
+                        "partNumberValue": "120",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 111
+                    },
+                    {
+                        "displayValue": "10' 6\"",
+                        "partNumberValue": "126",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 112
+                    },
+                    {
+                        "displayValue": "11' 0\"",
+                        "partNumberValue": "132",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 113
+                    },
+                    {
+                        "displayValue": "11' 6\"",
+                        "partNumberValue": "138",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 114
+                    },
+                    {
+                        "displayValue": "12' 0\"",
+                        "partNumberValue": "144",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 115
+                    },
+                    {
+                        "displayValue": "12' 6\"",
+                        "partNumberValue": "150",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 116
+                    },
+                    {
+                        "displayValue": "13' 0\"",
+                        "partNumberValue": "156",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 117
+                    },
+                    {
+                        "displayValue": "13' 6\"",
+                        "partNumberValue": "162",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 118
+                    },
+                    {
+                        "displayValue": "14' 0\"",
+                        "partNumberValue": "168",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 119
+                    },
+                    {
+                        "displayValue": "14' 6\"",
+                        "partNumberValue": "174",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 120
+                    },
+                    {
+                        "displayValue": "15' 0\"",
+                        "partNumberValue": "180",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 121
+                    },
+                    {
+                        "displayValue": "15' 6\"",
+                        "partNumberValue": "186",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 122
+                    },
+                    {
+                        "displayValue": "16' 0\"",
+                        "partNumberValue": "192",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 123
+                    },
+                    {
+                        "displayValue": "16' 6\"",
+                        "partNumberValue": "198",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 124
+                    },
+                    {
+                        "displayValue": "17' 0\"",
+                        "partNumberValue": "204",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 125
+                    },
+                    {
+                        "displayValue": "17' 6\"",
+                        "partNumberValue": "210",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 126
+                    },
+                    {
+                        "displayValue": "18' 0\"",
+                        "partNumberValue": "216",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 127
+                    },
+                    {
+                        "displayValue": "18' 6\"",
+                        "partNumberValue": "222",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 128
+                    },
+                    {
+                        "displayValue": "19' 0\"",
+                        "partNumberValue": "228",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 129
+                    },
+                    {
+                        "displayValue": "19' 6\"",
+                        "partNumberValue": "234",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 130
+                    },
+                    {
+                        "displayValue": "20' 0\"",
+                        "partNumberValue": "240",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 131
+                    },
+                    {
+                        "displayValue": "20' 6\"",
+                        "partNumberValue": "246",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 132
+                    },
+                    {
+                        "displayValue": "21' 0\"",
+                        "partNumberValue": "252",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 133
+                    },
+                    {
+                        "displayValue": "21' 6\"",
+                        "partNumberValue": "258",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 134
+                    },
+                    {
+                        "displayValue": "22' 0\"",
+                        "partNumberValue": "264",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 135
+                    },
+                    {
+                        "displayValue": "22' 6\"",
+                        "partNumberValue": "270",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 136
+                    },
+                    {
+                        "displayValue": "23' 0\"",
+                        "partNumberValue": "276",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 137
+                    },
+                    {
+                        "displayValue": "23' 6\"",
+                        "partNumberValue": "282",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 138
+                    },
+                    {
+                        "displayValue": "24' 0\"",
+                        "partNumberValue": "288",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 139
+                    },
+                    {
+                        "displayValue": "24' 6\"",
+                        "partNumberValue": "294",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 140
+                    },
+                    {
+                        "displayValue": "25' 0\"",
+                        "partNumberValue": "300",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 141
+                    },
+                    {
+                        "displayValue": "25' 6\"",
+                        "partNumberValue": "306",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 142
+                    },
+                    {
+                        "displayValue": "26' 0\"",
+                        "partNumberValue": "312",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 143
+                    },
+                    {
+                        "displayValue": "26' 6\"",
+                        "partNumberValue": "318",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 144
+                    },
+                    {
+                        "displayValue": "27' 0\"",
+                        "partNumberValue": "324",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 145
+                    },
+                    {
+                        "displayValue": "27' 6\"",
+                        "partNumberValue": "330",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 146
+                    },
+                    {
+                        "displayValue": "28' 0\"",
+                        "partNumberValue": "336",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 147
+                    },
+                    {
+                        "displayValue": "28' 6\"",
+                        "partNumberValue": "342",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 148
+                    },
+                    {
+                        "displayValue": "29' 0\"",
+                        "partNumberValue": "348",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 149
+                    },
+                    {
+                        "displayValue": "29' 6\"",
+                        "partNumberValue": "354",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 150
+                    },
+                    {
+                        "displayValue": "30' 0\"",
+                        "partNumberValue": "360",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 151
+                    },
+                    {
+                        "displayValue": "30' 6\"",
+                        "partNumberValue": "366",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 152
+                    },
+                    {
+                        "displayValue": "31' 0\"",
+                        "partNumberValue": "372",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 153
+                    },
+                    {
+                        "displayValue": "31' 6\"",
+                        "partNumberValue": "378",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 154
+                    },
+                    {
+                        "displayValue": "32' 0\"",
+                        "partNumberValue": "384",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 155
+                    },
+                    {
+                        "displayValue": "32' 6\"",
+                        "partNumberValue": "390",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 156
+                    },
+                    {
+                        "displayValue": "33' 0\"",
+                        "partNumberValue": "396",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 157
+                    },
+                    {
+                        "displayValue": "33' 6\"",
+                        "partNumberValue": "402",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 158
+                    },
+                    {
+                        "displayValue": "34' 0\"",
+                        "partNumberValue": "408",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 159
+                    },
+                    {
+                        "displayValue": "34' 6\"",
+                        "partNumberValue": "414",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 160
+                    },
+                    {
+                        "displayValue": "35' 0\"",
+                        "partNumberValue": "420",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 161
+                    },
+                    {
+                        "displayValue": "35' 6\"",
+                        "partNumberValue": "426",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 162
+                    },
+                    {
+                        "displayValue": "36' 0\"",
+                        "partNumberValue": "432",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 163
+                    },
+                    {
+                        "displayValue": "36' 6\"",
+                        "partNumberValue": "438",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 164
+                    },
+                    {
+                        "displayValue": "37' 0\"",
+                        "partNumberValue": "444",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 165
+                    },
+                    {
+                        "displayValue": "37' 6\"",
+                        "partNumberValue": "450",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 166
+                    },
+                    {
+                        "displayValue": "38' 0\"",
+                        "partNumberValue": "456",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 167
+                    },
+                    {
+                        "displayValue": "38' 6\"",
+                        "partNumberValue": "462",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 168
+                    },
+                    {
+                        "displayValue": "39' 0\"",
+                        "partNumberValue": "468",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 169
+                    },
+                    {
+                        "displayValue": "39' 6\"",
+                        "partNumberValue": "474",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 170
+                    },
+                    {
+                        "displayValue": "40' 0\"",
+                        "partNumberValue": "480",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 171
+                    },
+                    {
+                        "displayValue": "40' 6\"",
+                        "partNumberValue": "486",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 172
+                    },
+                    {
+                        "displayValue": "41' 0\"",
+                        "partNumberValue": "492",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 173
+                    },
+                    {
+                        "displayValue": "41' 6\"",
+                        "partNumberValue": "498",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 174
+                    },
+                    {
+                        "displayValue": "42' 0\"",
+                        "partNumberValue": "504",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 175
+                    },
+                    {
+                        "displayValue": "42' 6\"",
+                        "partNumberValue": "510",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 176
+                    },
+                    {
+                        "displayValue": "43' 0\"",
+                        "partNumberValue": "516",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 177
+                    },
+                    {
+                        "displayValue": "43' 6\"",
+                        "partNumberValue": "522",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 178
+                    },
+                    {
+                        "displayValue": "44' 0\"",
+                        "partNumberValue": "528",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 179
+                    },
+                    {
+                        "displayValue": "44' 6\"",
+                        "partNumberValue": "534",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 180
+                    },
+                    {
+                        "displayValue": "45' 0\"",
+                        "partNumberValue": "540",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 181
+                    },
+                    {
+                        "displayValue": "45' 6\"",
+                        "partNumberValue": "546",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 182
+                    },
+                    {
+                        "displayValue": "46' 0\"",
+                        "partNumberValue": "552",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 183
+                    },
+                    {
+                        "displayValue": "46' 6\"",
+                        "partNumberValue": "558",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 184
+                    },
+                    {
+                        "displayValue": "47' 0\"",
+                        "partNumberValue": "564",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 185
+                    },
+                    {
+                        "displayValue": "47' 6\"",
+                        "partNumberValue": "570",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 186
+                    },
+                    {
+                        "displayValue": "48' 0\"",
+                        "partNumberValue": "576",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 187
+                    },
+                    {
+                        "displayValue": "48' 6\"",
+                        "partNumberValue": "582",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 188
+                    },
+                    {
+                        "displayValue": "49' 0\"",
+                        "partNumberValue": "588",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 189
+                    },
+                    {
+                        "displayValue": "49' 6\"",
+                        "partNumberValue": "594",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 190
+                    },
+                    {
+                        "displayValue": "50' 0\"",
+                        "partNumberValue": "600",
+                        "eliminates": [
+                            null
+                        ],
+                        "eliminationId": 191
+                    }
+                ]
+            ],
+            "description":[
+                "Length of leads or whip extending out of the MegaBatten for wiring. Shorter is usually better and less expensive."
+            ]
+        },
+        {
+            "name": "Data Input/Output Type",
+            "optionGroup": 7,
+            "choices": [
+                {
+                    "displayValue": "RJ-45",
+                    "partNumberValue": "J",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 192
+                },
+                {
+                    "displayValue": "5-Pin XLR",
+                    "partNumberValue": "X",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 193
+                },
+                {
+                    "displayValue": "3-Pin XLR",
+                    "partNumberValue": "Z",
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 194
+                }
+            ],
+            "description":[
+                "RJ-45 is easily installed on Cat 5 wiring.",
+                "5 pin XLR is the DMX standard.",
+                "3 pin XLR is often used on import fixtures."
+            ]
+        },
+        {
+            "name": "End Cap Type",
+            "optionGroup": 8,
+            "choices": [
+                {
+                    "displayValue": "Flat",
+                    "partNumberValue": "F",
+                    "eliminates": [
+                        90, 91, 92, 93
+                    ],
+                    "eliminationId": 195
+                },
+                {
+                    "displayValue": "Rounded",
+                    "partNumberValue": "R",
+                    "eliminates": [
+                        90, 91, 92, 93
+                    ],
+                    "eliminationId": 196
+                }
+            ],
+            "description":[
+                "Flat caps are used when an inch really matters.",
+                "Rounded caps are standard."
+            ]
+        },
+        {
+            "name": "DMX Splitter",
+            "optionGroup": 9,
+            "choices": [
+                {
+                    "displayValue": "Yes",
+                    "partNumberValue": null,
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 197
+                },
+                {
+                    "displayValue": "No",
+                    "partNumberValue": null,
+                    "eliminates": [
+                        null
+                    ],
+                    "eliminationId": 198
+                }
+            ],
+            "description":[
+                "Flat caps are used when an inch really matters.",
+                "Rounded caps are standard."
+            ]
+        }
+    ]
+}

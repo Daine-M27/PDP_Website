@@ -1,0 +1,38 @@
+Zero all parts origins where upper left corner is 0,0
+
+Group parts with a <g> tag to have a master scale and translate matrix
+
+Sheet 1
+-need json with text and x,y locations for part number an other custom page text
+-need specifications block and text for generation of table, also needs x, y for table and text in table
+-need to add part number, description and quantity block with x,y locations
+
+-- need centering function for text in blocks, text Anchor=middle in svg may work
+
+
+
+----------------------------------------------
+--------- Drawing Builder Functions ----------
+----------------------------------------------
+Each funciton should be called based on user choices, 
+ then pull the appropriate json data for the svg paths, 
+ then append the svg element and alter any properties.
+
+Also needs to calculate the appropriate BOM items/Qty info and pull the part number
+ and description from the json.  Part numbers can share the same svg path data so it
+ needs to be referenced in the PartNumber/Description json by filename for specific
+ parts path data.
+
+Needs and API route to generate drawings based on partnumber input.
+
+
+PipeFunction
+-needs to calculate length based on number of pipes to alter the matrix for each alignment
+
+OutletFunction
+
+PowerTypeFunction
+
+EndCapFunction
+
+FoldedPipe Function
