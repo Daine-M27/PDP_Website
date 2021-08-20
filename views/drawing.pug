@@ -1,5 +1,9 @@
 extends layout
+include mixins/drawingLegend
 
 block content
   h1= title
   p Welcome to #{title}
+  +drawingLegend()(id="page1")
+  +drawingLegend()(id="page2")
+  +drawingLegend()(id="page3")
