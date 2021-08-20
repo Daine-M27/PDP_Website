@@ -1,4 +1,4 @@
-mixin drawingLegend(pageNumber)
+mixin drawingLegend(partNumber, pageNumber)
     svg(id!=attributes.id width='17in' height='11in' version='1.1' viewBox='0 0 1700 1100' xmlns='http://www.w3.org/2000/svg')
         g
             path(d='m61.9069 37.111h1576.18' style='fill:none;stroke-linecap:round;stroke-width:1.04167;stroke:#000000')
@@ -110,4 +110,5 @@ mixin drawingLegend(pageNumber)
             path.cls-1(d='m1092.58 990.092c-1.1047 0.0325-2.122-0.15447-3.0844-0.63008-1.2987-0.6433-1.9308-1.67785-1.8383-3.04269 0.097-1.45122 0.8912-2.46849 2.252-2.94004 1.7743-0.60976 3.5477-0.62704 5.3109 8e-3 1.1697 0.42175 2.0325 1.18903 2.2154 2.47459 0.1789 1.2622-0.1021 2.42176-1.2296 3.17582-1.0996 0.73984-2.3475 1.01016-3.626 0.95427z' style='fill:none;stroke-width:1.04167')
             text(x='1568' y='1057' style='fill:#000000;font-family:Arial;font-size:28px;line-height:125%;stroke-width:1')
                 tspan(x='1568' y='1057' style='font-size:12px;stroke-width:1.04167') !{pageNumber}
-
+            text(style='fill:#000000;font-family:Arial;font-size:22px;line-height:100%;stroke-width:3')
+                tspan(x='100' y='62' style='stroke-width:3') !{partNumber}
