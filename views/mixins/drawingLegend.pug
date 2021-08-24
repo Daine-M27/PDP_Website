@@ -1,4 +1,4 @@
-mixin drawingLegend(options)
+mixin drawingLegend(options)    
     svg(id!=attributes.id width='17in' height='11in' version='1.1' viewBox='0 0 1700 1100' xmlns='http://www.w3.org/2000/svg')
         g
             path(d='m61.9069 37.111h1576.18' style='fill:none;stroke-linecap:round;stroke-width:1.04167;stroke:#000000')
@@ -131,8 +131,9 @@ mixin drawingLegend(options)
         //- submittal drawing
         if options.mainDrawing
             g(transform=options.mainDrawing.mainTransform)
-                each element in options.mainDrawing.internalGElements
-                    g(transform=element.transform)
-                        each path in element.paths
-                            path(d=path.d style=path.style)
+                if options.mainDrawing.elements
+                    each element in options.mainDrawing.elements
+                        g(transform=element.transform)
+                            each path in element.paths
+                                path(d=path.d style=path.style)
                 

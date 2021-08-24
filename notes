@@ -3,9 +3,9 @@ Zero all parts origins where upper left corner is 0,0
 Group parts with a <g> tag to have a master scale and translate matrix
 
 Sheet 1
--need json with text and x,y locations for part number an other custom page text
+done -need json with text and x,y locations for part number an other custom page text
 -need specifications block and text for generation of table, also needs x, y for table and text in table
--need to add part number, description and quantity block with x,y locations
+done -need to add part number, description and quantity block with x,y locations
 
 -- need centering function for text in blocks, text Anchor=middle in svg may work
 

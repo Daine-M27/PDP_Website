@@ -1,6 +1,6 @@
 
 {
-    "15_16inch": {
+    "1.5_16inch": {
         "id": 1516,
         "paths":[
             {
@@ -25,11 +25,11 @@
             }
         ],
         "svgUnits": {
-            "length": 240,
+            "width": 240,
             "height": 28.5
         },
         "dimensions": {
-            "length": 16,
+            "width": 16,
             "height": 1.9,
             "unit": "inch"
         }
