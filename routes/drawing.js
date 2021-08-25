@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const { mainDrawing } = require('../utilities/mainDrawingBuilder')
+const express = require('express');
+const router = express.Router();
+
 
 /* GET drawing page. */
 router.get('/', function(req, res, next) {
@@ -10,18 +12,17 @@ router.get('/', function(req, res, next) {
     'drawnBy': 'DM',
     'drawnByDate': today,
     'mainDrawing': {
-      'mainTransform': '',
+      'mainTransform': 'matrix(.5 0 0 .5 100 600)',
       'elements': []
     }
   }
 
   let sheet1 = JSON.parse(JSON.stringify(dataObject))
-  let sheet2 = JSON.parse(JSON.stringify(dataObject))
+  sheet1.pageNumber = "SHEET 1 OF 2"
+  sheet1.mainDrawing.elements = mainDrawing({'pipeSize': '1.5','pipeLength':'192'})
 
-  sheet1.pageNumber = "SHEET 1 OF 2",
-  sheet2.pageNumber = "SHEET 2 OF 2"
-
-  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2 } });
+  
+  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1 } });
 });
 
 module.exports = router;
