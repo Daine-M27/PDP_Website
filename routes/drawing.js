@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 
   let sheet1 = JSON.parse(JSON.stringify(dataObject))
   sheet1.pageNumber = "SHEET 1 OF 2"
-  sheet1.mainDrawing.elements = mainDrawing({'pipeSize': '1.5','pipeLength':'192'})
+  sheet1.mainDrawing.elements = mainDrawing({'pipeSize': '1.5','pipeLength':'48'})
 
   
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1 } });

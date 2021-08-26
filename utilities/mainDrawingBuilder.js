@@ -1,6 +1,12 @@
 const pipeDataJson = require('../json/PipePaths.json')
 const pipeDrawingOrigin = {'x': 0, 'y': 0}
-// function to construct matrix string
+
+/**
+ * Function to create a matrix string for each g element
+ * @param {string} x 
+ * @param {string} y 
+ * @returns a string
+ */
 const matrixString = (x, y) => {
   return `matrix(1 0 0 1 ${x} ${y})`
 }
@@ -53,8 +59,10 @@ function getPipeData(options) {
 }
 
 
-/** This function creates the pipe elements for the main drawing svg 
+/**
+ * This function creates the pipe elements for the main drawing svg 
  * @param {object} pipeData 
+ * @returns an array of elements
  */
 function pipeAssembly(pipeData) {
   const pipeObjects = []
@@ -70,11 +78,9 @@ function pipeAssembly(pipeData) {
   };
 
   keys.forEach((key) => {    
-    if(pipeData[key] > 0){
-      // key for pipe selection
-      const p = `${pipeData.properties.diameter}${key}`
-      // offset to add to space pipes horizontally 
-      const pipeWidth = pipeDataJson[p].svgUnits.width
+    if(pipeData[key] > 0){      
+      const p = `${pipeData.properties.diameter}${key}` // key for pipe selection     
+      const pipeWidth = pipeDataJson[p].svgUnits.width  // offset to add to space pipes horizontally 
       // console.log(pipeWidth + " " + key)
       for (let i = 0; i < pipeData[key]; i++) {
         pipeObjects.push(pipeElement( matrixString(distance, 0), pipeDataJson[p].paths ))
@@ -90,7 +96,8 @@ function pipeAssembly(pipeData) {
 /**
  * This funciton takes in a set of selections from the user
  * and creates an output object with drawing specifications.
- * @param {object} options 
+ * @param {object} options
+ * @returns an array of elements 
  */
 function mainDrawing(options) {
   let elements = [];
@@ -98,7 +105,8 @@ function mainDrawing(options) {
   
   // check for error in pipes
   if (!pipes.error) {
-    elements.push(...pipeAssembly(pipes))
+    const pipeResults = pipeAssembly(pipes)
+    elements.push(...pipeResults)
   }
 
   return elements
