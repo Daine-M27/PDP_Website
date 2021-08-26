@@ -35,4 +35,4 @@ function findScale(length){
   
   return stroke
 }
-module.exports = { convertInches };
+module.exports = { convertInches, findScale, findStroke };
