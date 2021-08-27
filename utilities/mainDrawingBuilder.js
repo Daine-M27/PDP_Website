@@ -1,4 +1,4 @@
-const pipeDataJson = require('../json/PipePaths.json')
+const pipeDataJson = require('../json/pipePaths.json')
 const pipeDrawingOrigin = {'x': 0, 'y': 0}
 
 /**
