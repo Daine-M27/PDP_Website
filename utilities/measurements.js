@@ -18,8 +18,9 @@ function convertInches(inches){
  * a scale multiple for svg
  */
 function findScale(length){
+  const numLength = parseInt(length)
   const scaleMultiple = .0128472222  
-  const scale = 1 - scaleMultiple * (length/16 - 3)
+  const scale = 1 - scaleMultiple * (numLength/16 - 3)
   
   return scale
 }
@@ -30,9 +31,12 @@ function findScale(length){
  * a stroke size for svg
  */
  function findStroke(length){
-  const scaleMultiple = .0125
-  const stroke = 1 + scaleMultiple * (length/16 - 3)
+  const numLength = parseInt(length)
+  const scaleMultiple = .125
+  const stroke = 1 + scaleMultiple * (numLength/16 - 3)
   
   return stroke
 }
+
+
 module.exports = { convertInches, findScale, findStroke };

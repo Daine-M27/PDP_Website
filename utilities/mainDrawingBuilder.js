@@ -1,5 +1,6 @@
 const pipeDataJson = require('../json/pipePaths.json')
-const pipeDrawingOrigin = {'x': 0, 'y': 0}
+const pipeDrawingOrigin = {'x': 100, 'y': 600}
+const  { findStroke, findScale } = require('../utilities/measurements')
 
 /**
  * Function to create a matrix string for each g element
@@ -67,6 +68,7 @@ function getPipeData(options) {
 function pipeAssembly(pipeData) {
   const pipeObjects = []
   const keys = Object.keys(pipeData)
+  
   let distance = 0
   // function for constructing G element for each pipe
   const pipeElement = (matrix, pathData) => {
@@ -79,11 +81,12 @@ function pipeAssembly(pipeData) {
 
   keys.forEach((key) => {    
     if(pipeData[key] > 0){      
-      const p = `${pipeData.properties.diameter}${key}` // key for pipe selection     
-      const pipeWidth = pipeDataJson[p].svgUnits.width  // offset to add to space pipes horizontally 
-      // console.log(pipeWidth + " " + key)
+      const p = `${pipeData.properties.diameter}${key}` // key for pipe selection
+      const pipeWidth = pipeDataJson[p].svgUnits.width  // offset to space pipes horizontally 
+      
       for (let i = 0; i < pipeData[key]; i++) {
-        pipeObjects.push(pipeElement( matrixString(distance, 0), pipeDataJson[p].paths ))
+        const pathData = JSON.parse(JSON.stringify(pipeDataJson[p].paths)) // copy of path data
+        pipeObjects.push(pipeElement( matrixString(distance, 0), pathData ))
         distance = distance + pipeWidth
       }
     }
@@ -101,6 +104,8 @@ function pipeAssembly(pipeData) {
  */
 function mainDrawing(options) {
   let elements = [];
+  let mainTransform;
+  const stroke = findStroke(options.pipeLength)
   const pipes = getPipeData(options)
   
   // check for error in pipes
@@ -108,8 +113,18 @@ function mainDrawing(options) {
     const pipeResults = pipeAssembly(pipes)
     elements.push(...pipeResults)
   }
+    
+  // set stroke based on pipe length
+  elements.forEach(element => {
+    element.paths.forEach(path => {
+      path.style = path.style.replace('stroke-width:1', `stroke-width:${stroke}`)
+    })  
+  });
 
-  return elements
+  // set main transform based on pipe size
+  mainTransform = `translate(${pipeDrawingOrigin.x} ${pipeDrawingOrigin.y}) scale(${findScale(options.pipeLength)})`
+  
+  return { mainTransform, elements }
 }
 
 

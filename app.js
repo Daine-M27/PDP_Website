@@ -1,25 +1,39 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const dotenv = require('dotenv').config({path: '.env'});
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose')
+const compression = require('compression')
 
-var indexRouter = require('./routes/index');
-var drawingRouter = require('./routes/drawing');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const drawingRouter = require('./routes/drawing');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
 
+app.disable('x-powered-by');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(compression());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// database connection
+try {
+  mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@lsiproductconfigurator.5xm1k.mongodb.net/LSIProductConfigurator?retryWrites=true&w=majority&useUnifiedTopology=true&useNewUrlParser=true`)
+  console.log('DB Connected')
+} catch (error) {
+  console.log(error)
+}
+
+// routers
 app.use('/', indexRouter);
 app.use('/drawing', drawingRouter);
 app.use('/users', usersRouter);

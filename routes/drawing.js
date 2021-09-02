@@ -11,15 +11,15 @@ router.get('/', function(req, res, next) {
     'pageNumber':'',
     'drawnBy': 'DM',
     'drawnByDate': today,
-    'mainDrawing': {
-      'mainTransform': 'matrix(.5 0 0 .5 100 600)',
-      'elements': []
-    }
+    'mainDrawing': { }
   }
 
   let sheet1 = JSON.parse(JSON.stringify(dataObject))
   sheet1.pageNumber = "SHEET 1 OF 2"
-  sheet1.mainDrawing.elements = mainDrawing({'pipeSize': '1.5','pipeLength':'48'})
+  sheet1.mainDrawing = mainDrawing({'pipeSize': '1.5','pipeLength':'48', 'dataInput': 'x'})
+
+  let sheet2 = JSON.parse(JSON.stringify(dataObject))
+  sheet2.pageNumber = "SHEET 2 OF 2"
 
   
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1 } });
