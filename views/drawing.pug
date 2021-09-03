@@ -1,8 +1,17 @@
 extends layout
 include mixins/drawingLegend
+include mixins/sheetTwo
 
 block content
   h1= title
   p Welcome to #{title}
-    each sheet, index in sheets
+  each sheet, index in sheets
+    if index === 'sheet2'
       +drawingLegend(sheet)(id=index)
+        +sheetTwo()
+    else 
+       +drawingLegend(sheet)(id=index)
+    
+    
+      
+        

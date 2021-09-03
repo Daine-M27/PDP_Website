@@ -1,6 +1,6 @@
 const pipeDataJson = require('../json/pipePaths.json')
 const pipeDrawingOrigin = {'x': 100, 'y': 600}
-const  { findStroke, findScale } = require('../utilities/measurements')
+const  { findStroke, findScale } = require('./measurements')
 
 /**
  * Function to create a matrix string for each g element
@@ -102,7 +102,7 @@ function pipeAssembly(pipeData) {
  * @param {object} options
  * @returns an array of elements 
  */
-function mainDrawing(options) {
+function sheetOne(options) {
   let elements = [];
   let mainTransform;
   const stroke = findStroke(options.pipeLength)
@@ -128,4 +128,4 @@ function mainDrawing(options) {
 }
 
 
-module.exports = { mainDrawing };
+module.exports = { sheetOne };

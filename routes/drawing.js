@@ -1,4 +1,4 @@
-const { mainDrawing } = require('../utilities/mainDrawingBuilder')
+const { sheetOne } = require('../utilities/sheetBuilder')
 const express = require('express');
 const router = express.Router();
 
@@ -13,16 +13,18 @@ router.get('/', function(req, res, next) {
     'drawnByDate': today,
     'mainDrawing': { }
   }
+  // set part nubmer before coping object for each sheet
+  dataObject.partNumber = 'abcdefg'
 
   let sheet1 = JSON.parse(JSON.stringify(dataObject))
   sheet1.pageNumber = "SHEET 1 OF 2"
-  sheet1.mainDrawing = mainDrawing({'pipeSize': '1.5','pipeLength':'48', 'dataInput': 'x'})
+  sheet1.mainDrawing = sheetOne({'pipeSize': '1.5','pipeLength':'48', 'dataInput': 'x'})
 
   let sheet2 = JSON.parse(JSON.stringify(dataObject))
   sheet2.pageNumber = "SHEET 2 OF 2"
 
   
-  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1 } });
+  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2 } });
 });
 
 module.exports = router;
