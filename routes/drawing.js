@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
   const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2')
   sheet1.mainDrawing = sheetOne(sheet1)
   const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 2')
-  console.log(sheet2)
+  
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2 } });
 });
 
