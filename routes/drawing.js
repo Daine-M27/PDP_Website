@@ -2,6 +2,24 @@ const { sheetOne } = require('../utilities/sheetBuilder')
 const express = require('express');
 const router = express.Router();
 
+const tempReqObject = {
+  color: "B",
+  dataInput: "X",
+  dataOutput: "X",
+  dmxBox: "Y",
+  endCapType: "R",
+  leadWhipLength: "36",
+  numberOfCircuits: "4",
+  numberOfOutlets: "15",
+  outletSpacing: "16",
+  partNumber: "PDP1.5B240-4L1EX15-EX16R",
+  pipeLength: "240",
+  pipeSize: "1.5",
+  powerInputPosition: "E",
+  powerInput: "L1",
+  powerOutput: "E",
+};
+
 
 /* GET drawing page. */
 router.get('/', function(req, res, next) {
@@ -28,6 +46,28 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+// ----Drawing submission object type---- //
+
+// let inputParams = {
+//   "color": "",
+//   "dataInput": "",
+//   "dataOutput": "", // may not needed with new design
+//   "dmxUniverses": "", // changed from original
+//   "endCap": "",
+//   "leadWhipLength": "",
+//   "numberOfCircuits": "",
+//   "numberOfOutlets": "", // may not be needed
+//   "outletSpacing": "",
+//   "partNumber": "",
+//   "pipeLength": "",
+//   "pipeSize": "",
+//   "powerInputPosition": "",
+//   "powerInput": "",
+//   "powerOutput": ""
+// }
+
+
 
 
 
