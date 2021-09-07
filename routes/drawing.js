@@ -6,8 +6,8 @@ const tempReqObject = {
   color: "B",
   dataInput: "X",
   dataOutput: "X",
-  dmxBox: "Y",
-  endCapType: "R",
+  dmxUniverses: "1",
+  endCap: "R",
   leadWhipLength: "36",
   numberOfCircuits: "4",
   numberOfOutlets: "15",
@@ -15,33 +15,27 @@ const tempReqObject = {
   partNumber: "PDP1.5B240-4L1EX15-EX16R",
   pipeLength: "240",
   pipeSize: "1.5",
-  powerInputPosition: "E",
-  powerInput: "L1",
+  powerInputPosition: "T",
+  powerInput: "S1",
   powerOutput: "E",
 };
 
+class Sheet {
+  constructor( obj, sheetNumber ) {
+      Object.assign(this, obj)
+      this.sheetNumber = sheetNumber;
+      this.drawnByDate = new Date().toLocaleDateString();
+      this.drawnBy = 'DM';
+      this.mainDrawing = {};
+    }
+}
 
 /* GET drawing page. */
-router.get('/', function(req, res, next) {
-  const today = new Date().toLocaleDateString();
-  let dataObject = {
-    'partNumber': '',
-    'pageNumber':'',
-    'drawnBy': 'DM',
-    'drawnByDate': today,
-    'mainDrawing': { }
-  }
-  // set part nubmer before coping object for each sheet
-  dataObject.partNumber = 'abcdefg'
-
-  let sheet1 = JSON.parse(JSON.stringify(dataObject))
-  sheet1.pageNumber = "SHEET 1 OF 2"
-  sheet1.mainDrawing = sheetOne({'pipeSize': '1.5','pipeLength':'48', 'dataInput': 'x'})
-
-  let sheet2 = JSON.parse(JSON.stringify(dataObject))
-  sheet2.pageNumber = "SHEET 2 OF 2"
-
-  
+router.get('/', function(req, res) {  
+  const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2')
+  sheet1.mainDrawing = sheetOne(sheet1)
+  const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 2')
+  console.log(sheet2)
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2 } });
 });
 

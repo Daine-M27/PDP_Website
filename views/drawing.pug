@@ -8,7 +8,7 @@ block content
   each sheet, index in sheets
     if index === 'sheet2'
       +drawingLegend(sheet)(id=index)
-        +sheetTwo()
+        +sheetTwo(sheet)
     else 
        +drawingLegend(sheet)(id=index)
     
