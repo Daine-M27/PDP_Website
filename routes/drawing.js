@@ -95,6 +95,7 @@ const tempSpecificationsObject = {
   outputSpacing: '16',
   numCircuits: '3'
 }
+
 class Sheet {
   constructor( obj, sheetNumber ) {
       Object.assign(this, obj)
@@ -109,15 +110,12 @@ class Sheet {
 
 /* GET drawing page. */
 router.get('/', function(req, res) {  
-  const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2')
-  sheet1.mainDrawing = sheetOne(sheet1)
-  sheet1.bomItems = [...tempBomObject]
-  sheet1.specifications = JSON.parse(JSON.stringify(tempSpecificationsObject))
+  const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2') // replace with async data pull from mongodb  
+  sheet1.bomItems = [...tempBomObject] // replace with async data pull from mongodb
+  sheet1.specifications = JSON.parse(JSON.stringify(tempSpecificationsObject)) // replace with async data pull from mongodb
 
   const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 2')
   
-  
-  console.log(sheet1.bomItems);
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2 } });
 });
 
