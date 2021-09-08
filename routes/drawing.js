@@ -15,7 +15,7 @@ const tempReqObject = {
   partNumber: "PDP1.5B240-4L1EX15-EX16R",
   pipeLength: "240",
   pipeSize: "1.5",
-  powerInputPosition: "T",
+  powerInputPosition: "E",
   powerInput: "S1",
   powerOutput: "E",
 };
@@ -24,7 +24,7 @@ class Sheet {
   constructor( obj, sheetNumber ) {
       Object.assign(this, obj)
       this.sheetNumber = sheetNumber;
-      this.drawnByDate = new Date().toLocaleDateString();
+      this.date = new Date().toLocaleDateString();
       this.drawnBy = 'DM';
       this.mainDrawing = {};
     }

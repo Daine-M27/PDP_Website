@@ -14,10 +14,7 @@ mixin sheetOne(options)
     tspan(x='1563.0349' y='79.75087' style='font-family:Arial;font-size:8.33333px;stroke-width:1.04167') MADE BY
   text(transform='scale(1.00114 .998864)' x='1303.605' y='63.102608' style='font-family:sans-serif;font-size:8.33333px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
     tspan(x='1303.605' y='63.102608' style='font-family:Arial;font-size:8.33333px;stroke-width:1.04167') REVISIONS
-  text(x='1510.7886' y='98.164864' style='font-family:sans-serif;font-size:8.33333px;line-height:1.25;stroke-width:1.06509' xml:space='preserve')
-    tspan(x='1510.7886' y='98.164864' style='font-family:Arial;font-size:8.33333px;stroke-width:1.06509') 12/31/55
-  text(x='1577.5978' y='97.549568' style='font-family:sans-serif;font-size:8.33333px;line-height:1.25;stroke-width:1.06509' xml:space='preserve')
-    tspan(x='1577.5978' y='97.549568' style='font-family:Arial;font-size:8.33333px;stroke-width:1.06509') DM
+  
   text(x='115.03624' y='712.94501' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
     tspan(x='115.03624' y='712.94501' style='font-size:13.8889px;stroke-width:1.04167') NOTES:
     tspan(x='115.03624' y='730.30615' style='font-size:13.8889px;stroke-width:1.04167') 1.   PATENTENTED PENDING CONNECTOR IN PIPE STRIP DESIGN, PATENT #10,955,096
@@ -116,15 +113,33 @@ mixin sheetOne(options)
   text(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
     tspan(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') QTY.
   path(d='m396.355 86.5101h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
-  path(d='m86.1279 106.898h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
-  text(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') 1
-  path(d='m881.003 106.898h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
-  path(d='m175.022 106.898h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
-  text(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') PDP1.5-96-6-16-M-1
-  text(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') BATTEN, 1.5&quot; SCH 80 X 96 - 6 RECP. MILL
-  text(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') 2
-  path(d='m396.355 106.898h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
+  
+  //--------------------------------------BOM Row and Data Variables---------------------------------//
+  //-- translate y by 20.5 to add new row
+  g(transform='translate(0 0)') 
+    //- Item No. 
+    path(d='m86.1279 106.898h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
+    text(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') 1
+    
+    //- Part No. 
+    path(d='m175.022 106.898h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
+    text(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') PDP1.5-96-6-16-M-1 
+    
+    //- Description
+    path(d='m396.355 106.898h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
+    text(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') BATTEN, 1.5&quot; SCH 80 X 96 - 6 RECP. MILL
+    
+    //- Qty. 
+    path(d='m881.003 106.898h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
+    text(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') 2
+
+    
+  //------------------------------- Sheet One Title Block Variable -------------------------------//
+  text(x='1510.7886' y='98.164864' style='font-family:sans-serif;font-size:8.33333px;line-height:1.25;stroke-width:1.06509' xml:space='preserve')
+    tspan(x='1510.7886' y='98.164864' style='font-family:Arial;font-size:8.33333px;stroke-width:1.06509') !{options.date}
+  text(x='1577.5978' y='97.549568' style='font-family:sans-serif;font-size:8.33333px;line-height:1.25;stroke-width:1.06509' xml:space='preserve')
+    tspan(x='1577.5978' y='97.549568' style='font-family:Arial;font-size:8.33333px;stroke-width:1.06509') !{options.drawnBy}
