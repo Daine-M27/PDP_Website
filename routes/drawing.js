@@ -29,7 +29,7 @@ const tempBomObject = [
   },
   {
     itemNo: '2',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP-K-PDM-E5XLR-INPT',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   },
@@ -37,12 +37,12 @@ const tempBomObject = [
     itemNo: '3',
     partNo: 'PDP1.5-96-6-16-M-1',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
-    qty: '2'
+    qty: '11'
   },
   {
     itemNo: '4',
     partNo: 'PDP1.5-96-6-16-M-1',
-    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    description: 'WIRE LEADS, LEFT',
     qty: '2'
   },
   {
