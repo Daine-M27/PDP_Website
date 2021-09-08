@@ -1,5 +1,6 @@
 const { sheetOne } = require('../utilities/sheetBuilder')
 const express = require('express');
+const { json } = require('express');
 const router = express.Router();
 
 const tempReqObject = {
@@ -83,6 +84,18 @@ const tempBomObject = [
   }
 ]
 
+const tempSpecificationsObject = {
+  color: 'SEMI-GLOSS BLACK',
+  pipeSize: '1.5',
+  pipeLength: '192',
+  powerInput: 'CONDUIT BOX',
+  leadLength: 'N/A',
+  dataInput: '5-PIN XLR',
+  dataOutput: '5-PIN XLR',
+  numOutputs: '15',
+  outputSpacing: '16',
+  numCircuits: '3'
+}
 class Sheet {
   constructor( obj, sheetNumber ) {
       Object.assign(this, obj)
@@ -91,6 +104,7 @@ class Sheet {
       this.drawnBy = 'DM';
       this.mainDrawing = {};
       this.bomItems = [];
+      this.specifications = {};
     }
 }
 
@@ -99,6 +113,7 @@ router.get('/', function(req, res) {
   const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2')
   sheet1.mainDrawing = sheetOne(sheet1)
   sheet1.bomItems = [...tempBomObject]
+  sheet1.specifications = JSON.parse(JSON.stringify(tempSpecificationsObject))
 
   const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 2')
   
