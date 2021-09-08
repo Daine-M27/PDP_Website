@@ -20,6 +20,69 @@ const tempReqObject = {
   powerOutput: "E",
 };
 
+const tempBomObject = [
+  {
+    itemNo: '1',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '2',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '3',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '4',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '5',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '6',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '7',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '8',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '9',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  },
+  {
+    itemNo: '10',
+    partNo: 'PDP1.5-96-6-16-M-1',
+    description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
+    qty: '2'
+  }
+]
+
 class Sheet {
   constructor( obj, sheetNumber ) {
       Object.assign(this, obj)
@@ -27,6 +90,7 @@ class Sheet {
       this.date = new Date().toLocaleDateString();
       this.drawnBy = 'DM';
       this.mainDrawing = {};
+      this.bomItems = [];
     }
 }
 
@@ -34,8 +98,12 @@ class Sheet {
 router.get('/', function(req, res) {  
   const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2')
   sheet1.mainDrawing = sheetOne(sheet1)
+  sheet1.bomItems = [...tempBomObject]
+
   const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 2')
   
+  
+  console.log(sheet1.bomItems);
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2 } });
 });
 

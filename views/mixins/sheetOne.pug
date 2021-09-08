@@ -114,28 +114,52 @@ mixin sheetOne(options)
     tspan(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') QTY.
   path(d='m396.355 86.5101h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
   
-  //--------------------------------------BOM Row and Data Variables---------------------------------//
-  //-- translate y by 20.5 to add new row
-  g(transform='translate(0 0)') 
-    //- Item No. 
-    path(d='m86.1279 106.898h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
-    text(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') 1
+  
+
+    //--------------------------------------BOM Row and Data Variables---------------------------------//
+    //-- translate y by 20.5 to add new row
+  each item, index in options.bomItems
+    g(transform=`translate(0 ${index * 20.5})`) 
+      //- Item No. 
+      path(d='m86.1279 106.898h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
+      text(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+        tspan(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') !{item.itemNo}
+      
+      //- Part No. 
+      path(d='m175.022 106.898h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
+      text(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+        tspan(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') !{item.partNo}
+      
+      //- Description
+      path(d='m396.355 106.898h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
+      text(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+        tspan(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') !{item.description}
+      
+      //- Qty. 
+      path(d='m881.003 106.898h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
+      text(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+        tspan(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') !{item.qty}
+
+  //- g(transform='translate(0 0)') 
+  //-   //- Item No. 
+  //-   path(d='m86.1279 106.898h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
+  //-   text(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-     tspan(x='127.23146' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') 1
     
-    //- Part No. 
-    path(d='m175.022 106.898h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
-    text(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') PDP1.5-96-6-16-M-1 
+  //-   //- Part No. 
+  //-   path(d='m175.022 106.898h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
+  //-   text(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-     tspan(x='221.97432' y='121.99821' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') PDP1.5-96-6-16-M-1 
     
-    //- Description
-    path(d='m396.355 106.898h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
-    text(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') BATTEN, 1.5&quot; SCH 80 X 96 - 6 RECP. MILL
+  //-   //- Description
+  //-   path(d='m396.355 106.898h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
+  //-   text(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-     tspan(x='503.44177' y='121.16409' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') BATTEN, 1.5&quot; SCH 80 X 96 - 6 RECP. MILL
     
-    //- Qty. 
-    path(d='m881.003 106.898h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
-    text(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') 2
+  //-   //- Qty. 
+  //-   path(d='m881.003 106.898h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
+  //-   text(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-     tspan(x='909.81177' y='122.08298' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') 2
 
     
   //------------------------------- Sheet One Title Block Variable -------------------------------//
