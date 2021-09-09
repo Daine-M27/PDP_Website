@@ -2,6 +2,7 @@ extends layout
 include mixins/drawingLegend
 include mixins/sheetOne
 include mixins/sheetTwo
+include mixins/sheetThree
 
 block content
   h1= title
@@ -12,6 +13,8 @@ block content
         +sheetOne(sheet)
       if index === 'sheet2'
         +sheetTwo(sheet)
+      if index === 'sheet3'
+        +sheetThree(sheet)
     
     
       

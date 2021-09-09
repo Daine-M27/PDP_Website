@@ -109,14 +109,19 @@ class Sheet {
 }
 
 /* GET drawing page. */
-router.get('/', function(req, res) {  
-  const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2') // replace with async data pull from mongodb  
+router.get('/', function(req, res) {
+  // setup sheet1  
+  const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2') // replace with async data pull from mongodb
   sheet1.bomItems = [...tempBomObject] // replace with async data pull from mongodb
   sheet1.specifications = JSON.parse(JSON.stringify(tempSpecificationsObject)) // replace with async data pull from mongodb
 
+  // setup sheet2
   const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 2')
+
+  // setup sheet3
+  const sheet3 = new Sheet(tempReqObject, 'SHEET 3 OF 3')
   
-  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2 } });
+  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3 } });
 });
 
 module.exports = router;
