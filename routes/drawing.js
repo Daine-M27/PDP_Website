@@ -97,8 +97,8 @@ const tempSpecificationsObject = {
 }
 
 class Sheet {
-  constructor( obj, sheetNumber ) {
-      Object.assign(this, obj)
+  constructor( partOptions, sheetNumber ) {
+      Object.assign(this, partOptions)
       this.sheetNumber = sheetNumber;
       this.date = new Date().toLocaleDateString();
       this.drawnBy = 'DM';
@@ -111,17 +111,20 @@ class Sheet {
 /* GET drawing page. */
 router.get('/', function(req, res) {
   // setup sheet1  
-  const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 2') // replace with async data pull from mongodb
+  const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 4') // replace with async data pull from mongodb
   sheet1.bomItems = [...tempBomObject] // replace with async data pull from mongodb
   sheet1.specifications = JSON.parse(JSON.stringify(tempSpecificationsObject)) // replace with async data pull from mongodb
 
   // setup sheet2
-  const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 2')
+  const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 4')
 
   // setup sheet3
-  const sheet3 = new Sheet(tempReqObject, 'SHEET 3 OF 3')
+  const sheet3 = new Sheet(tempReqObject, 'SHEET 3 OF 4')
+
+  // setup sheet4
+  const sheet4 = new Sheet(tempReqObject, 'SHEET 4 OF 4')
   
-  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3 } });
+  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4 } });
 });
 
 module.exports = router;

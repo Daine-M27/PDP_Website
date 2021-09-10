@@ -1,0 +1,172 @@
+mixin sheetFour(options)
+  text()
+    tspan(x='1260.3188' y='196.42857' style='stroke-width:1.04167')
+  rect(x='1445.32' y='52.8782' width='168.548' height='25.8553' style='fill:none;stroke-width:.520833;stroke:#000000')
+  text()
+    tspan(x='1462.6995' y='70.780205' style='font-family:Arial;font-size:11.1111px;stroke-width:1.04167') OUTLET IDENTIFICATION
+  
+  text()
+    tspan(x='115' y='872.89709' style='font-size:13.8889px;stroke-width:1.04167') NOTES:
+  text()
+    tspan(x='115' y='896.95972' style='font-size:13.8889px;stroke-width:1.04167') 1.   &nbsp;&nbsp;CIRCUITS ARE NUMBERED FROM FEED END (SEE SHEET 3).
+  text()
+    tspan(x='115' y='915.72321' style='font-size:13.8889px;stroke-width:1.04167') 2.   &nbsp;&nbsp;DEFAULT CIRCUIT WIRING IS SHOWN IN CHART. FOR MORE THAN 1 CIRCUIT CUSTOMER CAN
+    tspan(x='115' y='933.08435' style='font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPECIFY CUSTOM CIRCUIT WIRING, OTHERWISE THE DEFAULT DIRCUIT WIRING WILL BE USED.
+  text()
+    tspan(x='115' y='951.56299' style='font-size:13.8889px;stroke-width:1.04167') 3.   &nbsp;&nbsp;DEFAULT OUTLET LABELING IS SHOWN IN CHART.  CUSTOMER CAN SPECIFY CUSTOM
+    tspan(x='115' y='968.92413' style='font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OUTLET LABELING, OTHERWISE THE DEFAULT OUTLET LEBELING WILL BE USED.  CUSTOM
+    tspan(x='115' y='986.28522' style='font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OUTLET LABELING IS LIMITED TO 8 CHARACTERS.
+  text()
+    tspan(x='115' y='1002.4852' style='font-size:13.8889px;stroke-width:1.04167') 4.   &nbsp;&nbsp;PLEASE FILL IN THE CHART AND RETURN TO THE LIGHT SOURCE.  MANUFACTURING LEAD TIME 
+    tspan(x='115' y='1019.8463' style='font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WILL NOT START UNTIL CUSTOM OR DEAULT LABELING HAS BEEN CONFIRMED.
+  
+  //-3rd column
+  //- rect(x='1114.65' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.899999;stroke:#000000')
+  //-2nd column or center column
+  //- rect(x='612.95' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.899999;stroke:#000000')
+  //-1st column
+  //- rect(x='111.245' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000')
+
+  //-right column
+  //- rect(x='865.595' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000') 
+  //-left column
+  //- rect(x='360.306' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000')
+
+
+  //--------------------------------------------setup tables for custom labels--------------------------------------------//
+
+  g(transform='translate(111.245 116.171)')
+    path(d='m350.099 26.55h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
+    text()
+      tspan(x='129.69969' y='18.044098' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT AND LABEL IDENTIFICTION
+    text()
+      tspan(x='1260.3188' y='196.42857' style='stroke-width:1.04167')    
+    rect(x='.449997' y='.449997' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000')
+    text()
+      tspan(x='8.1491165' y='43.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') POSITION
+    text()
+      tspan(x='85.025017' y='37.992416' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+    text()
+      tspan(x='87.518303' y='49.006561' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT
+    text()
+      tspan(x='234.00742' y='43.581894' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') SPECIFY CIRCUIT
+    text()
+      tspan(x='160.09125' y='37.992416' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+    text()
+      tspan(x='168.42255' y='49.018768' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') LABEL
+    text()
+      tspan(x='364.07333' y='43.594116' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CUSTOM LABEL
+    
+    //-row of chart  // translate y * 25 for new row
+    g(transform='translate(0 0)')       
+      path(d='m350.099 51.55h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
+      //-position text
+      text()
+        tspan(x='34.974068' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+      //-default circuit text
+      text()
+        tspan(x='110.04028' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+      //-default label text
+      text()
+        tspan(x='180.96222' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C1
+      //-specify circuit text
+      text()
+        tspan(x='284.86496' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+      //-custom label text
+      text()
+        tspan(x='384.53842' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 88888888
+
+  //-full table with fist row
+  //- rect(x='111.245' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000')
+  //- text(x='118.94437' y='159.31552' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='118.94437' y='159.31552' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') POSITION
+  //- text(x='195.82027' y='153.71384' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='195.82027' y='153.71384' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+  //- text(x='198.31355' y='164.72798' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='198.31355' y='164.72798' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT
+  //- text(x='344.80267' y='159.30331' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='344.80267' y='159.30331' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') SPECIFY CIRCUIT
+  //- text(x='270.88651' y='153.71384' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='270.88651' y='153.71384' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+  //- text(x='279.2178' y='164.74019' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='279.2178' y='164.74019' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') LABEL
+  //- text(x='474.86859' y='159.31554' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='474.86859' y='159.31554' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CUSTOM LABEL
+  //- path(d='m460.895 142.271h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
+  //- text(x='240.49495' y='133.76552' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='240.49495' y='133.76552' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT AND LABEL IDENTIFICTION
+  //- path(d='m460.895 167.271h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
+  //- text(x='145.76932' y='184.31552' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='145.76932' y='184.31552' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='220.83553' y='184.31552' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='220.83553' y='184.31552' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='291.75748' y='184.31552' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='291.75748' y='184.31552' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C1
+  //- text(x='395.66022' y='184.31552' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='395.66022' y='184.31552' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='495.33368' y='184.31552' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='495.33368' y='184.31552' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 88888888
+  
+  
+  
+  //- rect(x='360.306' y='284.921' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000')  
+  //- text(x='368.00482' y='328.06564' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='368.00482' y='328.06564' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') POSITION
+  //- text(x='444.88071' y='322.4639' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='444.88071' y='322.4639' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+  //- text(x='447.37399' y='333.47815' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='447.37399' y='333.47815' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT
+  //- text(x='593.86249' y='328.05344' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='593.86249' y='328.05344' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') SPECIFY CIRCUIT
+  //- text(x='519.94684' y='322.4639' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='519.94684' y='322.4639' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+  //- text(x='528.27802' y='333.49036' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='528.27802' y='333.49036' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') LABEL
+  //- text(x='723.92841' y='328.06564' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='723.92841' y='328.06564' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CUSTOM LABEL
+  //- path(d='m709.955 311.021h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
+  //- text(x='489.55539' y='302.51544' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='489.55539' y='302.51544' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT AND LABEL IDENTIFICTION
+  //- path(d='m709.955 336.021h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
+  //- text(x='394.82977' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='394.82977' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='469.89597' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='469.89597' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='540.8175' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='540.8175' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C1
+  //- text(x='644.72003' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='644.72003' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='744.39349' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='744.39349' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 88888888
+  
+  
+  
+  //- rect(x='865.595' y='284.921' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000') 
+  //- text(x='873.29395' y='328.06564' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='873.29395' y='328.06564' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') POSITION
+  //- text(x='950.16986' y='322.4639' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='950.16986' y='322.4639' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+  //- text(x='952.66315' y='333.47815' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='952.66315' y='333.47815' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT
+  //- text(x='1099.1511' y='328.05344' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='1099.1511' y='328.05344' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') SPECIFY CIRCUIT
+  //- text(x='1025.2349' y='322.4639' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='1025.2349' y='322.4639' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+  //- text(x='1033.5662' y='333.49036' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='1033.5662' y='333.49036' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') LABEL
+  //- text(x='1229.2169' y='328.06564' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='1229.2169' y='328.06564' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CUSTOM LABEL
+  //- path(d='m1215.24 311.021h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0668 0h75.0668v25h-75.0668zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
+  //- text(x='994.84436' y='302.51544' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='994.84436' y='302.51544' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT AND LABEL IDENTIFICTION
+  //- path(d='m1215.24 336.021h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0668 0h75.0668v25h-75.0668zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
+  //- text(x='900.1189' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='900.1189' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='975.18524' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='975.18524' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='1046.1058' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='1046.1058' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C1
+  //- text(x='1150.0087' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='1150.0087' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+  //- text(x='1249.682' y='353.06583' style='font-family:Arial;font-size:12.5px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+  //-   tspan(x='1249.682' y='353.06583' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 88888888
