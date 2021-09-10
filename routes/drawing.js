@@ -1,4 +1,4 @@
-const { sheetOne } = require('../utilities/sheetBuilder')
+const { sheetOne, chartRows } = require('../utilities/sheetBuilder')
 const express = require('express');
 const router = express.Router();
 
@@ -9,8 +9,8 @@ const tempReqObject = {
   dmxUniverses: "1",
   endCap: "R",
   leadWhipLength: "36",
-  numberOfCircuits: "4",
-  numberOfOutlets: "15",
+  numberOfCircuits: "6",
+  numberOfOutlets: "40",
   outletSpacing: "16",
   partNumber: "PDP1.5B240-4L1EX15-EX16R",
   pipeLength: "240",
@@ -105,6 +105,7 @@ class Sheet {
       this.mainDrawing = {};
       this.bomItems = [];
       this.specifications = {};
+      this.outletPositions = []
     }
 }
 
@@ -123,6 +124,8 @@ router.get('/', function(req, res) {
 
   // setup sheet4
   const sheet4 = new Sheet(tempReqObject, 'SHEET 4 OF 4')
+  sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
+  console.log(sheet4.outletPositions)
   
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4 } });
 });

@@ -59,6 +59,20 @@ function getPipeData(options) {
     }
 }
 
+function chartRows(totalRow){
+  var totalArray = [];
+  var chartArrays = []
+  for(var i = 0; i < totalRow; i++){
+    totalArray.push(i+1)
+  } 
+  
+  chartArrays[0] = totalArray.slice(0, 25)
+  chartArrays[1] = totalArray.slice(25, 50)
+  chartArrays[2] = totalArray.slice(50, 75)
+  
+  return chartArrays
+}
+
 
 /**
  * This function creates the pipe elements for the main drawing svg 
@@ -128,4 +142,4 @@ function sheetOne(options) {
 }
 
 
-module.exports = { sheetOne };
+module.exports = { sheetOne, chartRows };
