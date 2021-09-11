@@ -44,10 +44,10 @@ mixin sheetFour(options)
     //- add additional logic for 26-50 and >50
   if (outlets > 25 && outlets <= 50)
     - columnXaxis = [ '360.306', '865.595' ]
-  if (outlets < 50)
-    - columnXaxis = [ '111.245', '612.95', '1114.65' ]
+  if (outlets >= 51)
+    - columnXaxis = [ '111.245', '612.95', '1114.65' ]  
     
-  each x in columnXaxis 
+  each x, index in columnXaxis 
     g(transform=`translate(${x} 116.171)`)
       path(d='m350.099 26.55h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
       text()
@@ -70,19 +70,20 @@ mixin sheetFour(options)
       text()
         tspan(x='364.07333' y='43.594116' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CUSTOM LABEL
       
-      //-row of chart  // translate y * 25 for new row      
-      - for(var i = 0; i < outlets && i < 25; i++)        
-        g(transform=`translate(0 ${i * 25})`)       
+      //-row of chart  // translate y * 25 for new row            
+      - for(var r = 0; r < options.outletPositions[index].length ; r++)
+        - var position = options.outletPositions[index][r]        
+        g(transform=`translate(0 ${r * 25})`)       
           path(d='m350.099 51.55h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
           //-position text
           text()
-            tspan(x='34.974068' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{i + 1}
-          //-default circuit text
+            tspan(x='34.974068' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{position}
+          //-default circuit label text
           text()
-            tspan(x='110.04028' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') #{circuit(i, maxCir)}
+            tspan(x='110.04028' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') #{circuit(r, maxCir)}
           //-default label text
           text()
-            tspan(x='180.96222' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C#{circuit(i, maxCir)}
+            tspan(x='180.96222' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C#{circuit(r, maxCir)}
           //-specify circuit text
           text()
             tspan(x='284.86496' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
