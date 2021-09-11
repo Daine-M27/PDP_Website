@@ -72,7 +72,12 @@ mixin sheetFour(options)
       
       //-row of chart  // translate y * 25 for new row            
       - for(var r = 0; r < options.outletPositions[index].length ; r++)
-        - var position = options.outletPositions[index][r]        
+        - var position = options.outletPositions[index][r]
+        - var customCircuit = options.customLabels[r].specifyCircuit
+        - var customLabel = options.customLabels[r].customLabel
+
+        //- - console.log(options.customLabels[r].specifyCircuit)
+
         g(transform=`translate(0 ${r * 25})`)       
           path(d='m350.099 51.55h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
           //-position text
@@ -86,10 +91,10 @@ mixin sheetFour(options)
             tspan(x='180.96222' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C#{circuit(r, maxCir)}
           //-specify circuit text
           text()
-            tspan(x='284.86496' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+            tspan(x='284.86496' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{customCircuit}
           //-custom label text
           text()
-            tspan(x='384.53842' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 88888888
+            tspan(x='384.53842' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{customLabel}
 
   //- g(transform='translate(111.245 116.171)')
   //-   path(d='m350.099 26.55h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')

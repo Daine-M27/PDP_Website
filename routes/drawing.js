@@ -10,7 +10,7 @@ const tempReqObject = {
   endCap: "R",
   leadWhipLength: "36",
   numberOfCircuits: "2",
-  numberOfOutlets: "10",
+  numberOfOutlets: "11",
   outletSpacing: "16",
   partNumber: "PDP1.5B240-4L1EX15-EX16R",
   pipeLength: "240",
@@ -96,6 +96,54 @@ const tempSpecificationsObject = {
   numCircuits: '3'
 }
 
+const tempCustomLabelObject = [
+  {
+    specifyCircuit: "z",
+    customLabel: "Red1"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red2"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red3"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red4"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red5"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red6"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red7"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red8"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red9"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red10"
+  },
+  {
+    specifyCircuit: "z",
+    customLabel: "Red11"
+  },
+]
+
+
 class Sheet {
   constructor( partOptions, sheetNumber ) {
       Object.assign(this, partOptions)
@@ -106,6 +154,7 @@ class Sheet {
       this.bomItems = [];
       this.specifications = {};
       this.outletPositions = []
+      this.customLabels = []
     }
 }
 
@@ -125,7 +174,8 @@ router.get('/', function(req, res) {
   // setup sheet4
   const sheet4 = new Sheet(tempReqObject, 'SHEET 4 OF 4')
   sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
-  console.log(sheet4.outletPositions)
+  sheet4.customLabels = [...tempCustomLabelObject]
+  console.log(sheet4.customLabels)
   
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4 } });
 });
