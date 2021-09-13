@@ -10,7 +10,7 @@ const tempReqObject = {
   endCap: "R",
   leadWhipLength: "36",
   numberOfCircuits: "2",
-  numberOfOutlets: "11",
+  numberOfOutlets: "75",
   outletSpacing: "16",
   partNumber: "PDP1.5B240-4L1EX15-EX16R",
   pipeLength: "240",
@@ -99,7 +99,7 @@ const tempSpecificationsObject = {
 const tempCustomLabelObject = [
   {
     specifyCircuit: "z",
-    customLabel: "Red1"
+    customLabel: "Red12345"
   },
   {
     specifyCircuit: "z",
@@ -140,6 +140,262 @@ const tempCustomLabelObject = [
   {
     specifyCircuit: "z",
     customLabel: "Red11"
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: "20"
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "25",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: "30"
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: "40"
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: "50"
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: "60"
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: "65"
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: ""
+  },
+  {
+    specifyCircuit: "",
+    customLabel: "The End"
   },
 ]
 
