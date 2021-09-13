@@ -36,3 +36,7 @@ PowerTypeFunction
 EndCapFunction
 
 FoldedPipe Function
+
+
+
+Sheet 4 custom labels and circuit object must contain the same number of entries as the number of positions.

@@ -19,7 +19,8 @@ mixin sheetFour(options)
   text()
     tspan(x='115' y='1002.4852' style='font-size:13.8889px;stroke-width:1.04167') 4.   &nbsp;&nbsp;PLEASE FILL IN THE CHART AND RETURN TO THE LIGHT SOURCE.  MANUFACTURING LEAD TIME 
     tspan(x='115' y='1019.8463' style='font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WILL NOT START UNTIL CUSTOM OR DEAULT LABELING HAS BEEN CONFIRMED.
-  
+            
+            //----------------column data for chart---------------------//
             //-3rd column
             //- rect(x='1114.65' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.899999;stroke:#000000')
             //-2nd column or center column
@@ -31,7 +32,6 @@ mixin sheetFour(options)
             //- rect(x='865.595' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000') 
             //-left column
             //- rect(x='360.306' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000')
-
 
   //--------------------------------------------setup tables for custom labels--------------------------------------------//
   - var columnXaxis = []
@@ -75,26 +75,23 @@ mixin sheetFour(options)
         - var position = options.outletPositions[index][r]
         - var customCircuit = options.customLabels[r].specifyCircuit
         - var customLabel = options.customLabels[r].customLabel
-
-        //- - console.log(options.customLabels[r].specifyCircuit)
-
         g(transform=`translate(0 ${r * 25})`)       
           path(d='m350.099 51.55h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
           //-position text
-          text()
-            tspan(x='34.974068' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{position}
+          text(text-anchor='middle')
+            tspan(x='37' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{position}
           //-default circuit label text
-          text()
-            tspan(x='110.04028' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') #{circuit(r, maxCir)}
+          text(text-anchor='middle')
+            tspan(x='113' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') #{circuit(r, maxCir)}
           //-default label text
-          text()
+          text(text-anchor='middle')
             tspan(x='180.96222' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C#{circuit(r, maxCir)}
           //-specify circuit text
-          text()
-            tspan(x='284.86496' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{customCircuit}
+          text(text-anchor='middle')
+            tspan(x='288' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{customCircuit}
           //-custom label text
-          text()
-            tspan(x='384.53842' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{customLabel}
+          text(text-anchor='middle')
+            tspan(x='412' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{customLabel}
 
   //- g(transform='translate(111.245 116.171)')
   //-   path(d='m350.099 26.55h124.451v25h-124.451zm-124.451-2e-5h124.451v25h-124.451zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662zm-75.0662 0h75.0662v25h-75.0662z' style='fill:none;stroke-width:.9;stroke:#000000')
