@@ -19,7 +19,7 @@ class Sheet {
 }
 
 /* GET drawing page. */
-router.get('/', function(req, res) {
+router.get('/', function(req, res) {  
   // setup sheet1  
   const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 4') // replace with async data pull from mongodb
   sheet1.bomItems = [...tempBomObject] // replace with async data pull from mongodb
