@@ -1,10 +1,10 @@
 extends layout
 include mixins/drawingLegend
 include mixins/sheetOne
-include mixins/sheetOne48
-include mixins/sheetOne64
-include mixins/sheetOne80
-include mixins/sheetOne96
+include mixins/triplePipes/triple48
+include mixins/triplePipes/triple64
+include mixins/triplePipes/triple80
+include mixins/triplePipes/triple96
 
 include mixins/sheetTwo
 include mixins/sheetThree
@@ -18,7 +18,7 @@ block content
     +drawingLegend(sheet)(id=index)
       if index === 'sheet1'
         +sheetOne(sheet)
-        +sheetOne96()
+        +triple96()
       if index === 'sheet2'
         +sheetTwo(sheet)
       if index === 'sheet3'
