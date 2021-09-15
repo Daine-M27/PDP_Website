@@ -59,6 +59,11 @@ function getPipeData(options) {
     }
 }
 
+/**
+ * This function returns an array of 3 arrays 
+ * @param {*} totalRow 
+ * @returns 
+ */
 function chartRows(totalRow){
   var totalArray = [];
   var chartArrays = []

@@ -1,9 +1,15 @@
 extends layout
 include mixins/drawingLegend
 include mixins/sheetOne
+include mixins/sheetOne48
+include mixins/sheetOne64
+include mixins/sheetOne80
+include mixins/sheetOne96
+
 include mixins/sheetTwo
 include mixins/sheetThree
 include mixins/sheetFour
+
 
 block content
   h1= title
@@ -12,6 +18,7 @@ block content
     +drawingLegend(sheet)(id=index)
       if index === 'sheet1'
         +sheetOne(sheet)
+        +sheetOne96()
       if index === 'sheet2'
         +sheetTwo(sheet)
       if index === 'sheet3'
