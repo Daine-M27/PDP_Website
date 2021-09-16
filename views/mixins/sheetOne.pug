@@ -2,6 +2,7 @@ mixin sheetOne(options)
   //- mixins for main drawing
   include pipes
   include outlets
+  include endCaps
 
   path(d='m1555.4 67.1426v37.7708zm-57.6629-0.09811v38.1632zm-417.399-0.131768v38.0853zm-35.0513 19.2132h568.552v18.9834h-568.552zm0-18.9834h568.552v18.9834h-568.552zm0-14.2753h568.552v14.2753h-568.552z' style='fill:none;stroke-width:.546875;stroke:#000000')
   text(transform='scale(1.00114 .998864)' x='1052.4081' y='79.75087' style='font-family:sans-serif;font-size:8.33333px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
@@ -76,7 +77,7 @@ mixin sheetOne(options)
     tspan(x='591.25446' y='101.67834' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') DESCRIPTION
   text(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
     tspan(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') QTY.
-  path(d='m396.355 86.5101h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
+  path(d='m396.355 86.5101h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000') 
 
   //------------------------------------ specification block --------------------------------------------//
   text()
@@ -155,3 +156,4 @@ mixin sheetOne(options)
   //---------------------------------------- Main Drawing ----------------------------------------//
   +pipes(options.pipeLength, options.pipeSize)
     +outlets(options.dataInput, options.numberOfOutlets)
+    +endCaps(options.pipeLength, options.pipeSize, options.endCap)
