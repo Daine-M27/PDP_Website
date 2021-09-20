@@ -2,7 +2,7 @@ const tempReqObject = {
   color: "B",
   dataInput: "J",
   dataOutput: "J",
-  dmxUniverses: "1",
+  dmxUniverses: "2",
   endCap: "R",
   leadWhipLength: "36",
   numberOfCircuits: "4",
