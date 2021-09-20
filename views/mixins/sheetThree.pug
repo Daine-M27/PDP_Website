@@ -433,7 +433,11 @@ mixin sheetThree(options)
   path(d='m476.156 738.909 12.7702-10.3485 2.47197 4.19657z' style='fill:#000000;stroke-width:.999999;stroke:#000000')
   
   //----------------------------DMX options--------------------------------------//
-  text(x='134.73479' y='209.86134' style='font-family:sans-serif;font-size:16.6667px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='134.73479' y='209.86134' style='font-size:16.6667px;stroke-width:1.04167') X
-  text(x='134.73479' y='183.91' style='font-family:sans-serif;font-size:16.6667px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='134.73479' y='183.91' style='font-size:16.6667px;stroke-width:1.04167') X
+
+  -if (options.dataPowerLocation === 'I')
+    text(x='134.73479' y='183.91' style='font-family:sans-serif;font-size:16.6667px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='134.73479' y='183.91' style='font-size:16.6667px;stroke-width:1.04167') X
+    
+  -if (options.dataPowerLocation === 'N')    
+    text(x='134.73479' y='209.86134' style='font-family:sans-serif;font-size:16.6667px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='134.73479' y='209.86134' style='font-size:16.6667px;stroke-width:1.04167') X
