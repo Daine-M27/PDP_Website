@@ -6,13 +6,13 @@ const tempReqObject = {
   endCap: "R",
   leadWhipLength: "36",
   numberOfCircuits: "4",
-  numberOfOutlets: "5",
+  numberOfOutlets: "10",
   outletSpacing: "16",
   partNumber: "PDP1.5B240-4L1EX15-EX16R",
   pipeLength: "112",
   pipeSize: "1.5",
   powerInputPosition: "E",
-  powerInput: "C",
+  powerInput: "C1",
   powerOutput: "E",
 };
 
