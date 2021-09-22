@@ -5,6 +5,7 @@ mixin sheetOne(options)
   include endCaps
   include powerInputs
   include dmxBoxes
+  include dimensions
 
   path(d='m1555.4 67.1426v37.7708zm-57.6629-0.09811v38.1632zm-417.399-0.131768v38.0853zm-35.0513 19.2132h568.552v18.9834h-568.552zm0-18.9834h568.552v18.9834h-568.552zm0-14.2753h568.552v14.2753h-568.552z' style='fill:none;stroke-width:.546875;stroke:#000000')
   text(transform='scale(1.00114 .998864)' x='1052.4081' y='79.75087' style='font-family:sans-serif;font-size:8.33333px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
@@ -161,3 +162,4 @@ mixin sheetOne(options)
     +endCaps(options.pipeLength, options.pipeSize, options.endCap)
     +powerInputs(options.powerInput, options.pipeLength, options.pipeSize)
     +dmxBoxes(options.dmxUniverses, options.dataInput)
+    +dimensions(options)
