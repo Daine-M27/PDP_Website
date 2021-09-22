@@ -380,7 +380,7 @@ mixin dimensions(options)
         path(d='m1570.79 278.011h-106.617' style='fill:none;stroke-width:1.04167px;stroke:#000000')
         path(d='m1582.9 298.597v-40' style='fill:none;stroke-width:.8;stroke:#000000')
         text(x='768' y='282.88126' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
-          tspan(text-anchor='end' x='768' y='282.88126' style='font-size:16.6584px;stroke-width:.8') !{options.pipeLength}
+          tspan(text-anchor='end' x='768' y='282.88126' style='font-size:16.6584px;stroke-width:.8') #{(parseInt(options.pipeLength) + 1)}
         text(x='797' y='282.88126' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
           tspan(x='797' y='282.88126' style='font-size:16.6584px;stroke-width:.8') [#{convertInches(options.pipeLength)}]
 
