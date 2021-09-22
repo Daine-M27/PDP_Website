@@ -5,7 +5,7 @@ const tempReqObject = {
   dataPowerLocation: "I",
   dmxUniverses: "1",
   endCap: "R",
-  leadWhipLength: "36",
+  leadWhipLength: "48",
   numberOfCircuits: "4",
   numberOfOutlets: "3",
   outletSpacing: "16",
@@ -13,7 +13,7 @@ const tempReqObject = {
   pipeLength: "48",
   pipeSize: "1.5",
   powerInputPosition: "E",
-  powerInput: "C1",
+  powerInput: "L1",
   powerOutput: "E",
 };
 
