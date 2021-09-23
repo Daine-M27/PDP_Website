@@ -1,9 +1,10 @@
 extends layout
 include mixins/drawingLegend
-include mixins/sheetOne
-include mixins/sheetTwo
-include mixins/sheetThree
-include mixins/sheetFour
+//- include mixins/sheetOne
+//- include mixins/sheetTwo
+//- include mixins/sheetThree
+//- include mixins/sheetFour
+include mixins/sheetFive
 
 
 block content
@@ -11,11 +12,13 @@ block content
   p Welcome to #{title}
   each sheet, index in sheets
     +drawingLegend(sheet)(id=index)
-      if index === 'sheet1'
-        +sheetOne(sheet)        
-      if index === 'sheet2'
-        +sheetTwo(sheet)
-      if index === 'sheet3'
-        +sheetThree(sheet)
-      if index === 'sheet4'
-        +sheetFour(sheet)
+      //- if index === 'sheet1'
+      //-   +sheetOne(sheet)        
+      //- if index === 'sheet2'
+      //-   +sheetTwo(sheet)
+      //- if index === 'sheet3'
+      //-   +sheetThree(sheet)
+      //- if index === 'sheet4'
+      //-   +sheetFour(sheet)
+      if index === 'sheet5'
+        +sheetFive(sheet)
