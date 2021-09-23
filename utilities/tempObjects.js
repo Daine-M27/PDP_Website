@@ -4,7 +4,7 @@ const tempReqObject = {
   dataOutput: "X",
   dataPowerLocation: "I",
   dmxUniverses: "1",
-  endCap: "F",
+  endCap: "R",
   leadWhipLength: "6",
   numberOfCircuits: "4",
   numberOfOutlets: "3",
