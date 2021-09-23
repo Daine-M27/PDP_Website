@@ -12,8 +12,8 @@ const tempReqObject = {
   partNumber: "PDP1.5B240-4L1EX15-EX16R",
   pipeLength: "624",
   pipeSize: "1.5",
-  powerInputPosition: "E",
-  powerInput: "S1",
+  powerInputPosition: "T",
+  powerInput: "W1",
   powerOutput: "E",
 };
 

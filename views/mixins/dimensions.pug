@@ -1,6 +1,6 @@
 mixin dimensions(options)
   mixin leadWhip()
-    -if (options.powerInput === 'W1')
+    -if (options.powerInput === 'W1' && options.powerInputPosition === 'E' )
       g()
         path(d='m0.39105 298.617v-40' style='fill:none;stroke-width:.8;stroke:#000000')
         path(d='m-139.125 278.094 12.4484-1.75572-0.0325 3.72868z' style='fill:#000000;stroke-width:.8;stroke:#000000')
@@ -15,6 +15,24 @@ mixin dimensions(options)
     
     -if (options.powerInput === 'W1' && options.powerInputPosition === 'T')
       g()
+        path(d='m0.2682 173.303v-28.0645' style='fill:none;stroke-width:.8;stroke:#000000')
+        path(d='m59.8023 159.383 12.4608-1.75572-0.0325 3.72868z' style='fill:#000000;stroke-width:.8;stroke:#000000')
+        path(d='m0.294673 159.383-12.4608 1.75572 0.0329-3.72869z' style='fill:#000000;stroke-width:.8;stroke:#000000')
+        text(x='32.930435' y='163.2764' style='fill:#000000;font-family:Arial;font-size:16.6667px;line-height:125%;stroke-width:.8')
+          tspan(x='32.930435' y='163.2764' style='font-size:16.6667px;stroke-width:.8') &quot;
+        text(x='23.794516' y='163.19388' style='fill:#000000;font-family:Arial;font-size:16.6667px;line-height:125%;stroke-width:.8')
+          tspan(x='23.794516' y='163.19388' style='font-size:16.6667px;stroke-width:.8') 4
+        path(d='m-48.6271 49.1084h99.9518' style='fill:none;stroke-width:.8;stroke:#000000')
+        path(d='m-48.6271 112.67h42.4088' style='fill:none;stroke-width:.8;stroke:#000000')
+        path(d='m-27.301 112.71 1.75572 12.4608-3.72869-0.0329z' style='fill:#000000;stroke-width:.8;stroke:#000000')
+        path(d='m-27.527 49.0464-1.75572-12.4608 3.72869 0.0329z' style='fill:#000000;stroke-width:.8;stroke:#000000')
+        text(x='-20.832634' y='86.848503' style='fill:#000000;font-family:Arial;font-size:16.6667px;line-height:125%;stroke-width:.8')
+          tspan(x='-20.832634' y='86.848503' style='font-size:16.6667px;stroke-width:.8') &quot;
+        text(x='-39.342052' y='86.765984' style='fill:#000000;font-family:Arial;font-size:16.6667px;line-height:125%;stroke-width:.8')
+          tspan(x='-39.342052' y='86.765984' style='font-size:16.6667px;stroke-width:.8') !{options.leadWhipLength}
+        path(d='m59.6338 173.303v-28.0645' style='fill:none;stroke-width:.8;stroke:#000000')
+
+
     
     -if (options.powerInput === 'L1')
       g()
@@ -34,15 +52,16 @@ mixin dimensions(options)
       path(d='m0.42705 298.617v-40' style='fill:none;stroke-width:.8;stroke:#000000')
       path(d='m-63.2784 298.617v-37.6528' style='fill:none;stroke-width:.799997;stroke:#000000')
       path(d='m-63.5108 278.094-12.4484 1.75572 0.0329-3.72869z' style='fill:#000000;stroke-width:.8;stroke:#000000')
-      text( x='-21.689219' y='282.26907' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
-        tspan(x='-21.689219' y='282.26907' style='font-size:16.6584px;stroke-width:.8') &quot;
-      text( x='-47.690971' y='282.90213' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
-        tspan(x='-47.690971' y='282.90213' style='font-size:16.6584px;stroke-width:.8') 4
-      text( x='-34.830109' y='274.67139' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
-        tspan(x='-34.830109' y='274.67139' style='font-size:16.6584px;stroke-width:.8') 1
-      text( x='-34.428207' y='293.34113' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
-        tspan(x='-34.428207' y='293.34113' style='font-size:16.6584px;stroke-width:.8') 8
-      path(d='m-36.9395 278.094h15.2057' style='fill:#000000;stroke-width:.800005;stroke:#000000')
+      g(transform='translate(0 5)')
+        text( x='-21.689219' y='282.26907' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
+          tspan(x='-21.689219' y='282.26907' style='font-size:16.6584px;stroke-width:.8') &quot;
+        text( x='-47.690971' y='282.90213' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
+          tspan(x='-47.690971' y='282.90213' style='font-size:16.6584px;stroke-width:.8') 4
+        text( x='-34.830109' y='274.67139' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
+          tspan(x='-34.830109' y='274.67139' style='font-size:16.6584px;stroke-width:.8') 1
+        text( x='-34.428207' y='293.34113' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
+          tspan(x='-34.428207' y='293.34113' style='font-size:16.6584px;stroke-width:.8') 8
+        path(d='m-36.9395 278.094h15.2057' style='fill:#000000;stroke-width:.800005;stroke:#000000')
       path(d='m-47.2039 218.89-10.0438-7.56087 2.65985-2.61332z' style='fill:#000000;stroke-width:.8;stroke:#000000')
       path(d='m-70.6148 195.479 23.4109 23.4109' style='fill:none;stroke-width:.799997;stroke:#000000')
       path(d='m-70.6148 195.479-14.1806-1e-5' style='fill:none;stroke-width:.799997;stroke:#000000')
@@ -56,7 +75,6 @@ mixin dimensions(options)
         tspan(x='-103.17563' y='210.63197' style='font-size:16.6584px;stroke-width:.8') 4
       path(d='m-105.653 195.344h15.2057' style='fill:#000000;stroke-width:.800005;stroke:#000000')
       path(d='m-135.593 199.898 1.26205-1.25402q-1.55948-1.80064-1.55948-4.13986 0-2.58842 1.82475-4.41318 1.83281-1.83281 4.42122-1.83281 2.29904 0 4.13184 1.55949l1.26205-1.25401 0.55466 0.55466-1.25401 1.26206q1.55949 1.80064 1.55949 4.13183 0 2.58841-1.8328 4.42122-1.83281 1.82476-4.41318 1.82476-2.33923 0-4.13183-1.55145l-1.26206 1.25401zm1.82476-1.81672 7.69291-7.70095q-1.59164-1.32638-3.56108-1.32638-2.26689 0-3.86657 1.59968-1.59163 1.59164-1.59163 3.85049 0 2.02572 1.32637 3.57716zm0.55466 0.55466q1.5434 1.32638 3.57717 1.32638 2.25884 0 3.85048-1.59164 1.59968-1.59968 1.59968-3.85852 0-2.00161-1.32637-3.56913z' style='stroke-width:.960001')
-
 
   mixin singleDMXBackView()
     path(d='m0.4-5v-40' style='fill:none;stroke-width:.8;stroke:#000000')
@@ -400,7 +418,7 @@ mixin dimensions(options)
 
 
 
-
+  //- logic for dimensions mixins
   +outletSpacing()
   - if (options.powerInput === 'L1' || options.powerInput === 'W1')
     +leadWhip()
