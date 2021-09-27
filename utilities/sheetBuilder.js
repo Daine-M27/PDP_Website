@@ -59,6 +59,9 @@ function getPipeData(options) {
     }
 }
 
+
+
+
 /**
  * This function returns an array of 3 arrays 
  * @param {*} totalRow 
@@ -147,4 +150,4 @@ function sheetOne(options) {
 }
 
 
-module.exports = { sheetOne, chartRows };
+module.exports = { sheetOne, chartRows, getPipeData };
