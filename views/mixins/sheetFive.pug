@@ -87,6 +87,11 @@ mixin sheetFive(options)
   - let pipeOffset = 0
   - let rotateString = '180 720.3 14.5' 
   
+  
+  //- first endCap
+  g(transform=`translate(415 260) scale(.60) rotate(${rotateString})`)
+    +endCap(96)
+  
   //- 96 inch pipes 
   - for( p = 0; p < options.foldSheetData._96; p++ )
     - pipeY = (260 + (p * 18.6))
