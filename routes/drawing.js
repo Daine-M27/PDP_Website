@@ -1,4 +1,4 @@
-const { sheetOne, chartRows } = require('../utilities/sheetBuilder')
+const { getPipeData, chartRows } = require('../utilities/sheetBuilder')
 const { tempReqObject, tempSpecificationsObject, tempBomObject, tempCustomLabelObject } = require('../utilities/tempObjects')
 const express = require('express');
 const router = express.Router();
@@ -13,8 +13,9 @@ class Sheet {
       this.mainDrawing = {};
       this.bomItems = [];
       this.specifications = {};
-      this.outletPositions = []
-      this.customLabels = []
+      this.outletPositions = [];
+      this.customLabels = [];
+      this.foldSheetData = {}
     }
 }
 
@@ -38,6 +39,8 @@ router.get('/', function(req, res) {
   
   // setup sheet5
   const sheet5 = new Sheet(tempReqObject, 'SHEET 5 OF 5')
+  sheet5.foldSheetData = getPipeData(sheet5)
+  console.log(sheet5.foldSheetData);
 
   res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
 });
