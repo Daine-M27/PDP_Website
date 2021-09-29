@@ -1,5 +1,8 @@
 mixin sheetFive(options)
   include outlets
+  include dimensions
+  
+  
   //- local mixins for pipe assembly
   mixin 8ft(rotate)
     g(transform=`rotate(${rotate})`)
@@ -9,7 +12,7 @@ mixin sheetFive(options)
       path(d='m1429.04 14.5282a3.7501 3.75254 0 1 0-7.5002 0 3.7501 3.75254 0 1 0 7.5002 0z' style='fill:none;stroke-width:.8;stroke:#000000')
       path(d='m1414.04 14.5282a3.75006 3.7525 0 1 0-7.5001 0 3.75006 3.7525 0 1 0 7.5001 0z' style='fill:none;stroke-width:.8;stroke:#000000')
       g(transform=`translate(0 -224.9)`)
-          +outlets(options.dataInput, 6)
+        +outlets(options.dataInput, 6)
       block
      
   mixin 4ft(rotate)
@@ -20,7 +23,7 @@ mixin sheetFive(options)
       path(d='m709.028 14.5283a3.75005 3.75249 0 1 0-7.5001 0 3.75005 3.75249 0 1 0 7.5001 0z' style='fill:none;stroke-width:.8;stroke:#000000')
       path(d='m694.028 14.5283a3.75005 3.75249 0 1 0-7.50009 0 3.75005 3.75249 0 1 0 7.50009 0z' style='fill:none;stroke-width:.8;stroke:#000000')
       g(transform=`translate(0 -224.9)`)
-          +outlets(options.dataInput, 3)
+        +outlets(options.dataInput, 3)
       block
 
   mixin 32Inch(length, rotate)
@@ -31,7 +34,7 @@ mixin sheetFive(options)
       path(d='m469.025 14.5282a3.75005 3.75249 0 1 0-7.5001 0 3.75005 3.75249 0 1 0 7.5001 0z' style='fill:none;stroke-width:.8;stroke:#000000')
       path(d='m454.025 14.5282a3.75005 3.75249 0 1 0-7.5 0 3.75005 3.75249 0 1 0 7.5 0z' style='fill:none;stroke-width:.8;stroke:#000000')
       g(transform=`translate(0 -224.9)`)
-          +outlets(options.dataInput, 2)
+        +outlets(options.dataInput, 2)
       block
 
   mixin 16Inch(length, rotate)
@@ -42,7 +45,7 @@ mixin sheetFive(options)
       path(d='m229.022 14.5449a3.75005 3.75692 0 1 1-7.5001 0 3.75005 3.75692 0 1 1 7.5001 0z' style='fill:none;stroke-width:.8;stroke:#000000')
       path(d='m214.021 14.5449a3.75005 3.75692 0 1 1-7.5001 0 3.75005 3.75692 0 1 1 7.5001 0z' style='fill:none;stroke-width:.8;stroke:#000000')
       g(transform=`translate(0 -224.9)`)
-          +outlets(options.dataInput, 1)
+        +outlets(options.dataInput, 1)
       block
   
   mixin endCap(length)
@@ -60,26 +63,41 @@ mixin sheetFive(options)
       path(d='m1433.51 30.0035a7.73761 7.73761 0 0 0 15.4752 0' style='fill:none;stroke-linecap:round;stroke-width:.8;stroke:#000000')
       path(d='m1422.87 16.1796a3.35048 3.35048 0 1 0 0-3.35048m-15.4752 3.35048a3.35048 3.35048 0 1 0 0-3.35048m12.5736 1.67524a5.80323 5.80323 0 1 0 11.6064 0 5.80323 5.80323 0 1 0-11.6064 0zm0.5803 0a5.22292 5.22292 0 1 0 10.4458 0 5.22292 5.22292 0 1 0-10.4458 0zm2.3213-1.67524v0.39799 0.41486 0.86259 0.86256 0.41531 0.39717m5.8033-3.35048v0.39799 0.41486 0.86259 0.86256 0.41531 0.39717m-5.8033 0c0.2267 0.13089 0.4586 0.26474 0.6987 0.40337 0.12 0.0693 0.2422 0.13985 0.367 0.21185 0.1247 0.0721 0.2531 0.1462 0.3798 0.21933 0.2533 0.14624 0.5023 0.28998 0.7478 0.43173 0.2455 0.14174 0.4803 0.27731 0.7083 0.40896m0-6.70096c-0.2267 0.13089-0.4585 0.26474-0.6986 0.40336-0.12 0.0694-0.2422 0.13985-0.367 0.21186-0.1247 0.072-0.2531 0.14618-0.3798 0.21933-0.2533 0.14624-0.5023 0.28998-0.7478 0.43172-0.2455 0.14175-0.4803 0.27731-0.7084 0.40897m5.8033 0c-0.2268-0.13088-0.4586-0.26472-0.6987-0.40336-0.1201-0.0693-0.2423-0.13984-0.3669-0.21186-0.1248-0.072-0.2533-0.1462-0.3799-0.21931-0.2534-0.14624-0.5023-0.28999-0.7479-0.43173-0.2454-0.14174-0.4803-0.27732-0.7083-0.40898m0 6.70096c0.2268-0.13088 0.4586-0.26472 0.6987-0.40336 0.1201-0.0693 0.2421-0.13984 0.3669-0.21184 0.1247-0.0721 0.2533-0.14621 0.3799-0.21933 0.2533-0.14624 0.5022-0.28998 0.7477-0.43173 0.2456-0.14174 0.4804-0.27732 0.7085-0.40898m-24.1801-1.67524a5.80323 5.80323 0 1 0 11.6064 0 5.80323 5.80323 0 1 0-11.6064 0zm0.5803 0a5.22292 5.22292 0 1 0 10.4458 0 5.22292 5.22292 0 1 0-10.4458 0zm2.3213-1.67524v0.39799 0.41486 0.86259 0.86256 0.41531 0.39717m5.8033-3.35048v0.39799 0.41486 0.86259 0.86256 0.41531 0.39717m0-3.35048c-0.2268-0.13088-0.4586-0.26472-0.6987-0.40336-0.1201-0.0693-0.2423-0.13984-0.367-0.21186-0.1247-0.072-0.2532-0.1462-0.3799-0.21931-0.2533-0.14624-0.5022-0.28999-0.7478-0.43173-0.2454-0.14174-0.4803-0.27732-0.7083-0.40898m0 6.70096c0.2268-0.13088 0.4585-0.26472 0.6986-0.40336 0.1202-0.0693 0.2422-0.13984 0.367-0.21184 0.1247-0.0721 0.2533-0.14621 0.3799-0.21933 0.2533-0.14624 0.5022-0.28998 0.7477-0.43173 0.2456-0.14174 0.4803-0.27732 0.7085-0.40898m-2.9017-5.02572c-0.2267 0.13089-0.4585 0.26474-0.6986 0.40336-0.12 0.0694-0.2422 0.13985-0.367 0.21186-0.1247 0.072-0.2531 0.14618-0.3798 0.21933-0.2533 0.14624-0.5023 0.28998-0.7478 0.43172-0.2455 0.14175-0.4803 0.27731-0.7084 0.40897m0 3.35048c0.2267 0.13089 0.4586 0.26474 0.6987 0.40337 0.12 0.0693 0.2422 0.13985 0.3669 0.21185 0.1248 0.0721 0.2532 0.1462 0.3799 0.21933 0.2533 0.14624 0.5022 0.28998 0.7478 0.43173 0.2455 0.14174 0.4803 0.27731 0.7083 0.40896m12.5736 29.2991a3.35048 3.35048 0 1 0 0-3.35048m-15.4752 3.35048a3.35048 3.35048 0 1 0 0-3.35048m12.5736 1.67524a5.80323 5.80323 0 1 0 11.6064 0 5.80323 5.80323 0 1 0-11.6064 0zm0.5803 0a5.22292 5.22292 0 1 0 10.4458 0 5.22292 5.22292 0 1 0-10.4458 0zm2.3213-1.67524v0.39799 0.41487 0.86258 0.86256 0.41532 0.39716m5.8033-3.35048v0.39799 0.41487 0.86258 0.86256 0.41532 0.39716m-5.8033 0c0.2267 0.1309 0.4586 0.26474 0.6987 0.40338 0.12 0.0693 0.2422 0.13984 0.367 0.21184 0.1247 0.0721 0.2531 0.14621 0.3798 0.21933 0.2533 0.14624 0.5023 0.28998 0.7478 0.43173 0.2455 0.14174 0.4803 0.27732 0.7083 0.40896m0-6.70096c-0.2267 0.1309-0.4585 0.26474-0.6986 0.40338-0.12 0.0693-0.2422 0.13983-0.367 0.21184-0.1247 0.072-0.2531 0.1462-0.3798 0.21933-0.2533 0.14624-0.5023 0.28998-0.7478 0.43172-0.2455 0.14175-0.4803 0.27732-0.7084 0.40897m5.8033 0c-0.2268-0.13087-0.4586-0.26472-0.6987-0.40335-0.1201-0.0693-0.2423-0.13985-0.3669-0.21187-0.1248-0.072-0.2533-0.14619-0.3799-0.21931-0.2534-0.14624-0.5023-0.28999-0.7479-0.43173-0.2454-0.14174-0.4803-0.27731-0.7083-0.40898m0 6.70096c0.2268-0.13087 0.4586-0.26472 0.6987-0.40335 0.1201-0.0693 0.2421-0.13985 0.3669-0.21185 0.1247-0.0721 0.2533-0.1462 0.3799-0.21933 0.2533-0.14624 0.5022-0.28998 0.7477-0.43173 0.2456-0.14174 0.4804-0.27731 0.7085-0.40898m-24.1801-1.67524a5.80323 5.80323 0 1 0 11.6064 0 5.80323 5.80323 0 1 0-11.6064 0zm0.5803 0a5.22292 5.22292 0 1 0 10.4458 0 5.22292 5.22292 0 1 0-10.4458 0zm2.3213-1.67524v0.39799 0.41487 0.86258 0.86256 0.41532 0.39716m5.8033-3.35048v0.39799 0.41487 0.86258 0.86256 0.41532 0.39716m0-3.35048c-0.2268-0.13087-0.4586-0.26472-0.6987-0.40335-0.1201-0.0693-0.2423-0.13985-0.367-0.21187-0.1247-0.072-0.2532-0.14619-0.3799-0.21931-0.2533-0.14624-0.5022-0.28999-0.7478-0.43173-0.2454-0.14174-0.4803-0.27731-0.7083-0.40898m0 6.70096c0.2268-0.13087 0.4585-0.26472 0.6986-0.40335 0.1202-0.0693 0.2422-0.13985 0.367-0.21185 0.1247-0.0721 0.2533-0.1462 0.3799-0.21933 0.2533-0.14624 0.5022-0.28998 0.7477-0.43173 0.2456-0.14174 0.4803-0.27731 0.7085-0.40898m-2.9017-5.02572c-0.2267 0.1309-0.4585 0.26474-0.6986 0.40338-0.12 0.0693-0.2422 0.13983-0.367 0.21184-0.1247 0.072-0.2531 0.1462-0.3798 0.21933-0.2533 0.14624-0.5023 0.28998-0.7478 0.43172-0.2455 0.14175-0.4803 0.27732-0.7084 0.40897m0 3.35048c0.2267 0.1309 0.4586 0.26474 0.6987 0.40338 0.12 0.0693 0.2422 0.13984 0.3669 0.21184 0.1248 0.0721 0.2532 0.14621 0.3799 0.21933 0.2533 0.14624 0.5022 0.28998 0.7478 0.43173 0.2455 0.14174 0.4803 0.27732 0.7083 0.40896' style='fill:none;stroke-linecap:round;stroke-width:.8;stroke:#000000')
 
+  mixin foldedTop()
+    g()
+      path(d='m-12.1-5.4201v-84.5799' style='fill:none;stroke-width:.799999;stroke:#000000')
+      path(d='m0.620708-70.523h620.745' style='fill:#000000;stroke-width:.8;stroke:#000000')
+      path(d='m-12.0711-70.523 12.4484-1.75572-0.03247 3.72868z' style='fill:#000000;stroke-width:.8;stroke:#000000')
+      path(d='m1440.05-70.523h-617.987' style='fill:#000000;stroke-width:.799999;stroke:#000000')
+      path(d='m1452.2-70.523-12.4484 1.75572 0.033-3.72869z' style='fill:#000000;stroke-width:.8;stroke:#000000')
+      text(x='638.8241' y='-65.71534' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
+        tspan(x='638.8241' y='-65.71534' style='font-size:16.6584px;stroke-width:.8') 97&quot; (MIN) - 109&quot; (MAX)
+      text(x='694.5116' y='281.08456' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
+        tspan(x='694.5116' y='281.08456' style='font-size:16.6584px;stroke-width:.8')
+      text(x='562.90149' y='-43.498001' style='fill:#000000;font-family:Arial;font-size:16.6584px;line-height:125%;stroke-width:.8')
+        tspan(x='562.90149' y='-43.498001' style='font-size:16.6584px;stroke-width:.8') VARIES DEPENDING ON INPUT OPTION
+      path(d='m1452.3-5.4201v-84.5799' style='fill:none;stroke-width:.799999;stroke:#000000')
+
 
   //- body text and elements
-  text(x='1260.3188' y='196.42857' style='font-family:sans-serif;font-size:5.55555px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='1260.3188' y='196.42857' style='stroke-width:1.04167')
+  text(x='1260.3188' y='196.42857' style='font-family:sans-serif;font-size:5.55555px;line-height:1.25;stroke-width:.8' xml:space='preserve')
+    tspan(x='1260.3188' y='196.42857' style='stroke-width:.8')
   rect(x='1445.32' y='52.8782' width='168.548' height='25.8553' style='fill:none;stroke-width:.8;stroke:#000000')
-  text(x='1496.5536' y='69.782623' style='font-family:sans-serif;font-size:11.1111px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='1496.5536' y='69.782623' style='font-family:Arial;font-size:11.1111px;stroke-width:1.04167') AS SHIPPED
+  text(x='1496.5536' y='69.782623' style='font-family:sans-serif;font-size:11.1111px;line-height:1.25;stroke-width:.8' xml:space='preserve')
+    tspan(x='1496.5536' y='69.782623' style='font-family:Arial;font-size:11.1111px;stroke-width:.8') AS SHIPPED
   
   g(transform='translate(0 55)')
-    text(x='146.48903' y='877.89709' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='146.48903' y='877.89709' style='font-size:13.8889px;stroke-width:1.04167') NOTES:
-    text(x='143.75002' y='901.95972' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='143.75002' y='901.95972' style='font-size:13.8889px;stroke-width:1.04167') 1.   ATTACHED HINGES ARE FOR SHIPPING AND HANDLING PURPOSES ONLY.
-    text(x='143.75002' y='920.72321' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='143.75002' y='920.72321' style='font-size:13.8889px;stroke-width:1.04167') 2.   BEFORE INSTALLATION REMOVE HINGES AND SECURE PIPE SPLICES WITH
+    text(x='146.48903' y='877.89709' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:.8' xml:space='preserve')
+      tspan(x='146.48903' y='877.89709' style='font-size:13.8889px;stroke-width:.8') NOTES:
+    text(x='143.75002' y='901.95972' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:.8' xml:space='preserve')
+      tspan(x='143.75002' y='901.95972' style='font-size:13.8889px;stroke-width:.8') 1.   ATTACHED HINGES ARE FOR SHIPPING AND HANDLING PURPOSES ONLY.
+    text(x='143.75002' y='920.72321' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:.8' xml:space='preserve')
+      tspan(x='143.75002' y='920.72321' style='font-size:13.8889px;stroke-width:.8') 2.   BEFORE INSTALLATION REMOVE HINGES AND SECURE PIPE SPLICES WITH
       tspan(x='143.75002' y='938.08435')       SET SCREWS PROVIDED.
-    text(x='143.75002' y='956.56299' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='143.75002' y='956.56299' style='font-size:13.8889px;stroke-width:1.04167') 3.   APPROXIMATE TOTAL ASSEMBLY WEIGHT (LBS):
-    text(x='518.46448' y='957.43396' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-      tspan(x='518.46448' y='957.43396' style='font-size:13.8889px;stroke-width:1.04167') 80.80
+    text(x='143.75002' y='956.56299' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:.8' xml:space='preserve')
+      tspan(x='143.75002' y='956.56299' style='font-size:13.8889px;stroke-width:.8') 3.   APPROXIMATE TOTAL ASSEMBLY WEIGHT (LBS):
+    text(x='518.46448' y='957.43396' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:.8' xml:space='preserve')
+      tspan(x='518.46448' y='957.43396' style='font-size:13.8889px;stroke-width:.8') 80.80
 
   //-------------------- Pipe Logic --------------------//
   - let pipeY
@@ -89,8 +107,9 @@ mixin sheetFive(options)
   
   
   //- first endCap
-  g(transform=`translate(415 260) scale(.60) rotate(${rotateString})`)
-    +endCap(96)
+  -if(options.powerInputPosition === 'T')
+    g(transform=`translate(415 260) scale(.60) rotate(${rotateString})`)
+      +endCap(96)
   
   //- 96 inch pipes 
   - for( p = 0; p < options.foldSheetData._96; p++ )
@@ -185,3 +204,34 @@ mixin sheetFive(options)
         +hinge(rotateString)
   
   //-------------------- Dimension Logic --------------------//
+  - const vertArrowX = -100
+  g(transform=`translate(415 260) scale(.60)`)
+    +foldedTop()
+  //- top line
+  g(transform=`translate(415 260) scale(.60)`)
+    line(x1='-125' y1='0' x2='-25' y2='0' style='fill:none;stroke-width:.8;stroke:#000000') 
+  //- bottom line
+  g(transform=`translate(415 ${260 + ((row+1) * 18.6)}) scale(.60)`)
+    line(x1='-125' y1='0' x2='-25' y2='0' style='fill:none;stroke-width:.8;stroke:#000000')
+  
+  //- top vert
+  g(transform=`translate(415 260) scale(.60)`)
+    line(x1=`${vertArrowX}` y1='0' x2=`${vertArrowX}` y2=`${(row/2) *25 }` style='fill:none;stroke-width:.8;stroke:#000000')
+  //- bottom vert
+  g(transform=`translate(415 ${260 + ((row+1) * 18.6)}) scale(.60)`)
+    line(x1=`${vertArrowX}` y1='0' x2=`${vertArrowX}` y2=`-${(row/2) *25 }` style='fill:none;stroke-width:.8;stroke:#000000')
+  
+  //- top arrow
+  g(id='topArrow' transform='translate(415 260) scale(.60)')
+    polygon(points=`${vertArrowX},0 ${vertArrowX - 2.25},13 ${vertArrowX + 2.25},13` style='fill:#000000;stroke-width:.8;stroke:#000000')
+  //- bottom arrow  
+  g(id='bottomArrow' transform=`translate(415 ${260 + ((row+1) * 18.6)}) scale(.60)`)
+    polygon(points=`${vertArrowX},0 ${vertArrowX - 2.25},-13 ${vertArrowX + 2.25},-13` style='fill:#000000;stroke-width:.8;stroke:#000000')
+  
+  
+    
+    //-line(x1='-125' y1='400.65' x2='10' y2='400.65' style='fill:none;stroke-width:.8;stroke:#000000')
+    //- g(transform='translate(0 0) rotate()')
+    //-   path(d='m 2.377911,12.931916 -1.91695863,-12.52782078 4.07111873,0.0332105 z' style='fill:#000000;stroke-width:.8;stroke:#000000')  
+    //- g(transform='translate(0 0) rotate(180 2.34 7.22)')
+    //-   path(d='m 2.377911,12.931916 -1.91695863,-12.52782078 4.07111873,0.0332105 z' style='fill:#dddddd;stroke-width:.8;stroke:#dddddd')
