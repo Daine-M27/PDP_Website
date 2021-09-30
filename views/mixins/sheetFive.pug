@@ -211,12 +211,11 @@ mixin sheetFive(options)
   - const mainDimension = Math.floor(((row + 1) / 2) * 3.9)
 
   - let bottomHorizontalX = () => { 
-    - if(row % 2 != 0) {
+    - if(row % 2 != 0  && pipeOffset != 0) {
       - return ((96 * 15) - (pipeOffset * 15) - 25)
     - }
     - else
-      - return -25
-      
+      - return -25      
   - }
 
   - let arrowBaseTop = 13
@@ -262,9 +261,3 @@ mixin sheetFive(options)
     text( )
       tspan(x=`${verticalX + 5 }` y=`${centerPoint + 10}` style='font-size:16.6584px;stroke-width:.8') 16
     line(x1=`${verticalX + 5}` y1=`${centerPoint - 6}` x2=`${verticalX + 25}` y2=`${centerPoint - 6}` style='fill:#000000;stroke-width:.8;stroke:#000000')
-    
-    //-line(x1='-125' y1='400.65' x2='10' y2='400.65' style='fill:none;stroke-width:.8;stroke:#000000')
-    //- g(transform='translate(0 0) rotate()')
-    //-   path(d='m 2.377911,12.931916 -1.91695863,-12.52782078 4.07111873,0.0332105 z' style='fill:#000000;stroke-width:.8;stroke:#000000')  
-    //- g(transform='translate(0 0) rotate(180 2.34 7.22)')
-    //-   path(d='m 2.377911,12.931916 -1.91695863,-12.52782078 4.07111873,0.0332105 z' style='fill:#dddddd;stroke-width:.8;stroke:#dddddd')
