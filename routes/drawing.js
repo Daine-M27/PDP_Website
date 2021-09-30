@@ -10,7 +10,6 @@ class Sheet {
       this.sheetNumber = sheetNumber;
       this.date = new Date().toLocaleDateString();
       this.drawnBy = 'DM';
-      this.mainDrawing = {};
       this.bomItems = [];
       this.specifications = {};
       this.outletPositions = [];
@@ -56,7 +55,7 @@ router.get('/', function(req, res) {
     res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4} });
   }
   
-  console.log(tempReqObject)
+  //console.log(tempReqObject)
   
 });
 
