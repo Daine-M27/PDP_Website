@@ -19,30 +19,45 @@ class Sheet {
     }
 }
 
+const maxSheet = () => {
+  if (parseInt(tempReqObject.pipeLength) > 96) {
+    return '5'
+  }
+  else {
+    return '4'
+  }
+}
+
 /* GET drawing page. */
 router.get('/', function(req, res) {  
   // setup sheet1  
-  const sheet1 = new Sheet(tempReqObject, 'SHEET 1 OF 5') // replace with async data pull from mongodb
+  const sheet1 = new Sheet(tempReqObject, `SHEET 1 OF ${maxSheet()}`) // replace with async data pull from mongodb
   sheet1.bomItems = [...tempBomObject] // replace with async data pull from mongodb
   sheet1.specifications = JSON.parse(JSON.stringify(tempSpecificationsObject)) // replace with async data pull from mongodb
 
   // setup sheet2
-  const sheet2 = new Sheet(tempReqObject, 'SHEET 2 OF 5')
+  const sheet2 = new Sheet(tempReqObject, `SHEET 2 OF ${maxSheet()}`)
 
   // setup sheet3
-  const sheet3 = new Sheet(tempReqObject, 'SHEET 3 OF 5')
+  const sheet3 = new Sheet(tempReqObject, `SHEET 3 OF ${maxSheet()}`)
 
   // setup sheet4
-  const sheet4 = new Sheet(tempReqObject, 'SHEET 4 OF 5')
+  const sheet4 = new Sheet(tempReqObject, `SHEET 4 OF ${maxSheet()}`)
   sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
   sheet4.customLabels = [...tempCustomLabelObject]
   
   // setup sheet5
-  const sheet5 = new Sheet(tempReqObject, 'SHEET 5 OF 5')
-  sheet5.foldSheetData = getPipeData(sheet5)
-  console.log(sheet5.foldSheetData);
-
-  res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
+  if (parseInt(tempReqObject.pipeLength) > 96) {
+    const sheet5 = new Sheet(tempReqObject, 'SHEET 5 OF 5')
+    sheet5.foldSheetData = getPipeData(sheet5)
+    res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
+  }
+  else{
+    res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4} });
+  }
+  
+  console.log(tempReqObject)
+  
 });
 
 module.exports = router;
