@@ -99,165 +99,166 @@ mixin sheetFive(options)
     text(x='518.46448' y='957.43396' style='font-family:sans-serif;font-size:13.8889px;line-height:1.25;stroke-width:.8' xml:space='preserve')
       tspan(x='518.46448' y='957.43396' style='font-size:13.8889px;stroke-width:.8') 80.80
 
-  //-------------------- Pipe Logic --------------------//
-  - let pipeY
-  - let row
-  - let pipeOffset = 0
-  - let rotateString = '180 720.3 14.5' 
-  
-  
-  //- first endCap
-  -if(options.powerInputPosition === 'T')
-    g(transform=`translate(415 260) scale(.60) rotate(${rotateString})`)
-      +endCap(96)
-  
-  //- 96 inch pipes 
-  - for( p = 0; p < options.foldSheetData._96; p++ )
-    - pipeY = (260 + (p * 18.6))
-    - row = p    
-    g(transform=`translate(415 ${pipeY}) scale(.60)`)
-      - if( p == 0 || p % 2 == 0)
-        +8ft()        
-          - if (options.foldSheetData._48 === 0 && options.foldSheetData._32 === 0 && options.foldSheetData._16 === 0 && p === ( options.foldSheetData._96 - 1 ))
-            +endCap(96)
-      //- rotate 180
+  g(transform=`scale(1.3) translate(-175 0)`)
+    //-------------------- Pipe Logic --------------------//
+    - let pipeY
+    - let row
+    - let pipeOffset = 0
+    - let rotateString = '180 720.3 14.5' 
+    
+    
+    //- first endCap
+    -if(options.powerInputPosition === 'T')
+      g(transform=`translate(415 260) scale(.60) rotate(${rotateString})`)
+        +endCap(96)
+    
+    //- 96 inch pipes 
+    - for( p = 0; p < options.foldSheetData._96; p++ )
+      - pipeY = (260 + (p * 18.6))
+      - row = p    
+      g(transform=`translate(415 ${pipeY}) scale(.60)`)
+        - if( p == 0 || p % 2 == 0)
+          +8ft()        
+            - if (options.foldSheetData._48 === 0 && options.foldSheetData._32 === 0 && options.foldSheetData._16 === 0 && p === ( options.foldSheetData._96 - 1 ))
+              +endCap(96)
+        //- rotate 180
+        - else
+          +8ft(rotateString)
+            - if (options.foldSheetData._48 === 0 && options.foldSheetData._32 === 0 && options.foldSheetData._16 === 0 && p === ( options.foldSheetData._96 - 1 ))
+              +endCap(96)
+            
+    //- 48 inch pipes + 32 and 16
+    - if( options.foldSheetData._48 != 0)
+      - pipeOffset = 48
+      - pipeY = pipeY + 18.6
+      - row = row + 1
+      g(transform=`translate(415 ${pipeY}) scale(.60)`)
+        - if( row % 2 == 0)      
+            +4ft()
+              - if (options.foldSheetData._32 === 0 && options.foldSheetData._16 === 0 )
+                +endCap(pipeOffset)
+              
+              - if (options.foldSheetData._32 != 0)         
+                +32Inch(pipeOffset, 0)
+                  +endCap(32)
+              
+              - if (options.foldSheetData._16 != 0)
+                +16Inch(pipeOffset)
+                  +endCap(16)
+        //- rotate 180
+        - else
+            +4ft('180 720.3 14.5')
+              - if (options.foldSheetData._32 === 0 && options.foldSheetData._16 === 0 )
+                +endCap(pipeOffset)
+              
+              - if (options.foldSheetData._32 != 0)
+                +32Inch(pipeOffset, 0)
+                  +endCap(32)
+              
+              - if (options.foldSheetData._16 != 0)
+                +16Inch(pipeOffset, 0)
+                  +endCap(16)
+
+    //- 32 inch only
+    - if( options.foldSheetData._48 === 0 && options.foldSheetData._32 != 0)
+      - pipeOffset = 32
+      - pipeY = pipeY + 18.6
+      - row = row + 1
+      g(transform=`translate(415 ${pipeY}) scale(.60)`)
+        - if( row % 2 == 0)
+          +32Inch(0, '')
+            +endCap(pipeOffset)
+        //- rotate 180
+        - else 
+          +32Inch(0, rotateString)
+            +endCap(pipeOffset)
+
+    //- 16 inch only
+    - if( options.foldSheetData._48 === 0 && options.foldSheetData._16 != 0)
+      - pipeY = pipeY + 18.6
+      - row = row + 1
+      g(transform=`translate(415 ${pipeY}) scale(.60)`)
+        - if( row % 2 == 0)
+          +16Inch(0, '')
+            +endCap(16)
+        //- rotate 180
+        - else 
+          +16Inch(0, rotateString)
+            +endCap(16)
+
+    //-------------------- hinge logic --------------------//
+    - let hingeYEven
+    - let hingeYOdd
+    
+    //- even rows
+    - for( h = 0; h < row; h++ )
+      - hingeYEven = (260 + (h * 18.6))
+      - if( h === 0 || h % 2 === 0)
+        g(transform=`translate(415 ${hingeYEven}) scale(.60)`)
+          +hinge('')
+    
+    //- odd rows
+    - for( h = 1; h < row; h++)
+      - hingeYOdd = (278.6 + (h * 18.6))
+      - if( h === 1 || h % 2 != 0)
+        g(transform=`translate(415 ${hingeYOdd}) scale(.60)`)
+          +hinge(rotateString)
+    
+    //-------------------- Dimension Logic --------------------//
+    - const verticalX = -100
+    - const translateY = 260 + ((row+1) * 18.6)
+    - const verticalLength = (row/2) * 25
+    - const centerPoint = ((row+1)/2) * 30.819 + 5
+    - const mainDimension = Math.floor(((row + 1) / 2) * 3.9)
+
+    - let bottomHorizontalX = () => { 
+      - if(row % 2 != 0  && pipeOffset != 0) {
+        - return ((96 * 15) - (pipeOffset * 15) - 25)
+      - }
       - else
-        +8ft(rotateString)
-          - if (options.foldSheetData._48 === 0 && options.foldSheetData._32 === 0 && options.foldSheetData._16 === 0 && p === ( options.foldSheetData._96 - 1 ))
-            +endCap(96)
-          
-  //- 48 inch pipes + 32 and 16
-  - if( options.foldSheetData._48 != 0)
-    - pipeOffset = 48
-    - pipeY = pipeY + 18.6
-    - row = row + 1
-    g(transform=`translate(415 ${pipeY}) scale(.60)`)
-      - if( row % 2 == 0)      
-          +4ft()
-            - if (options.foldSheetData._32 === 0 && options.foldSheetData._16 === 0 )
-              +endCap(pipeOffset)
-            
-            - if (options.foldSheetData._32 != 0)         
-              +32Inch(pipeOffset, 0)
-                +endCap(32)
-            
-            - if (options.foldSheetData._16 != 0)
-              +16Inch(pipeOffset)
-                +endCap(16)
-      //- rotate 180
-      - else
-          +4ft('180 720.3 14.5')
-            - if (options.foldSheetData._32 === 0 && options.foldSheetData._16 === 0 )
-              +endCap(pipeOffset)
-            
-            - if (options.foldSheetData._32 != 0)
-              +32Inch(pipeOffset, 0)
-                +endCap(32)
-            
-            - if (options.foldSheetData._16 != 0)
-              +16Inch(pipeOffset, 0)
-                +endCap(16)
-
-  //- 32 inch only
-  - if( options.foldSheetData._48 === 0 && options.foldSheetData._32 != 0)
-    - pipeOffset = 32
-    - pipeY = pipeY + 18.6
-    - row = row + 1
-    g(transform=`translate(415 ${pipeY}) scale(.60)`)
-      - if( row % 2 == 0)
-        +32Inch(0, '')
-          +endCap(pipeOffset)
-      //- rotate 180
-      - else 
-        +32Inch(0, rotateString)
-          +endCap(pipeOffset)
-
-  //- 16 inch only
-  - if( options.foldSheetData._48 === 0 && options.foldSheetData._16 != 0)
-    - pipeY = pipeY + 18.6
-    - row = row + 1
-    g(transform=`translate(415 ${pipeY}) scale(.60)`)
-      - if( row % 2 == 0)
-        +16Inch(0, '')
-          +endCap(16)
-      //- rotate 180
-      - else 
-        +16Inch(0, rotateString)
-          +endCap(16)
-
-  //-------------------- hinge logic --------------------//
-  - let hingeYEven
-  - let hingeYOdd
-  
-  //- even rows
-  - for( h = 0; h < row; h++ )
-    - hingeYEven = (260 + (h * 18.6))
-    - if( h === 0 || h % 2 === 0)
-      g(transform=`translate(415 ${hingeYEven}) scale(.60)`)
-        +hinge('')
-  
-  //- odd rows
-  - for( h = 1; h < row; h++)
-    - hingeYOdd = (278.6 + (h * 18.6))
-    - if( h === 1 || h % 2 != 0)
-      g(transform=`translate(415 ${hingeYOdd}) scale(.60)`)
-        +hinge(rotateString)
-  
-  //-------------------- Dimension Logic --------------------//
-  - const verticalX = -100
-  - const translateY = 260 + ((row+1) * 18.6)
-  - const verticalLength = (row/2) * 25
-  - const centerPoint = ((row+1)/2) * 30.819 + 5
-  - const mainDimension = Math.floor(((row + 1) / 2) * 3.9)
-
-  - let bottomHorizontalX = () => { 
-    - if(row % 2 != 0  && pipeOffset != 0) {
-      - return ((96 * 15) - (pipeOffset * 15) - 25)
+        - return -25      
     - }
-    - else
-      - return -25      
-  - }
 
-  - let arrowBaseTop = 13
-  - let arrowBaseBottom = -13
-  
-  - if (mainDimension < 7)
-    - arrowBaseTop = -13
-    - arrowBaseBottom = 13
+    - let arrowBaseTop = 13
+    - let arrowBaseBottom = -13
+    
+    - if (mainDimension < 7)
+      - arrowBaseTop = -13
+      - arrowBaseBottom = 13
 
-  g(transform=`translate(415 260) scale(.60)`)
-    +foldedTop()
-  //- top horizontal line
-  g(transform=`translate(415 260) scale(.60)`)
-    line(x1='-125' y1='0' x2='-25' y2='0' style='fill:none;stroke-width:.8;stroke:#000000') 
-  //- bottom horizontal line
-  g(transform=`translate(415 ${translateY}) scale(.60)`)
-    line(x1='-125' y1='0' x2=`${bottomHorizontalX()}` y2='0' style='fill:none;stroke-width:.8;stroke:#000000')
-
-  - if (mainDimension > 7)
-    //- top vert line
     g(transform=`translate(415 260) scale(.60)`)
-      line(x1=`${verticalX}` y1='0' x2=`${verticalX}` y2=`${verticalLength}` style='fill:none;stroke-width:.8;stroke:#000000')
-    //- bottom vert line
+      +foldedTop()
+    //- top horizontal line
+    g(transform=`translate(415 260) scale(.60)`)
+      line(x1='-125' y1='0' x2='-25' y2='0' style='fill:none;stroke-width:.8;stroke:#000000') 
+    //- bottom horizontal line
     g(transform=`translate(415 ${translateY}) scale(.60)`)
-      line(x1=`${verticalX}` y1='0' x2=`${verticalX}` y2=`-${verticalLength}` style='fill:none;stroke-width:.8;stroke:#000000')
-  
-  
-  //- top arrow
-  g(id='topArrow' transform='translate(415 260) scale(.60)')
-    polygon(points=`${verticalX},0 ${verticalX - 2.25},${arrowBaseTop} ${verticalX + 2.25},${arrowBaseTop}` style='fill:#000000;stroke-width:.8;stroke:#000000')
-  //- bottom arrow  
-  g(id='bottomArrow' transform=`translate(415 ${translateY}) scale(.60)`)
-    polygon(points=`${verticalX},0 ${verticalX - 2.25},${arrowBaseBottom} ${verticalX + 2.25},${arrowBaseBottom}` style='fill:#000000;stroke-width:.8;stroke:#000000')
-  
-  //- text
-  g(transform=`translate(415 260) scale(.60)`)
-    text(text-anchor='end')
-      tspan(x=`${verticalX}` y=`${centerPoint}` style='font-size:16.6584px;stroke-width:.8') !{mainDimension}
-    text(text-anchor='end')
-      tspan(x=`${verticalX + 34}` y=`${centerPoint}` style='font-size:16.6584px;stroke-width:.8') &quot;
-    text( )
-      tspan(x=`${verticalX + 5}` y=`${centerPoint - 10}` style='font-size:16.6584px;stroke-width:.8') 15
-    text( )
-      tspan(x=`${verticalX + 5 }` y=`${centerPoint + 10}` style='font-size:16.6584px;stroke-width:.8') 16
-    line(x1=`${verticalX + 5}` y1=`${centerPoint - 6}` x2=`${verticalX + 25}` y2=`${centerPoint - 6}` style='fill:#000000;stroke-width:.8;stroke:#000000')
+      line(x1='-125' y1='0' x2=`${bottomHorizontalX()}` y2='0' style='fill:none;stroke-width:.8;stroke:#000000')
+
+    - if (mainDimension > 7)
+      //- top vert line
+      g(transform=`translate(415 260) scale(.60)`)
+        line(x1=`${verticalX}` y1='0' x2=`${verticalX}` y2=`${verticalLength}` style='fill:none;stroke-width:.8;stroke:#000000')
+      //- bottom vert line
+      g(transform=`translate(415 ${translateY}) scale(.60)`)
+        line(x1=`${verticalX}` y1='0' x2=`${verticalX}` y2=`-${verticalLength}` style='fill:none;stroke-width:.8;stroke:#000000')
+    
+    
+    //- top arrow
+    g(id='topArrow' transform='translate(415 260) scale(.60)')
+      polygon(points=`${verticalX},0 ${verticalX - 2.25},${arrowBaseTop} ${verticalX + 2.25},${arrowBaseTop}` style='fill:#000000;stroke-width:.8;stroke:#000000')
+    //- bottom arrow  
+    g(id='bottomArrow' transform=`translate(415 ${translateY}) scale(.60)`)
+      polygon(points=`${verticalX},0 ${verticalX - 2.25},${arrowBaseBottom} ${verticalX + 2.25},${arrowBaseBottom}` style='fill:#000000;stroke-width:.8;stroke:#000000')
+    
+    //- text
+    g(transform=`translate(415 260) scale(.60)`)
+      text(text-anchor='end')
+        tspan(x=`${verticalX}` y=`${centerPoint}` style='font-size:16.6584px;stroke-width:.8') !{mainDimension}
+      text(text-anchor='end')
+        tspan(x=`${verticalX + 34}` y=`${centerPoint}` style='font-size:16.6584px;stroke-width:.8') &quot;
+      text( )
+        tspan(x=`${verticalX + 5}` y=`${centerPoint - 10}` style='font-size:16.6584px;stroke-width:.8') 15
+      text( )
+        tspan(x=`${verticalX + 5 }` y=`${centerPoint + 10}` style='font-size:16.6584px;stroke-width:.8') 16
+      line(x1=`${verticalX + 5}` y1=`${centerPoint - 6}` x2=`${verticalX + 25}` y2=`${centerPoint - 6}` style='fill:#000000;stroke-width:.8;stroke:#000000')
