@@ -1,7 +1,7 @@
 const tempReqObject = {
   color: "B",
-  dataInput: "X",
-  dataOutput: "X",
+  dataInput: "J",
+  dataOutput: "Z",
   dataPowerLocation: "I",
   dmxUniverses: "1",
   endCap: "R",
@@ -13,68 +13,68 @@ const tempReqObject = {
   pipeLength: "1200",
   pipeSize: "1.5",
   powerInputPosition: "E",
-  powerInput: "W1",
+  powerInput: "S1",
   powerOutput: "E",
 };
 
 const tempBomObject = [
   {
     itemNo: '1',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   },
   {
     itemNo: '2',
-    partNo: 'PDP-K-PDM-E5XLR-INPT',
+    partNo: 'PDP-K-PDM-E5XLR-INPTTESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   },
   {
     itemNo: '3',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '11'
   },
   {
     itemNo: '4',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'WIRE LEADS, LEFT',
     qty: '2'
   },
   {
     itemNo: '5',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   },
   {
     itemNo: '6',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   },
   {
     itemNo: '7',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   },
   {
     itemNo: '8',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   },
   {
     itemNo: '9',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   },
   {
     itemNo: '10',
-    partNo: 'PDP1.5-96-6-16-M-1',
+    partNo: 'PDP1.5-96-6-16-M-1TESTDATA',
     description: 'BATTEN, 1.5" SCH 80 X 96 - 6 RECP. MILL',
     qty: '2'
   }

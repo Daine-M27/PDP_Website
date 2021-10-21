@@ -18,8 +18,8 @@ class Sheet {
     }
 }
 
-const maxSheet = () => {
-  if (parseInt(tempReqObject.pipeLength) > 96) {
+const maxSheet = (length) => {
+  if (parseInt(length) > 96) {
     return '5'
   }
   else {
@@ -28,20 +28,23 @@ const maxSheet = () => {
 }
 
 /* GET drawing page. */
-router.get('/', function(req, res) {  
+router.get('/', function(req, res) {
+  // get number of sheets
+  const numSheets = maxSheet(tempReqObject.pipeLength)
+  
   // setup sheet1  
-  const sheet1 = new Sheet(tempReqObject, `SHEET 1 OF ${maxSheet()}`) // replace with async data pull from mongodb
+  const sheet1 = new Sheet(tempReqObject, `SHEET 1 OF ${numSheets}`) // replace with async data pull from mongodb
   sheet1.bomItems = [...tempBomObject] // replace with async data pull from mongodb
   sheet1.specifications = JSON.parse(JSON.stringify(tempSpecificationsObject)) // replace with async data pull from mongodb
 
   // setup sheet2
-  const sheet2 = new Sheet(tempReqObject, `SHEET 2 OF ${maxSheet()}`)
+  const sheet2 = new Sheet(tempReqObject, `SHEET 2 OF ${numSheets}`)
 
   // setup sheet3
-  const sheet3 = new Sheet(tempReqObject, `SHEET 3 OF ${maxSheet()}`)
+  const sheet3 = new Sheet(tempReqObject, `SHEET 3 OF ${numSheets}`)
 
   // setup sheet4
-  const sheet4 = new Sheet(tempReqObject, `SHEET 4 OF ${maxSheet()}`)
+  const sheet4 = new Sheet(tempReqObject, `SHEET 4 OF ${numSheets}`)
   sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
   sheet4.customLabels = [...tempCustomLabelObject]
   
@@ -52,7 +55,7 @@ router.get('/', function(req, res) {
     res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
   }
   else{
-    res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4} });
+    res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4 } });
   }
   
   //console.log(tempReqObject)

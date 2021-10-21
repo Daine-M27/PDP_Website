@@ -158,7 +158,7 @@ mixin sheetOne(options)
 
   //---------------------------------------- Main Drawing ----------------------------------------//
   +pipes(options.pipeLength, options.pipeSize)
-    +outlets(options.dataInput, options.numberOfOutlets)
+    +outlets(options.dataOutput, options.numberOfOutlets)
     +endCaps(options.pipeLength, options.pipeSize, options.endCap, options.powerInputPosition)
     +powerInputs(options.powerInput, options.pipeLength, options.pipeSize, options.powerInputPosition)
     +dmxBoxes(options.dmxUniverses, options.dataInput)
