@@ -7,7 +7,7 @@ const tempReqObject = {
   endCap: "R",
   leadWhipLength: "60",
   numberOfCircuits: "4",
-  numberOfOutlets: "75",
+  numberOfOutlets: "50",
   outletSpacing: "16",
   partNumber: "PDP1.5B240-4L1EX15-EX16R",
   pipeLength: "1200",
