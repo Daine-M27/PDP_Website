@@ -145,3 +145,14 @@ form.form { position: relative;}
 form.form label { display:block; line-height:20px; font-size:13px; font-weight:normal; padding-left: 1px; margin-top: 8px;}
 form.form hr { border: none; border-top:solid 1px #eee; }
 form.form .pull-right { position: absolute; left: 350px;  margin-top:-52px; }
+
+
+/* custom MEGABATTEN css */
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}

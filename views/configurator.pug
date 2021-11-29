@@ -2,6 +2,9 @@ extends layout
 
 block content
   #contents(style='margin-bottom:10rem')
+  #submitSpecs.display-none
+    h1= 'Get Drawing'
+    button(id='#btn_submit_drawing' onclick='getDrawing()') Submit
   br
   br
   br

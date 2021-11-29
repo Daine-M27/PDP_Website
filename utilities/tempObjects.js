@@ -2,7 +2,7 @@ const tempReqObject = {
   color: "B",
   dataInput: "J",
   dataOutput: "Z",
-  dataPowerLocation: "I",
+  dataPowerLocation: "N",
   dmxUniverses: "1",
   endCap: "R",
   leadWhipLength: "60",
@@ -13,7 +13,7 @@ const tempReqObject = {
   pipeLength: "1200",
   pipeSize: "1.5",
   powerInputPosition: "E",
-  powerInput: "S1",
+  powerInput: "C1",
   powerOutput: "E",
 };
 
