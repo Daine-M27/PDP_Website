@@ -199,7 +199,17 @@ const simSelection = (id, value) => {
 
 
 function getDrawing(){
-  console.log('get Drawing')
+  const dataObjects = {data:[]}
+  $('.selection').each(function() {
+    const obj = JSON.parse($(this).attr('data-object'))
+    obj.CatalogDescription = $(this).text().replace(/\r?\n|\r/g, '').replace('Selected:', '').replace(/\s/g, '')
+    
+    // console.log(obj);
+    dataObjects.data.push(obj)    
+  }) 
+  $.post('/drawing/postDrawing', dataObjects, function(res){
+    console.log(res)
+  })
 }
 //----------------------------- initial choice loaded on page load -----------------------------//
 window.onload = async () => { 
