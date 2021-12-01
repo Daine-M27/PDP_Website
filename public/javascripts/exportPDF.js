@@ -8,11 +8,11 @@ function downloadPDF() {
     },
     image: {
       type: 'jpeg',
-      quality: .60
+      quality: .80
     },
     jsPDF: {
       unit: 'in',
-      format: [11.05, 17.05],
+      format: [11.25, 17.25],
       orientation: 'landscape',
       compress: true
     },

@@ -9,7 +9,7 @@
     "ComponentTypeName": "${componentObject.ComponentTypeName}",
     "OrderOfAppearance": ${componentObject.OrderOfAppearance},
     "ProductComponentTypeID": ${componentObject.ProductComponentTypeID},
-    "CatalogDescription": "",
+    "CatalogDescription": "${componentObject.ComponentTypeName === 'Length (in)' ?  catalogObject.CatalogID : catalogObject.CatalogDescription}",
     "CatalogID": "${catalogObject.CatalogID}",
     "CatalogIdentifierID": ${catalogObject.CatalogIdentifierID},
     "ChildDecisionNodeID": ${catalogObject.ChildDecisionNodeID},
@@ -48,9 +48,7 @@ function addChoiceRow(componentData){
   // create notes text for component
   const componentNotes = (id) => {
     componentData.Notes.forEach((note) => {
-      $(`#${id}`).append(
-        `<li>${note.Note}</li>`
-      )
+      $(`#${id}`).append(`<li>${note.Note}</li>`)
     })
   }
   // write HTML to DOM
@@ -199,16 +197,19 @@ const simSelection = (id, value) => {
 
 
 function getDrawing(){
-  const dataObjects = {data:[]}
+  const dataObjects = {drawingData:[]}
   $('.selection').each(function() {
     const obj = JSON.parse($(this).attr('data-object'))
-    obj.CatalogDescription = $(this).text().replace(/\r?\n|\r/g, '').replace('Selected:', '').replace(/\s/g, '')
-    
+
     // console.log(obj);
-    dataObjects.data.push(obj)    
+    dataObjects.drawingData.push(obj)    
   }) 
   $.post('/drawing/postDrawing', dataObjects, function(res){
+    
+    // enable spinner for loading of drawing page //
+    
     console.log(res)
+    window.location.replace(`/drawing/${res}`)
   })
 }
 //----------------------------- initial choice loaded on page load -----------------------------//

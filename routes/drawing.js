@@ -1,6 +1,7 @@
-const { getPipeData, chartRows } = require('../utilities/sheetBuilder')
-const { tempReqObject, tempSpecificationsObject, tempBomObject, tempCustomLabelObject } = require('../utilities/tempObjects')
+const { getPipeData, chartRows } = require('../utilities/sheetBuilder');
+const { tempReqObject, tempSpecificationsObject, tempBomObject, tempCustomLabelObject } = require('../utilities/tempObjects');
 const express = require('express');
+const drawingData = require('../models/DrawingData');
 const router = express.Router();
 
 
@@ -28,7 +29,8 @@ const maxSheet = (length) => {
 }
 
 /* GET drawing page. */
-router.get('/', function(req, res) {
+router.get('/:drawingId', function(req, res) {
+  console.log(req.params.drawingId, 'drawing page')
   // get number of sheets
   const numSheets = maxSheet(tempReqObject.pipeLength)
   
@@ -60,11 +62,21 @@ router.get('/', function(req, res) {
 });
 
 
-router.post('/postDrawing', function(req, res) {
-  
-  console.log(req.body)
-  res.status(200).end('posted')
-})
+router.post('/postDrawing', async function(req, res) {
+  // console.log(req.body);
+  try {
+    await drawingData.create(req.body)
+      .then((response) => {
+        // console.log(response._id)
+        // res.redirect(`/drawing/${response._id}`)
+        res.status(200).end(`${response._id}`)
+      })
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).end(`Error: ${error}`)
+  }
+});
 
 module.exports = router;
 

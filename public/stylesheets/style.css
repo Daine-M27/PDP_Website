@@ -156,3 +156,9 @@ form.form .pull-right { position: absolute; left: 350px;  margin-top:-52px; }
 .display-block {
   display: block;
 }
+
+svg {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
