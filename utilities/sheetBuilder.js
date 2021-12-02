@@ -1,6 +1,8 @@
 const pipeDataJson = require('../json/pipePaths.json')
 const pipeDrawingOrigin = {'x': 100, 'y': 600}
 const  { findStroke, findScale } = require('./measurements')
+const bomItems = require('../models/BOMItems')
+
 
 /**
  * Function to create a matrix string for each g element
@@ -150,4 +152,63 @@ function sheetOne(options) {
 }
 
 
-module.exports = { sheetOne, chartRows, getPipeData };
+ 
+
+function bomBuilder(drawingArray) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const getIds = (obj, keyName) => {
+        const results = [];
+        obj.forEach((entry) => {
+          results.push(entry[keyName])
+        })
+        return results
+      }
+
+      const intersection = (arr1, ...arr2) => {
+        return arr1.filter(item => arr2.every(arr1 => arr1.includes(item)))
+      }
+
+      const productComponentIds = getIds(drawingArray, 'ProductComponentTypeID')
+      const catalogIds = getIds(drawingArray, 'CatalogIdentifierID')
+      const bomObjects = await bomItems.find()
+      const outputObjects = [];
+
+      
+  
+      
+      bomObjects.forEach(entry => {
+        const componentTypeIDsLength = entry.ComponentTypeIDs.length;
+        const matchingCompIds = intersection(productComponentIds, entry.ComponentTypeIDs)
+        
+        // match all entrys in componentTypeIds array with productComponentIds array contents
+        if (matchingCompIds.length === componentTypeIDsLength) {
+          const matchingCatalogIds = intersection(catalogIds, entry.CatalogIDs)
+          
+          // match as many catalogIds as the entry contains componentTypeIds ... if 3 componentTypeIds, match at least 3 of the catalogIds and so on
+          if(matchingCatalogIds.length >= componentTypeIDsLength){
+            const indexCheck = outputObjects.findIndex(object => object.partNo === entry.PartNumber)
+            const outputItemNo = outputObjects.length + 1
+            // add to result object, if already exists in results increment quantity
+            if (indexCheck === -1) {
+              outputObjects.push({ // add part number, description, and qty to bom result object
+                'itemNo': outputItemNo,
+                'partNo': entry.PartNumber,
+                'description': entry.Description,
+                'qty': entry.Quantity
+              })
+            } else {
+              outputObjects[indexCheck].qty = outputObjects[indexCheck].qty + entry.Quantity
+            }            
+          }
+        }  
+      });
+
+      resolve(outputObjects)
+    } catch (error) {
+      reject(error)
+    }
+  });
+}
+
+module.exports = { sheetOne, chartRows, getPipeData, bomBuilder };

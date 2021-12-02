@@ -9,7 +9,7 @@
     "ComponentTypeName": "${componentObject.ComponentTypeName}",
     "OrderOfAppearance": ${componentObject.OrderOfAppearance},
     "ProductComponentTypeID": ${componentObject.ProductComponentTypeID},
-    "CatalogDescription": "${componentObject.ComponentTypeName === 'Length (in)' ?  catalogObject.CatalogID : catalogObject.CatalogDescription}",
+    "CatalogDescription": "${componentObject.ComponentTypeName.includes('Length')  ?  catalogObject.CatalogID : catalogObject.CatalogDescription}",
     "CatalogID": "${catalogObject.CatalogID}",
     "CatalogIdentifierID": ${catalogObject.CatalogIdentifierID},
     "ChildDecisionNodeID": ${catalogObject.ChildDecisionNodeID},
