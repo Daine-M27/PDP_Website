@@ -94,7 +94,7 @@ mixin sheetOne(options)
   text(text-anchor='middle')
     tspan(x='1435' y='183.71603' style='font-family:Arial;font-size:11.1111px;stroke-width:1.04167') !{options.specifications.pipeSize} 
   text()
-    tspan(x='1196.8829' y='199.82175' style='font-family:Arial;font-size:11.1111px;stroke-width:1.04167') PIPE LENGTH (IN) 
+    tspan(x='1196.8829' y='201' style='font-family:Arial;font-size:11.1111px;stroke-width:1.04167') PIPE LENGTH (IN) 
   text(text-anchor='middle')
     tspan(x='1435' y='199.59387' style='font-family:Arial;font-size:11.1111px;stroke-width:1.04167') !{options.specifications.pipeLength} 
   text()
@@ -157,9 +157,10 @@ mixin sheetOne(options)
     tspan(x='1575.75' y='99' style='font-family:Arial;font-size:10px;stroke-width:1.06509') !{options.drawnBy}
 
   //---------------------------------------- Main Drawing ----------------------------------------//
-  +pipes(options.pipeLength, options.pipeSize)
-    +outlets(options.dataOutput, options.numberOfOutlets)
-    +endCaps(options.pipeLength, options.pipeSize, options.endCap, options.powerInputPosition)
-    +powerInputs(options.powerInput, options.pipeLength, options.pipeSize, options.powerInputPosition)
-    +dmxBoxes(options.dmxUniverses, options.dataInput)
-    +dimensions(options)
+  g(transform=`translate(0 110)`)
+    +pipes(options.pipeLength, options.pipeSize)
+      +outlets(options.dataOutput, options.numberOfOutlets)
+      +endCaps(options.pipeLength, options.pipeSize, options.endCap, options.powerInputPosition)
+      +powerInputs(options.powerInput, options.pipeLength, options.pipeSize, options.powerInputPosition)
+      +dmxBoxes(options.dmxUniverses, options.dataInput)
+      +dimensions(options)
