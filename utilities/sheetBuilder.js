@@ -223,7 +223,7 @@ function reqObjBuilder(drawingArray) {
     const pnArray = [];
     //create partnumber
     drwArry2.forEach(obj => {
-      if (obj.ExcludeFromPartNumber === 'false') {
+      if (obj.ExcludeFromPartNumber === 'false' && obj.ComponentTypeName !== 'Seperator-3') {
         pnArray.push(obj.CatalogID)
       }  
     });

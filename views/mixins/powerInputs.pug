@@ -156,14 +156,14 @@ mixin powerInputs(type, length, diameter, position)
 
   
   //- power input options 
-  - if (type === 'S1' )
+  - if (type === 'S' )
     +S1_1-5()
     
   - if (type === 'S2' )
     +S1_1-5()
     +S2_1-5(moveX)
 
-  - if (type === 'L1')
+  - if (type === 'L')
     +L1()
     
   - if (type === 'L2')
@@ -171,24 +171,24 @@ mixin powerInputs(type, length, diameter, position)
     +L1()
     +L2(moveX)
 
-  - if (type === 'W1' && position === 'E')
+  - if (type === 'W' && position === 'E')
     +W1()
     
   - if (type === 'W2')
     +W1()
     +W2(moveX)
 
-  - if (type === 'W1' && position === 'T')
+  - if (type === 'W' && position === 'T')
     +WT()
 
   //- conduit box positoin on page relative to length of pipes
-  - if (type ==='C1' && length === '48')
+  - if (type ==='C' && length === '48')
     +C1(900, 340)
-  - if (type ==='C1' && length === '64')
+  - if (type ==='C' && length === '64')
     +C1(1020, 340)
-  - if (type ==='C1' && length === '80')
+  - if (type ==='C' && length === '80')
     +C1(1138, 340)
-  - if (type ==='C1' && length === '96')
+  - if (type ==='C' && length === '96')
     +C1(1258, 340)
-  - if (type ==='C1' && length > 96)
+  - if (type ==='C' && length > 96)
     +C1(1310, 340)

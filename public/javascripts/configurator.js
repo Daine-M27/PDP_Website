@@ -96,7 +96,13 @@ function addChoiceRow(componentData){
     if (componentData.Catalogs.length < 2) {
       selectValue = componentData.Catalogs[0].CatalogID
       simSelection(elemId, selectValue)
-    } else {
+    } 
+    else if(componentData.ComponentTypeName.includes('Curve')) {
+      const indexPosition = componentData.Catalogs.findIndex(object=> object.CatalogID === 'N')
+      selectValue = componentData.Catalogs[indexPosition].CatalogID
+      simSelection(elemId, selectValue)
+    }
+    else {
       // get length and universes
       const pipeLength = parseInt(JSON.parse($('[name="Length (in)"] + .selection').attr('data-object')).CatalogID)
       const numUniverses = parseInt(JSON.parse($('[name="Universes"] + .selection').attr('data-object')).CatalogID)
