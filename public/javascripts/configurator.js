@@ -13,7 +13,8 @@
     "CatalogID": "${catalogObject.CatalogID}",
     "CatalogIdentifierID": ${catalogObject.CatalogIdentifierID},
     "ChildDecisionNodeID": ${catalogObject.ChildDecisionNodeID},
-    "ParentDecisionNodeID": ${catalogObject.ParentDecisionNodeID}
+    "ParentDecisionNodeID": ${catalogObject.ParentDecisionNodeID},
+    "ExcludeFromPartNumber": "${catalogObject.ExcludeFromPartNumber}"
   }`
   return outputObject
 }

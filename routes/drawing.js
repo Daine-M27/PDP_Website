@@ -1,4 +1,4 @@
-const { getPipeData, chartRows, bomBuilder } = require('../utilities/sheetBuilder');
+const { getPipeData, chartRows, bomBuilder, reqObjBuilder } = require('../utilities/sheetBuilder');
 const { tempReqObject, tempSpecificationsObject, tempBomObject, tempCustomLabelObject } = require('../utilities/tempObjects');
 const express = require('express');
 const drawingData = require('../models/DrawingData');
@@ -29,12 +29,18 @@ const maxSheet = (length) => {
 
 /* GET drawing page. */
 router.get('/:drawingId', async function(req, res) {
-  console.log(req.params.drawingId, 'drawing page')
+  // console.log(req.params.drawingId, 'drawing page')
+  try {
+    const drawing = await drawingData.findById(req.params.drawingId).exec();
+    const reqObject = await reqObjBuilder(drawing.drawingData);
+    //const bom = await bomBuilder(drawing.drawingData);
 
-  const drawing = await drawingData.findById(req.params.drawingId).exec();
-  // console.log(drawing.drawingData);
-  const bom = await bomBuilder(drawing.drawingData);
-  console.log(bom)
+    console.log(reqObject)
+    res.end('done')
+  } catch (error) {
+    
+  }
+  
 
 
   // // get number of sheets

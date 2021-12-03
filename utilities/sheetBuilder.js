@@ -153,7 +153,11 @@ function sheetOne(options) {
 
 
  
-
+/**
+ * This function filters only the needed BOM components for each drawing
+ * @param {array} drawingArray 
+ * @returns array
+ */
 function bomBuilder(drawingArray) {
   return new Promise(async (resolve, reject) => {
     try {
@@ -174,9 +178,6 @@ function bomBuilder(drawingArray) {
       const bomObjects = await bomItems.find()
       const outputObjects = [];
 
-      
-  
-      
       bomObjects.forEach(entry => {
         const componentTypeIDsLength = entry.ComponentTypeIDs.length;
         const matchingCompIds = intersection(productComponentIds, entry.ComponentTypeIDs)
@@ -191,7 +192,7 @@ function bomBuilder(drawingArray) {
             const outputItemNo = outputObjects.length + 1
             // add to result object, if already exists in results increment quantity
             if (indexCheck === -1) {
-              outputObjects.push({ // add part number, description, and qty to bom result object
+              outputObjects.push({ // add item number, part number, description, and qty to bom result object
                 'itemNo': outputItemNo,
                 'partNo': entry.PartNumber,
                 'description': entry.Description,
@@ -211,4 +212,66 @@ function bomBuilder(drawingArray) {
   });
 }
 
-module.exports = { sheetOne, chartRows, getPipeData, bomBuilder };
+
+
+function reqObjBuilder(drawingArray) {
+  
+  // sort drawing array by order of apperance for part number
+  const drwArry2 = drawingArray.slice().sort(function(a, b){return a.OrderOfAppearance - b.OrderOfAppearance});
+
+  const partNumber = () => {
+    const pnArray = [];
+    //create partnumber
+    drwArry2.forEach(obj => {
+      if (obj.ExcludeFromPartNumber === 'false') {
+        pnArray.push(obj.CatalogID)
+      }  
+    });
+
+    //console.log(pnArray.join(''))
+    return pnArray.join('') 
+  }
+
+  const findComponent = (componentName, property) => {
+    const result = drwArry2.find( ({ComponentTypeName}) => ComponentTypeName === `${componentName}` )
+    return result[property]
+  }
+
+  
+  
+  return {
+    selections: {
+      color: findComponent("Color", "CatalogID"),
+      dataInput: findComponent("Data Input Type", "CatalogID"),
+      dataOutput: findComponent("Data Output Type", "CatalogID"),
+      dataPowerLocation: findComponent("Data Power Location", "CatalogID"),
+      dmxUniverses: findComponent("Universes", "CatalogID"),
+      endCap: findComponent("End Cap Type", "CatalogID"),
+      leadWhipLength: findComponent("Lead Length (ft)", "CatalogID"),
+      numberOfCircuits: findComponent("Circuits", "CatalogID"),
+      numberOfOutlets: findComponent("Outlets", "CatalogID"),
+      outletSpacing: findComponent("Outlet Spacing", "CatalogID"),
+      partNumber: partNumber(),
+      pipeLength: findComponent("Length (in)", "CatalogID"),
+      pipeSize: findComponent("Pipe Size", "CatalogID"),
+      powerInputPosition: findComponent("Power Input Position", "CatalogID"),
+      powerInput: findComponent("Power Input Type", "CatalogID"),
+      powerOutput: findComponent("Power Output Type", "CatalogID"),
+    },
+    specifications: {
+      color: findComponent("Color", "CatalogDescription"),
+      pipeSize: findComponent("Pipe Size", "CatalogDescription"),
+      pipeLength: findComponent("Length (in)", "CatalogDescription"),
+      powerInput: findComponent("Power Input Type", "CatalogDescription"),
+      leadLength: findComponent("Lead Length (ft)", "CatalogDescription"),
+      dataInput: findComponent("Data Input Type", "CatalogDescription"),
+      dataOutput: findComponent("Data Output Type", "CatalogDescription"),
+      numOutputs: findComponent("Outlets", "CatalogID"),
+      outputSpacing: findComponent("Outlet Spacing", "CatalogID"),
+      numCircuits: findComponent("Circuits", "CatalogID"),
+    },
+  };
+  //console.log(partNumber())
+
+}
+module.exports = { sheetOne, chartRows, getPipeData, bomBuilder, reqObjBuilder };

@@ -10,7 +10,8 @@ const drawingDataSchema = mongoose.Schema({
       CatalogID: String,
       CatalogIdentifierID: String,
       ChildDecisionNodeID: String,
-      ParentDecisionNodeID: String
+      ParentDecisionNodeID: String,
+      ExcludeFromPartNumber: String
     }
   ]
 });
