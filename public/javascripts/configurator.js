@@ -204,6 +204,9 @@ const simSelection = (id, value) => {
 
 
 function getDrawing(){
+  $('.loader').removeClass('display-none')
+  $('#loaderMessage').removeClass('display-none')
+  $('#submitSpecs').addClass('display-none')
   const dataObjects = {drawingData:[]}
   $('.selection').each(function() {
     const obj = JSON.parse($(this).attr('data-object'))
