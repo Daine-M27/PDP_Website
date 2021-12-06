@@ -1,4 +1,4 @@
-const pipeDataJson = require('../json/pipePaths.json')
+//const pipeDataJson = require('../json/pipePaths.json')
 const pipeDrawingOrigin = {'x': 100, 'y': 600}
 const  { findStroke, findScale } = require('./measurements')
 const bomItems = require('../models/BOMItems')
