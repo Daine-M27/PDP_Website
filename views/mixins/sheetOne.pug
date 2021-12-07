@@ -69,18 +69,8 @@ mixin sheetOne(options)
   path(d='m1340.71 290.104h191.079v16.9792h-191.079z' style='fill:none;stroke-width:.520833;stroke:#000000')
   path(d='m1149.11 307.083h191.079v16.9792h-191.079z' style='fill:none;stroke-width:.520833;stroke:#000000')
   path(d='m1340.71 307.083h191.079v16.9792h-191.079z' style='fill:none;stroke-width:.520833;stroke:#000000')     
-  path(d='m86.1279 86.5101h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
-  text(x='99.66729' y='101.67834' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='99.66729' y='101.67834' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') ITEM NO.
-  path(d='m881.003 86.5101h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
-  path(d='m175.022 86.5101h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
-  text(x='235.4631' y='101.59014' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='235.4631' y='101.59014' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') PART NUMBER
-  text(x='591.25446' y='101.67834' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='591.25446' y='101.67834' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') DESCRIPTION
-  text(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
-    tspan(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') QTY.
-  path(d='m396.355 86.5101h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000') 
+  
+  
 
   //------------------------------------ specification block --------------------------------------------//
   text()
@@ -127,28 +117,41 @@ mixin sheetOne(options)
     tspan(x='1435' y='319.55212' style='font-family:Arial;font-size:11.1111px;stroke-width:1.04167') !{options.specifications.numCircuits} 
 
     //--------------------------------------BOM Row and Data Variables---------------------------------//
+  g(transform='translate(13.25 13.25) scale(.85)')
+    path(d='m86.1279 86.5101h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
+    text(x='99.66729' y='101.67834' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='99.66729' y='101.67834' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') ITEM NO.
+    path(d='m881.003 86.5101h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
+    path(d='m175.022 86.5101h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
+    text(x='235.4631' y='101.59014' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='235.4631' y='101.59014' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') PART NUMBER
+    text(x='591.25446' y='101.67834' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='591.25446' y='101.67834' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') DESCRIPTION
+    text(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;line-height:1.25;stroke-width:1.04167' xml:space='preserve')
+      tspan(x='898.51294' y='101.37654' style='font-family:Arial;font-size:13.8889px;stroke-width:1.04167') QTY.
+    path(d='m396.355 86.5101h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000') 
     //-- translate y by 20.5 to add new row
-  each item, index in options.bomItems
-    g(transform=`translate(0 ${index * 20.5})`) 
-      //- Item No. 
-      path(d='m86.1279 106.898h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
-      text(text-anchor='middle' )
-        tspan(x='130' y='122.08298' style='font-family:Arial;font-size:11.5px;stroke-width:1.04167') !{item.itemNo}
-      
-      //- Part No. 
-      path(d='m175.022 106.898h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
-      text(text-anchor='middle' )
-        tspan(x='283' y='121.99821' style='font-family:Arial;font-size:11.5px;stroke-width:1.04167') !{item.partNo}
-      
-      //- Description
-      path(d='m396.355 106.898h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
-      text(text-anchor='middle' )
-        tspan(x='636' y='121.16409' style='font-family:Arial;font-size:11.5px;stroke-width:1.04167') !{item.description}
-      
-      //- Qty. 
-      path(d='m881.003 106.898h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
-      text(text-anchor='middle' )
-        tspan(x='913' y='122.08298' style='font-family:Arial;font-size:11.5px;stroke-width:1.04167') !{item.qty}
+    each item, index in options.bomItems
+      g(transform=`translate(0 ${index * 20.5})`) 
+        //- Item No. 
+        path(d='m86.1279 106.898h88.8939v20.3877h-88.8939z' style='fill:none;stroke-width:.520833;stroke:#000000')
+        text(text-anchor='middle' )
+          tspan(x='130' y='122.08298' style='font-family:Arial;font-size:11.5px;stroke-width:1.04167') !{index + 1}
+        
+        //- Part No. 
+        path(d='m175.022 106.898h221.333v20.3877h-221.333z' style='fill:none;stroke-width:.520833;stroke:#000000')
+        text(text-anchor='middle' )
+          tspan(x='283' y='121.99821' style='font-family:Arial;font-size:11.5px;stroke-width:1.04167') !{item.partNo}
+        
+        //- Description
+        path(d='m396.355 106.898h484.648v20.3877h-484.648z' style='fill:none;stroke-width:.520832;stroke:#000000')
+        text(text-anchor='middle' )
+          tspan(x='636' y='121.16409' style='font-family:Arial;font-size:11.5px;stroke-width:1.04167') !{item.description}
+        
+        //- Qty. 
+        path(d='m881.003 106.898h65.0291v20.3877h-65.0291z' style='fill:none;stroke-width:.520833;stroke:#000000')
+        text(text-anchor='middle' )
+          tspan(x='913' y='122.08298' style='font-family:Arial;font-size:11.5px;stroke-width:1.04167') !{item.qty}
     
   //------------------------------- Sheet One Title Block Variable -------------------------------//
   text(text-anchor='middle' )
@@ -157,7 +160,7 @@ mixin sheetOne(options)
     tspan(x='1575.75' y='99' style='font-family:Arial;font-size:10px;stroke-width:1.06509') !{options.drawnBy}
 
   //---------------------------------------- Main Drawing ----------------------------------------//
-  g(transform=`translate(0 110)`)
+  g(transform=`translate(0 75)`)
     +pipes(options.pipeLength, options.pipeSize)
       +outlets(options.dataOutput, options.numberOfOutlets)
       +endCaps(options.pipeLength, options.pipeSize, options.endCap, options.powerInputPosition)

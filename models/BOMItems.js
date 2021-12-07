@@ -31,7 +31,7 @@ const bomItemsSchema = mongoose.Schema({
   Weight: Number,
   _isSelected: Boolean,
   CatalogIDs: [],
-  ComponentTypeIDs: [],
+  ComponentTypeIDs: []
 });
 
 module.exports = mongoose.model(

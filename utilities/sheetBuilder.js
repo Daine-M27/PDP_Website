@@ -189,15 +189,15 @@ function bomBuilder(drawingArray) {
           // match as many catalogIds as the entry contains componentTypeIds ... if 3 componentTypeIds, match at least 3 of the catalogIds and so on
           if(matchingCatalogIds.length >= componentTypeIDsLength){
             const indexCheck = outputObjects.findIndex(object => object.partNo === entry.PartNumber)
-            const outputItemNo = outputObjects.length + 1
             // add to result object, if already exists in results increment quantity
             if (indexCheck === -1) {
               outputObjects.push({ // add item number, part number, description, and qty to bom result object
-                'itemNo': outputItemNo,
                 'partNo': entry.PartNumber,
                 'description': entry.Description,
-                'qty': entry.Quantity
+                'qty': entry.Quantity,
+                'weight': entry.Weight
               })
+              console.log(entry.Weight);
             } else {
               outputObjects[indexCheck].qty = outputObjects[indexCheck].qty + entry.Quantity
             }            
@@ -205,7 +205,7 @@ function bomBuilder(drawingArray) {
         }  
       });
 
-      resolve(outputObjects)
+      resolve(outputObjects.slice().sort(function(a,b){return a.OrderBy - b.OrderBy}))
     } catch (error) {
       reject(error)
     }

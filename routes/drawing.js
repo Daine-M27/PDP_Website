@@ -14,7 +14,8 @@ class Sheet {
       this.specifications = {};
       this.outletPositions = [];
       this.customLabels = [];
-      this.foldSheetData = {}
+      this.foldSheetData = {};
+      this.weight = ''
     }
 }
 
@@ -25,6 +26,18 @@ const maxSheet = (length) => {
   else {
     return '4'
   }
+}
+
+const getWeight = (bom) => {
+  let output = 0;
+
+  bom.forEach(ele => {
+    if (ele.weight !== null) {
+      output = output + ele.weight
+    }
+  });
+
+  return output.toFixed(2)
 }
 
 /* GET drawing page. */
@@ -58,6 +71,7 @@ router.get('/:drawingId', async function(req, res) {
     if (parseInt(reqObject.selections.pipeLength) > 96) {
       const sheet5 = new Sheet(reqObject.selections, 'SHEET 5 OF 5')
       sheet5.foldSheetData = getPipeData(sheet5)
+      sheet5.weight = getWeight(bomObject)
       res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
     }
     else{
