@@ -211,10 +211,10 @@ mixin sheetFive(options)
 
     - let bottomHorizontalX = () => {
       - let adjust = 0
-      - if (options.foldSheetData._32 != 0)         
+      - if (options.foldSheetData._32 != 0 && options.foldSheetData._16 === 0)         
           - adjust = 32
       
-      - if (options.foldSheetData._16 != 0)
+      - if (options.foldSheetData._16 != 0 && options.foldSheetData._32 === 0)
           - adjust = 16
 
       - if(row % 2 != 0  && pipeOffset != 0) {
