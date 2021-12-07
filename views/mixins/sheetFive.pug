@@ -141,7 +141,7 @@ mixin sheetFive(options)
                   +endCap(32)
               
               - if (options.foldSheetData._16 != 0)
-                +16Inch(pipeOffset)
+                +16Inch(pipeOffset, 0)
                   +endCap(16)
         //- rotate 180
         - else
@@ -209,9 +209,16 @@ mixin sheetFive(options)
     - const centerPoint = ((row+1)/2) * 30.819 + 5
     - const mainDimension = Math.floor(((row + 1) / 2) * 3.9)
 
-    - let bottomHorizontalX = () => { 
+    - let bottomHorizontalX = () => {
+      - let adjust = 0
+      - if (options.foldSheetData._32 != 0)         
+          - adjust = 32
+      
+      - if (options.foldSheetData._16 != 0)
+          - adjust = 16
+
       - if(row % 2 != 0  && pipeOffset != 0) {
-        - return ((96 * 15) - (pipeOffset * 15) - 25)
+        - return ((96 * 15) - ((pipeOffset + adjust) * 15) - 25)
       - }
       - else
         - return -25      

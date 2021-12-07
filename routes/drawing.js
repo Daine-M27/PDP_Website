@@ -79,12 +79,8 @@ router.get('/:drawingId', async function(req, res) {
     } 
     
   } catch (error) {
-    
-  }
-  
-
-
-   
+    res.render('error', {title: 'Something went wrong.', subTitle: 'Please contact The Light Source.'})
+  }   
 });
 
 
