@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  #contents(style='margin-bottom:10rem')
+    form(action="/quote", method="post")
+      label(for="project-name") Project Name:
+      br
+      input(type="text", name="project-name")
+      br
+      br
+      label(for="project-address") Project Address:
+      br
+      input#projectAddress(type="text", name="project-address")
+      br
+      br
+      label(for="customer-name") Customer Name:
+      br
+      input#customerName(type="text", name="customer-name")
+      br
+      br
+      label(for="customer-company") Customer Company:
+      br
+      input#customerCompany(type="text", name="customer-company")
+      br
+      br
+      label(for="customer-address") Customer Address:
+      br
+      input#customerAddress(type="text", name="customer-address")
+      br
+      br
+      label(for="contact-email") Contact Email:
+      br
+      input#contactEmail(type="text", name="contact-email")
+      br
+      br
+      label(for="contact-phone") Contact Phone Number:
+      br
+      input#contactPhone(type="text", name="contact-phone")
+      br
+      br
+      p Is this a bid job?      
+      input#yesBox(type="radio", name="yes-box")
+      label(for="yes-box") Yes
+      br
+      input#noBox(type="radio", name="no-box")
+      label(for="no-box") No 
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  append scripts
+    script(src='/javascripts/quote.js')
