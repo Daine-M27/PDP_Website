@@ -5,45 +5,45 @@ block content
     form(action="/quote", method="post")
       label(for="project-name") Project Name:
       br
-      input(type="text", name="project-name")
+      input(type="text", name="project-name" reqruired)
       br
       br
       label(for="project-address") Project Address:
       br
-      input#projectAddress(type="text", name="project-address")
+      input#projectAddress(type="text", name="project-address" reqruied)
       br
       br
       label(for="customer-name") Customer Name:
       br
-      input#customerName(type="text", name="customer-name")
+      input#customerName(type="text", name="customer-name" requried)
       br
       br
       label(for="customer-company") Customer Company:
       br
-      input#customerCompany(type="text", name="customer-company")
+      input#customerCompany(type="text", name="customer-company" required)
       br
       br
       label(for="customer-address") Customer Address:
       br
-      input#customerAddress(type="text", name="customer-address")
+      input#customerAddress(type="text", name="customer-address" required)
       br
       br
       label(for="contact-email") Contact Email:
       br
-      input#contactEmail(type="text", name="contact-email")
+      input#contactEmail(type="text", name="contact-email" required)
       br
       br
       label(for="contact-phone") Contact Phone Number:
       br
-      input#contactPhone(type="text", name="contact-phone")
+      input#contactPhone(type="text", name="contact-phone" required)
       br
       br
-      p Is this a bid job?      
-      input#yesBox(type="radio", name="yes-box")
-      label(for="yes-box") Yes
-      br
-      input#noBox(type="radio", name="no-box")
-      label(for="no-box") No 
+      label(for="bid-job") Is this a bid job?
+      select#yesBox(type="select", name="bid-job" required style="margin-left:6px")
+        option(value=" - " selected)
+        option(value="yes") Yes
+        option(value="no") No
+      
   br
   br
   br

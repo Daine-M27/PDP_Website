@@ -195,9 +195,11 @@ function bomBuilder(drawingArray) {
                 'partNo': entry.PartNumber,
                 'description': entry.Description,
                 'qty': entry.Quantity,
-                'weight': entry.Weight
+                'weight': entry.Weight,
+                'orderBy': entry.OrderBy 
               })
-              console.log(entry.Weight);
+              //console.log(`PN: ${entry.PartNumber} W:${entry.Weight} Ord: ${entry.OrderBy}`);
+              
             } else {
               outputObjects[indexCheck].qty = outputObjects[indexCheck].qty + entry.Quantity
             }            
@@ -205,7 +207,9 @@ function bomBuilder(drawingArray) {
         }  
       });
 
-      resolve(outputObjects.slice().sort(function(a,b){return a.OrderBy - b.OrderBy}))
+      const sorted = outputObjects.slice().sort(function(a, b){return a.orderBy - b.orderBy})
+      //console.log(sorted, " ", outputObjects);
+      resolve(sorted)
     } catch (error) {
       reject(error)
     }
