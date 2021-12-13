@@ -208,7 +208,7 @@ function bomBuilder(drawingArray) {
       });
 
       const sorted = outputObjects.slice().sort(function(a, b){return a.orderBy - b.orderBy})
-      //console.log(sorted, " ", outputObjects);
+      console.log(sorted);
       resolve(sorted)
     } catch (error) {
       reject(error)

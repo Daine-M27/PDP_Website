@@ -33,7 +33,7 @@ const getWeight = (bom) => {
 
   bom.forEach(ele => {
     if (ele.weight !== null) {
-      output = output + ele.weight
+      output = output + ele.weight * ele.qty
     }
   });
 
