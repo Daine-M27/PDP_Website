@@ -202,6 +202,7 @@ function bomBuilder(drawingArray) {
               
             } else {
               outputObjects[indexCheck].qty = outputObjects[indexCheck].qty + entry.Quantity
+              outputObjects[indexCheck].weight = outputObjects[indexCheck].weight + entry.Weight
             }            
           }
         }  

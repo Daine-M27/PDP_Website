@@ -163,6 +163,15 @@ svg {
   height: auto;
 }
 
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls-item {
+  margin: auto;
+}
+
 /* Loader CSS */
 .loader,
 .loader:before,

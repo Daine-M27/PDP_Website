@@ -33,7 +33,7 @@ const getWeight = (bom) => {
 
   bom.forEach(ele => {
     if (ele.weight !== null) {
-      output = output + ele.weight * ele.qty
+      output = output + ele.weight
     }
   });
 
@@ -72,14 +72,14 @@ router.get('/:drawingId', async function(req, res) {
       const sheet5 = new Sheet(reqObject.selections, 'SHEET 5 OF 5')
       sheet5.foldSheetData = getPipeData(sheet5)
       sheet5.weight = getWeight(bomObject)
-      res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
+      res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
     }
     else{
-      res.render('drawing', { title: 'DrawingPage', sheets: { sheet1, sheet2, sheet3, sheet4 } });
+      res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4 } });
     } 
     
   } catch (error) {
-    res.render('error', { title: 'Something went wrong.', subTitle: 'Please contact The Light Source.' })
+    res.render('error', { pageTitle: 'Something went wrong.', subTitle: 'Please contact The Light Source.' })
   }   
 });
 

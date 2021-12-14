@@ -11,7 +11,8 @@ block content
   #contents
     .controls
       h1= title
-      button(id='#btn_export_pdf' onclick='downloadPDF()') Download PDF
+      button.controls-item(id='#btn_export_pdf' onclick='downloadPDF()') Download PDF
+      button.controls-item(id='#configure_page' onClick='window.location="/configurator"') Configure New
     #svgBody
       each sheet, index in sheets
         if index === 'sheet1'
