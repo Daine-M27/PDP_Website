@@ -202,13 +202,14 @@ function bomBuilder(drawingArray) {
               
             } else {
               outputObjects[indexCheck].qty = outputObjects[indexCheck].qty + entry.Quantity
+
             }            
           }
         }  
       });
 
       const sorted = outputObjects.slice().sort(function(a, b){return a.orderBy - b.orderBy})
-      console.log(sorted);
+      // console.log(sorted);
       resolve(sorted)
     } catch (error) {
       reject(error)
@@ -238,7 +239,12 @@ function reqObjBuilder(drawingArray) {
 
   const findComponent = (componentName, property) => {
     const result = drwArry2.find( ({ComponentTypeName}) => ComponentTypeName === `${componentName}` )
-    return result[property]
+    
+    if (!result) {
+      return 'null'
+    } else {
+      return result[property]
+    }
   }
 
   
@@ -261,6 +267,10 @@ function reqObjBuilder(drawingArray) {
       powerInputPosition: findComponent("Power Input Position", "CatalogID"),
       powerInput: findComponent("Power Input Type", "CatalogID"),
       powerOutput: findComponent("Power Output Type", "CatalogID"),
+      run1: findComponent("Run 1 Termination Outlet", "CatalogID"),
+      run2: findComponent("Run 2 Termination Outlet", "CatalogID"),
+      run3: findComponent("Run 3 Termination Outlet", "CatalogID"), 
+      run4: findComponent("Run 4 Termination Outlet", "CatalogID"),
     },
     specifications: {
       color: findComponent("Color", "CatalogDescription"),

@@ -4,6 +4,7 @@ include mixins/sheetOne
 include mixins/sheetTwo
 include mixins/sheetThree
 include mixins/sheetFour
+include mixins/sheetFourDMX
 include mixins/sheetFive
 
 
@@ -26,7 +27,7 @@ block content
             +sheetThree(sheet)
         if index === 'sheet4'
           +drawingLegend(sheet)(id=index)
-            +sheetFour(sheet)
+            +sheetFourDMX(sheet)
         if index === 'sheet5'
           +drawingLegend(sheet)(id=index)
             +sheetFive(sheet) 

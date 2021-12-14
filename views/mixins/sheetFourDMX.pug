@@ -1,0 +1,144 @@
+mixin sheetFourDMX(options)
+  text()
+    tspan(x='1260.3188' y='196.42857' style='stroke-width:1.04167')
+  rect(x='1445.32' y='52.8782' width='168.548' height='25.8553' style='fill:none;stroke-width:.520833;stroke:#000000')
+  text()
+    tspan(x='1462.6995' y='70.780205' style='font-family:Arial;font-size:11.1111px;stroke-width:1.04167') OUTLET IDENTIFICATION
+  
+  text()
+    tspan(x='115' y='872.89709' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') NOTES:
+  text()
+    tspan(x='115' y='896.95972' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') 1.&nbsp;&nbsp;&nbsp;CIRCUITS ARE NUMBERED FROM FEED END (SEE SHEET 3).
+  text()
+    tspan(x='115' y='915.72321' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') 2.&nbsp;&nbsp;&nbsp;DEFAULT CIRCUIT WIRING IS SHOWN IN CHART. FOR MORE THAN 1 CIRCUIT CUSTOMER CAN
+    tspan(x='115' y='933.08435' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPECIFY CUSTOM CIRCUIT WIRING, OTHERWISE THE DEFAULT DIRCUIT WIRING WILL BE USED.
+  text()
+    tspan(x='115' y='951.56299' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') 3.&nbsp;&nbsp;&nbsp;DEFAULT OUTLET LABELING IS SHOWN IN CHART.  CUSTOMER CAN SPECIFY CUSTOM
+    tspan(x='115' y='968.92413' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OUTLET LABELING, OTHERWISE THE DEFAULT OUTLET LEBELING WILL BE USED.  CUSTOM
+    tspan(x='115' y='986.28522' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OUTLET LABELING IS LIMITED TO 8 CHARACTERS.
+  text()
+    tspan(x='115' y='1002.4852' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') 4.&nbsp;&nbsp;&nbsp;PLEASE FILL IN THE CHART AND RETURN TO THE LIGHT SOURCE.  MANUFACTURING LEAD TIME 
+    tspan(x='115' y='1019.8463' style='font-family:sans-serif;font-size:13.8889px;stroke-width:1.04167') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WILL NOT START UNTIL CUSTOM OR DEAULT LABELING HAS BEEN CONFIRMED.
+            
+            //----------------column data for chart---------------------//
+            //-3rd column
+            //- rect(x='1114.65' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.899999;stroke:#000000')
+            //-2nd column or center column
+            //- rect(x='612.95' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.899999;stroke:#000000')
+            //-1st column
+            //- rect(x='111.245' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000')
+
+            //-right column
+            //- rect(x='865.595' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000') 
+            //-left column
+            //- rect(x='360.306' y='116.171' width='474.1' height='26.1' style='fill:none;stroke-width:.9;stroke:#000000')
+
+  //--------------------------------------------setup tables for custom labels--------------------------------------------//
+  - var columnXaxis = []
+  - var outlets = parseInt(options.numberOfOutlets)
+  - var maxCir = parseInt(options.numberOfCircuits)
+    //- function returns the remainder of max circuit divided by input
+  - function circuit(x, last){ return x % last + 1 }
+
+  if outlets <= 25
+    - columnXaxis = [ '676.865' ]
+  if (outlets > 25 && outlets <= 50)
+    - columnXaxis = [ '521.865', '908.135' ]
+  if (outlets >= 51)
+    - columnXaxis = [ '270', '676.865', '1080' ]  
+    
+  each x, index in columnXaxis 
+    g(transform=`translate(${x} 116.171)`)
+      text()
+        tspan(x='63' y='18.044098' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT AND LABEL IDENTIFICTION 
+      text()
+        tspan(x='13.746866' y='43.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') POSITION
+      text()
+        tspan(x='101.81946' y='37.992416' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+      text()
+        tspan(x='104.31274' y='49.006561' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT      
+      text()
+        tspan(x='188.08237' y='37.992416' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+      text()
+        tspan(x='196.41367' y='49.018768' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') LABEL
+      text()
+        tspan(x='288' y='37.992416' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DMX
+      text()
+        tspan(x='283' y='49.018768' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') LABEL
+      rect(x='.449997' y='.45' width='345' height='26.1' style='fill:none;stroke-width:.8;stroke:#000000')
+      rect(x='.449997' y='26.55' width='86.27' height='25' style='fill:none;stroke-width:.8;stroke:#000000')    
+      rect(x='86.7123' y='26.55' width='86.27' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')   
+      rect(x='172.975' y='26.55' width='86.27' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+      rect(x='259.2377' y='26.55' width='86.27' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+      
+      
+      //-row of chart  // translate y * 25 for new row            
+      - for(var r = 0; r < options.outletPositions[index].length ; r++)
+        - var position = options.outletPositions[index][r]
+        g(transform=`translate(0 ${r * 25})`)       
+          //-position text
+          text(text-anchor='middle')
+            tspan(x='45' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') !{position}
+          //-default circuit label text
+          text(text-anchor='middle')
+            tspan(x='130' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') #{circuit(r, maxCir)}
+          //-default label text
+          text(text-anchor='middle')
+            tspan(x='216' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C#{circuit(r, maxCir)}
+         
+          rect(x='.449997' y='51.55' width='86.2623' height='25' rx='0' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+          rect(x='86.7123' y='51.55' width='86.2629' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+          rect(x='172.975' y='51.55' width='86.2627' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+          rect(x='259.2377' y='51.55' width='86.2627' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+
+           //-dmx text
+          - if(position <= options.run1)
+            text(text-anchor='middle')
+              tspan(x='302' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') R1
+          - if(position > options.run1 && position <= options.run2)
+            text(text-anchor='middle')
+              tspan(x='302' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') R2
+          - if(position > options.run2 && position <= options.run3)
+            text(text-anchor='middle')
+              tspan(x='302' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') R3
+          - if(position > options.run3 && position <= options.run4)
+            text(text-anchor='middle')
+              tspan(x='302' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') R4
+      
+      //- dmx run label logic
+      //- - for()
+      //-   g(transform=`translate(0 ${d * 25})`)
+      //-      //-dmx text
+      //-     text(text-anchor='middle')
+      //-       tspan(x='302' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') R
+
+//- New table without custom
+  
+    text()
+      tspan(x='13.746866' y='43.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') POSITION
+    text()
+      tspan(x='101.81946' y='37.992416' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+    text()
+      tspan(x='104.31274' y='49.006561' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT
+    text()
+      tspan(x='188.08237' y='37.992416' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') DEFAULT
+    text()
+      tspan(x='196.41367' y='49.018768' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') LABEL
+    text()
+      tspan(x='22.043747' y='18.044098' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') CIRCUIT AND LABEL IDENTIFICTION
+    
+    text()
+      tspan(x='40.571819' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+    text()
+      tspan(x='126.83472' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') 1
+    text()
+      tspan(x='208.95334' y='68.594101' style='font-family:Arial;font-size:12.5px;stroke-width:1.04167') C1
+    
+    rect(x='.449997' y='.45' width='258.788' height='26.1' style='fill:none;stroke-width:.8;stroke:#000000')
+    rect(x='.449997' y='26.55' width='86.2623' height='25' style='fill:none;stroke-width:.8;stroke:#000000')    
+    rect(x='86.7123' y='26.55' width='86.2629' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')   
+    rect(x='172.975' y='26.55' width='86.2627' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+
+    rect(x='.449997' y='51.55' width='86.2623' height='25' rx='0' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+    rect(x='86.7123' y='51.55' width='86.2629' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
+    rect(x='172.975' y='51.55' width='86.2627' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')

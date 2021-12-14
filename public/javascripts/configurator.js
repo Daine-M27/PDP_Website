@@ -207,21 +207,19 @@ function getDrawing(){
   $('.loader').removeClass('display-none')
   $('#loaderMessage').removeClass('display-none')
   $('#submitSpecs').addClass('display-none')
-  const dataObjects = {drawingData:[]}
+  const dataObjects = { drawingData:[] }
   $('.selection').each(function() {
     const obj = JSON.parse($(this).attr('data-object'))
-
-    // console.log(obj);
+    //console.log(obj);
     dataObjects.drawingData.push(obj)    
   }) 
-  $.post('/drawing/postDrawing', dataObjects, function(res){
-    
-    // enable spinner for loading of drawing page //
-    
-    console.log(res)
+  $.post('/drawing/postDrawing', dataObjects, function(res){    
+    //console.log(res)
     window.location.replace(`/drawing/${res}`)
   })
 }
+
+
 //----------------------------- initial choice loaded on page load -----------------------------//
 window.onload = async () => { 
 

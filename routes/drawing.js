@@ -64,6 +64,7 @@ router.get('/:drawingId', async function(req, res) {
 
     // setup sheet4
     const sheet4 = new Sheet(reqObject.selections, `SHEET 4 OF ${numSheets}`)
+    console.log(sheet4);
     sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
     // sheet4.customLabels = [...tempCustomLabelObject]
     
