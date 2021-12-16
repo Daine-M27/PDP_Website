@@ -75,7 +75,7 @@ router.get('/:drawingId', async function(req, res) {
       sheet5.weight = getWeight(bomObject)
       res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
     }
-    else{
+    else {
       res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4 } });
     } 
     
