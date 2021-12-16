@@ -149,6 +149,10 @@ form.form .pull-right { position: absolute; left: 350px;  margin-top:-52px; }
 
 /* custom MEGABATTEN css */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .display-none {
   display: none;
 }
