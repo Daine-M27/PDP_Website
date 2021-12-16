@@ -54,7 +54,8 @@ router.get('/:drawingId', async function(req, res) {
     // setup sheet1  
     const sheet1 = new Sheet(reqObject.selections, `SHEET 1 OF ${numSheets}`) 
     sheet1.bomItems = [...bomObject] 
-    sheet1.specifications = JSON.parse(JSON.stringify(reqObject.specifications)) 
+    sheet1.specifications = JSON.parse(JSON.stringify(reqObject.specifications))
+    sheet1.weight = getWeight(bomObject) 
 
     // setup sheet2
     const sheet2 = new Sheet(reqObject.selections, `SHEET 2 OF ${numSheets}`)
