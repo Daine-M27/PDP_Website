@@ -39,10 +39,33 @@ block content
       br
       br
       label(for="bid-job") Is this a bid job?
-      select#yesBox(type="select", name="bid-job" required style="margin-left:6px")
-        option(value=" - " selected)
+      select#yesBox(type="select" name="bid-job" required style="margin-left:6px")
+        //- option(value=" - " selected)
         option(value="yes") Yes
         option(value="no") No
+      br
+      br
+      
+      label(for="battenInput") Choose a MEGABATTEN to add to quote:
+      br
+      input#battenInput(list="battensData" name="battenInput" placeHolder="Begin typing to filter list" style="min-width:276px" onfocus='this.value=""')
+      datalist#battensData
+        each pn in partNumbersList 
+          option(value=`${pn}`)
+
+      label(for="battenQty" style="margin-left:6px") Qty: 
+      select#battenQty(type="select" name="battenQty" required style="margin-left:6px" )
+        - var n = 1;
+        while n <= 20
+          option(value=`${n}`)= `${n}`
+          - n++ 
+      br
+      button(type="button" onclick="addBatten()" style="margin-top:6px") Add to quote 
+      br
+      h3 Quote Items:
+      ul#battens
+        
+      
       
   br
   br

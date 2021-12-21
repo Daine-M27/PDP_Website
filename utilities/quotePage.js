@@ -27,7 +27,7 @@ const partNumbers = () => {
           output.push(pn)  
         }
       });
-
+      // output full list of unique part numbers
       resolve(output)
       
     } catch (error) {
