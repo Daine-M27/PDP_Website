@@ -12,8 +12,6 @@ router.get('/configurator', function(req, res) {
 });
 
 
-router.get('/quote', function(req, res){
-  res.render('quote', { pageTitle: 'MEGABATTEN Quote'})
-})
+
 
 module.exports = router;
