@@ -5,50 +5,96 @@ block content
     form(action="/quote", method="post")
       label(for="project-name") Project Name:
       br
-      input(type="text", name="project-name" reqruired)
+      input(type="text", name="project-name" style="min-width:350px" reqruired)
       br
       br
       label(for="project-address") Project Address:
       br
-      input#projectAddress(type="text", name="project-address" reqruied)
+      input#projectautocomplete(type="text", name="project-address" style="min-width:350px" placeHolder="Enter an address" onfocus="geolocate()")
+      br
+      br
+      //- #projectaddress        
+      //-   label(style='margin-right:6px') Street address:
+      //-   input#street_number.form-control(disabled='true' style='margin-right:10px')
+      //-   label(style='margin-right:6px') Route:
+      //-   input#route.form-control(disabled='true')
+      //-   br
+      //-   br
+      //-   label(style='margin-right:6px') City:
+      //-   input#locality.form-control.field(disabled='true' style='margin-right:10px')
+        
+      //-   label(style='margin-right:6px') State:
+      //-   input#administrative_area_level_1.form-control(disabled='true')
+      //-   br
+      //-   br
+      //-   label(style='margin-right:6px') Zip code:
+      //-   input#postal_code.form-control(disabled='true' style='margin-right:10px')
+      //-   label(style='margin-right:6px') Country:
+      //-   input#country.form-control(disabled='true')
+
+      div(style='border-bottom: 1px solid lightgray')
       br
       br
       label(for="customer-name") Customer Name:
       br
-      input#customerName(type="text", name="customer-name" requried)
+      input#customerName(type="text", name="customer-name" style="min-width:350px" requried)
       br
       br
       label(for="customer-company") Customer Company:
       br
-      input#customerCompany(type="text", name="customer-company" required)
+      input#customerCompany(type="text", name="customer-company" style="min-width:350px" required)
       br
       br
       label(for="customer-address") Customer Address:
       br
-      input#customerAddress(type="text", name="customer-address" required)
+      input#customerautocomplete(type="text", name="customer-address" style="min-width:350px" required)
+      br
+      br
+
+      //- #customeraddress        
+      //-   label(style='margin-right:6px') Street address:
+      //-   input#street_number2.form-control(disabled='true' style='margin-right:10px')
+      //-   label(style='margin-right:6px') Route:
+      //-   input#route2.form-control(disabled='true')
+      //-   br
+      //-   br
+      //-   label(style='margin-right:6px') City:
+      //-   input#locality2.form-control.field(disabled='true' style='margin-right:10px')
+        
+      //-   label(style='margin-right:6px') State:
+      //-   input#administrative_area_level_12.form-control(disabled='true')
+      //-   br
+      //-   br
+      //-   label(style='margin-right:6px') Zip code:
+      //-   input#postal_code2.form-control(disabled='true' style='margin-right:10px')
+      //-   label(style='margin-right:6px') Country:
+      //-   input#country2.form-control(disabled='true')
+      div(style='border-bottom: 1px solid lightgray')
       br
       br
       label(for="contact-email") Contact Email:
       br
-      input#contactEmail(type="text", name="contact-email" required)
+      input#contactEmail(type="text", name="contact-email" style="min-width:350px" required)
       br
       br
       label(for="contact-phone") Contact Phone Number:
       br
-      input#contactPhone(type="text", name="contact-phone" required)
+      input#contactPhone(type="text", name="contact-phone" style="min-width:350px" required)
       br
       br
       label(for="bid-job") Is this a bid job?
       select#yesBox(type="select" name="bid-job" required style="margin-left:6px")
-        //- option(value=" - " selected)
+        option(value="" selected)
         option(value="yes") Yes
         option(value="no") No
       br
       br
-      
+      div(style='border-bottom: 1px solid lightgray')
+      br
+      br
       label(for="battenInput") Choose a MEGABATTEN to add to quote:
       br
-      input#battenInput(list="battensData" name="battenInput" placeHolder="Begin typing to filter list" style="min-width:276px" onfocus='this.value=""')
+      input#battenInput(list="battensData" name="battenInput" placeHolder="Begin typing to filter list" style="min-width:350px" onfocus='this.value=""')
       datalist#battensData
         each pn in partNumbersList 
           option(value=`${pn}`)
@@ -62,8 +108,11 @@ block content
       br
       button(type="button" onclick="addBatten()" style="margin-top:6px") Add to quote 
       br
-      h3 Quote Items:
+      br
+      div(style="border-bottom: 1px solid black")
+      h4 Quote Items:
       ul#battens
+      button#submitButton(type="button" onclick="submitData()" style="margin-top:6px" disabled) Submit
         
       
       
@@ -77,4 +126,5 @@ block content
   br
   br
   append scripts
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAaRQQ-BRlZ85sUgNyrvfFNJxbc2_HPgds&libraries=places&callback=initAutocomplete' async='' defer='')
     script(src='/javascripts/quote.js')
