@@ -11,14 +11,21 @@ function addBatten() {
   } else {
     $("#battens").append(`
     <li id="quoteItem${numBattens}" style="margin-bottom: 6px; list-style-type: none; border: 1px solid lightgray; padding: 10px; margin-left:-40px">
-      Part Number: <span style="margin-left: 6px">${pnValue}</span>
+      <label for="item-${numBattens}"> Part Number:
       <br>
-      Qty: <span style="margin-left: 6px">${qtyValue}</span>
+      <input type="text" id="batten${numBattens}" name="item-${numBattens}-pn" style="min-width:350px"></input>
+      <br>
+      <br>
+      <label for="item-${numBattens}-Qty"> Quantity:
+      <br>
+      <input type="text" id="batten${numBattens}Qty" name="item-${numBattens}-qty" style="max-width:15px"></input>
       <br>
       <button type="button" onclick="deleteItem('quoteItem${numBattens}')" style="margin-top: 6px"> Remove Item
     </li>
     `)
   
+    document.getElementById(`batten${numBattens}`).value = `${pnValue}`
+    document.getElementById(`batten${numBattens}Qty`).value = `${qtyValue}`
     // increment number of items in bom
     numBattens++
     // reset batten input field

@@ -15,7 +15,7 @@ const partNumbers = () => {
         
         //create partnumber
         drwArray2.forEach(obj => {
-          if (obj.ExcludeFromPartNumber !== 'true' && obj.ComponentTypeName !== 'Seperator-3') {
+          if (obj.ExcludeFromPartNumber === 'false' && obj.ComponentTypeName !== 'Seperator-3') {
             pnArray.push(obj.CatalogID)
           }  
         });

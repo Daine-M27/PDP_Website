@@ -10,7 +10,7 @@ block content
       br
       label(for="project-address") Project Address:
       br
-      input#projectautocomplete(type="text", name="project-address" style="min-width:350px" placeHolder="Enter an address" onfocus="geolocate()")
+      input#projectautocomplete(type="text", name="project-address" style="min-width:350px" onfocus="geolocate()" required)
       br
       br
       //- #projectaddress        
@@ -92,15 +92,15 @@ block content
       div(style='border-bottom: 1px solid lightgray')
       br
       br
-      label(for="battenInput") Choose a MEGABATTEN to add to quote:
+      label(for="batten-Input") Choose a MEGABATTEN to add to quote:
       br
-      input#battenInput(list="battensData" name="battenInput" placeHolder="Begin typing to filter list" style="min-width:350px" onfocus='this.value=""')
+      input#battenInput(list="battensData" name="batten-Input" placeHolder="Begin typing to filter list" style="min-width:350px" onfocus='this.value=""' )
       datalist#battensData
         each pn in partNumbersList 
           option(value=`${pn}`)
 
-      label(for="battenQty" style="margin-left:6px") Qty: 
-      select#battenQty(type="select" name="battenQty" required style="margin-left:6px" )
+      label(for="batten-Qty" style="margin-left:6px") Qty: 
+      select#battenQty(type="select" name="batten-Qty" required style="margin-left:6px" )
         - var n = 1;
         while n <= 20
           option(value=`${n}`)= `${n}`
@@ -110,9 +110,10 @@ block content
       br
       br
       div(style="border-bottom: 1px solid black")
-      h4 Quote Items:
+      h3(style="") Quote Items:
       ul#battens
-      button#submitButton(type="button" onclick="submitData()" style="margin-top:6px" disabled) Submit
+      input#submitButton(type='submit' value='Submit' disabled)
+      //- button#submitButton(type="button" onclick="submitData()" style="margin-top:6px" disabled) Submit
         
       
       

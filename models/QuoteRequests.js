@@ -12,7 +12,7 @@ const quoteRequestSchema = mongoose.Schema({
   QuoteItems: [
     {
       PartNumber: String,
-      Quantity: Number
+      Quantity: String
     }
   ],
   DateCreated: String
