@@ -19,8 +19,8 @@ router.post('/', async function(req, res){
     const itemsObject = Object.fromEntries(Object.entries(data).filter(([key]) => key.includes('item')))
     const quoteItems = []
     
-    for (let i = 1; i <= Object.keys(itemsObject).length / 2; i++) {
-      quoteItems.push({'PartNumber': itemsObject[`item-${i}-pn`], 'Quantity': itemsObject[`item-${i}-qty`]})  
+    for (let i = 1; i <= Object.keys(itemsObject).length / 3; i++) {
+      quoteItems.push({'PartNumber': itemsObject[`item-${i}-pn`],'CustomLabeling': itemsObject[`item-${i}-cl`], 'Quantity': itemsObject[`item-${i}-qty`]})  
     }
     
     const qr = new quoteRequest({

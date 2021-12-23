@@ -3,6 +3,7 @@ extends layout
 block content
   #contents(style='margin-bottom:10rem')
     form(action="/quote", method="post")
+      br
       label(for="project-name") Project Name:
       br
       input(type="text", name="project-name" style="min-width:350px" reqruired)
@@ -94,22 +95,28 @@ block content
       br
       label(for="batten-Input") Choose a MEGABATTEN to add to quote:
       br
-      input#battenInput(list="battensData" name="batten-Input" placeHolder="Begin typing to filter list" style="min-width:350px" onfocus='this.value=""' )
+      input#battenInput(list="battensData" name="batten-Input" placeHolder="Begin typing to filter list" style="min-width:350px; margin-bottom:6px" onfocus='this.value=""' )
       datalist#battensData
         each pn in partNumbersList 
           option(value=`${pn}`)
-
+      br
       label(for="batten-Qty" style="margin-left:6px") Qty: 
       select#battenQty(type="select" name="batten-Qty" required style="margin-left:6px" )
         - var n = 1;
-        while n <= 20
+        while n <= 100
           option(value=`${n}`)= `${n}`
-          - n++ 
+          - n++
+      label(for="clabeling" style="margin-left: 35px") Custom Labeling?
+      select#clabeling(type="select" name="clabeling" style="margin-left:6px")
+        option(value="" selected)
+        option(value="yes") Yes
+        option(value="no") No 
       br
       button(type="button" onclick="addBatten()" style="margin-top:6px") Add to quote 
       br
       br
       div(style="border-bottom: 1px solid black")
+      br
       h3(style="") Quote Items:
       ul#battens
       input#submitButton(type='submit' value='Submit' disabled)

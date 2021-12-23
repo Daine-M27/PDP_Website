@@ -8,10 +8,11 @@ const quoteRequestSchema = mongoose.Schema({
   CustomerAddress: String,
   ContactEmail: String,
   ContactPhoneNumber: String,
-  IsBidJob: String,
+  IsBidJob: String,  
   QuoteItems: [
     {
       PartNumber: String,
+      CustomLabeling: String,
       Quantity: String
     }
   ],

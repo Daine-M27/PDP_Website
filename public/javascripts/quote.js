@@ -5,19 +5,26 @@ function addBatten() {
   // console.log('batten added');
   const pnValue = document.getElementById('battenInput').value;
   const qtyValue = document.getElementById('battenQty').value;
+  const clabeling = document.getElementById('clabeling').value;
 
   if (!pnValue) {
     alert('Please choose a MEGABATTEN!')
-  } else {
+  
+  }
+  else if(!clabeling) {
+    alert('Please choose Custom Labels yes or no!')
+  }
+  else {
     $("#battens").append(`
     <li id="quoteItem${numBattens}" style="margin-bottom: 6px; list-style-type: none; border: 1px solid lightgray; padding: 10px; margin-left:-40px">
       <label for="item-${numBattens}"> Part Number:
       <br>
-      <input type="text" id="batten${numBattens}" name="item-${numBattens}-pn" style="min-width:350px"></input>
+      <input type="text" id="batten${numBattens}" name="item-${numBattens}-pn" style="min-width:350px; margin-bottom: 6px"></input>
       <br>
-      <label for="item-${numBattens}-Qty"> Quantity:
-      <br>
-      <input type="text" id="batten${numBattens}Qty" name="item-${numBattens}-qty" style="max-width:15px"></input>
+      <label for="item-${numBattens}-Qty"> Qty:
+      <input type="text" id="batten${numBattens}Qty" name="item-${numBattens}-qty" style="max-width:25px"></input>
+      <label for="item-${numBattens}-cl" style="margin-left: 35px"> Custom Labeling:
+      <input type="text" id="batten${numBattens}cl" name="item-${numBattens}-cl" style="max-width:20px"></input>
       <br>
       <button type="button" onclick="deleteItem('quoteItem${numBattens}')" style="margin-top: 6px"> Remove Item
     </li>
@@ -25,12 +32,15 @@ function addBatten() {
   
     document.getElementById(`batten${numBattens}`).value = `${pnValue}`
     document.getElementById(`batten${numBattens}Qty`).value = `${qtyValue}`
+    document.getElementById(`batten${numBattens}cl`).value = `${clabeling}`
     // increment number of items in bom
     numBattens++
     // reset batten input field
     document.getElementById("battenInput").value = "";
     // reset qty input 
     $('#battenQty option:selected').prop('selected', false);
+    $('#clabeling option:selected').prop('selected', false);
+    
   }
 
   const liValues = $('ul li')
