@@ -15,7 +15,6 @@ function addBatten() {
       <br>
       <input type="text" id="batten${numBattens}" name="item-${numBattens}-pn" style="min-width:350px"></input>
       <br>
-      <br>
       <label for="item-${numBattens}-Qty"> Quantity:
       <br>
       <input type="text" id="batten${numBattens}Qty" name="item-${numBattens}-qty" style="max-width:15px"></input>

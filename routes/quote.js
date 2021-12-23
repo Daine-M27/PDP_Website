@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { partNumbers } = require('../utilities/quotePage');
 const quoteRequest = require('../models/QuoteRequests')
+const mail = require('../utilities/email')
+
 
 
 // get quote page
@@ -36,14 +38,40 @@ router.post('/', async function(req, res){
   
     await qr.save(function (err) {
       if(err) return err
-      res.send(`'quoteId: ${qr._id}'`)
+      
     })
     
-    console.log(qr);
+    async function sendMail(){
+      await mail({
+        subject:'Quote Request from MEGABATTEN.com', 
+        text:  `
+        Project Name = ${qr.ProjectName},
+        Project Address = ${qr.ProjectAddress},
+        Customer Name = ${qr.CustomerName},
+        Customer Email = ${qr.CustomerEmail},
+        Customer Address = ${qr.CustomerAddress},
+        Contact Email = ${qr.ContactEmail},
+        Contact Phone Number = ${qr.ContactPhoneNumber},
+        Bid Job = ${qr.IsBidJob},
+        Quote Items = ${qr.QuoteItems},
+        Date Requested = ${qr.DateCreated},
+        RFQ Number = ${qr._id}
+        `
+      })
+    }
+
+    sendMail()
+    .then(() => {
+      console.log(qr);
+      res.send(`'quoteId: ${qr._id}'`)
+    })
+    .catch(err => {
+      console.log(err)
+    })
     
 
   } catch (error) {
-    
+    console.log(error)
   }
 
 })
