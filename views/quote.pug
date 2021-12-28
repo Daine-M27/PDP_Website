@@ -95,12 +95,12 @@ block content
       br
       label(for="batten-Input") Choose a MEGABATTEN to add to quote:
       br
-      input#battenInput(list="battensData" name="batten-Input" placeHolder="Begin typing to filter list" style="min-width:350px; margin-bottom:6px" onfocus='this.value=""' )
+      input#battenInput(list="battensData" name="batten-Input" placeHolder="Begin typing to filter list" style="min-width:350px; margin-bottom:6px; margin-top:6px" onfocus='this.value=""' )
       datalist#battensData
         each pn in partNumbersList 
           option(value=`${pn}`)
       br
-      label(for="batten-Qty" style="margin-left:6px") Qty: 
+      label(for="batten-Qty" style="") Qty: 
       select#battenQty(type="select" name="batten-Qty" required style="margin-left:6px" )
         - var n = 1;
         while n <= 100
