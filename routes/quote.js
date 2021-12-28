@@ -63,7 +63,8 @@ router.post('/', async function(req, res){
     sendMail()
     .then(() => {
       console.log(qr);
-      res.send(`'quoteId: ${qr._id}'`)
+      // res.send(`'quoteId: ${qr._id}'`)
+      res.render('success', { pageTitle:'Success', message: 'Your request for quote has been recieved.'})
     })
     .catch(err => {
       console.log(err)
