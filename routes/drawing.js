@@ -86,13 +86,10 @@ router.get('/:drawingId', async function(req, res) {
 });
 
 
-router.post('/postDrawing', async function(req, res) {
-  // console.log(req.body);
+router.post('/postDrawing', async function(req, res) { 
   try {
     await drawingData.create(req.body)
       .then((response) => {
-        // console.log(response._id)
-        // res.redirect(`/drawing/${response._id}`)
         res.status(200).end(`${response._id}`)
       })
     

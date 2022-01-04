@@ -13,8 +13,8 @@ const drawingDataSchema = mongoose.Schema({
       ParentDecisionNodeID: String,
       ExcludeFromPartNumber: String
     }
-  ]
-});
+  ]  
+}, { timestamps: true });
 
 module.exports = mongoose.model(
   "drawingData",
