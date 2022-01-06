@@ -45,7 +45,7 @@ router.get('/:drawingId', async function(req, res) {
   // console.log(req.params.drawingId, 'drawing page')
   try {
     const drawing = await drawingData.findById(req.params.drawingId).exec();
-    const reqObject = await reqObjBuilder(drawing.drawingData);
+    const reqObject = reqObjBuilder(drawing.drawingData);
     const bomObject = await bomBuilder(drawing.drawingData);
 
     // get number of sheets
