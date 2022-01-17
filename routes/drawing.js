@@ -1,4 +1,4 @@
-const { getPipeData, chartRows, bomBuilder, reqObjBuilder } = require('../utilities/sheetBuilder');
+const { getPipeData, chartRows, bomBuilder, reqObjBuilder, partNumberCreator } = require('../utilities/sheetBuilder');
 const { tempReqObject, tempSpecificationsObject, tempBomObject, tempCustomLabelObject } = require('../utilities/tempObjects');
 const express = require('express');
 const drawingData = require('../models/DrawingData');
@@ -81,6 +81,7 @@ router.get('/:drawingId', async function(req, res) {
     } 
     
   } catch (error) {
+    console.log(error)
     res.render('error', { pageTitle: 'Something went wrong.', subTitle: 'Please contact The Light Source.' })
   }   
 });
@@ -88,7 +89,7 @@ router.get('/:drawingId', async function(req, res) {
 
 router.post('/postDrawing', async function(req, res) { 
   try {
-    await drawingData.create(req.body)
+    await drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData })
       .then((response) => {
         res.status(200).end(`${response._id}`)
       })

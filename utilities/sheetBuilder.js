@@ -218,27 +218,26 @@ function bomBuilder(drawingArray) {
 }
 
 
-
-function reqObjBuilder(drawingArray) {
-  
+function partNumberCreator(drawingArray) {
   // sort drawing array by order of apperance for part number
   const drwArry2 = drawingArray.slice().sort(function(a, b){return a.OrderOfAppearance - b.OrderOfAppearance});
+  const pnArray = [];
+  //create partnumber
+  drwArry2.forEach(obj => {
+    if (obj.ExcludeFromPartNumber === 'false' && obj.ComponentTypeName !== 'Seperator-3') {
+      pnArray.push(obj.CatalogID)
+    }  
+  });
 
-  const partNumber = () => {
-    const pnArray = [];
-    //create partnumber
-    drwArry2.forEach(obj => {
-      if (obj.ExcludeFromPartNumber === 'false' && obj.ComponentTypeName !== 'Seperator-3') {
-        pnArray.push(obj.CatalogID)
-      }  
-    });
+  return pnArray.join('') 
+}
 
-    //console.log(pnArray.join(''))
-    return pnArray.join('') 
-  }
+
+function reqObjBuilder(drawingArray) {
+  const partNumber = partNumberCreator(drawingArray)
 
   const findComponent = (componentName, property) => {
-    const result = drwArry2.find( ({ComponentTypeName}) => ComponentTypeName === `${componentName}` )
+    const result = drawingArray.find( ({ComponentTypeName}) => ComponentTypeName === `${componentName}` )
     
     if (!result) {
       return 'null'
@@ -261,7 +260,7 @@ function reqObjBuilder(drawingArray) {
       numberOfCircuits: findComponent("Circuits", "CatalogID"),
       numberOfOutlets: findComponent("Outlets", "CatalogID"),
       outletSpacing: findComponent("Outlet Spacing", "CatalogID"),
-      partNumber: partNumber(),
+      partNumber: partNumber,
       pipeLength: findComponent("Length (in)", "CatalogID"),
       pipeSize: findComponent("Pipe Size", "CatalogID"),
       powerInputPosition: findComponent("Power Input Position", "CatalogID"),
@@ -290,4 +289,4 @@ function reqObjBuilder(drawingArray) {
 }
 
 
-module.exports = { chartRows, getPipeData, bomBuilder, reqObjBuilder };
+module.exports = { chartRows, getPipeData, bomBuilder, reqObjBuilder, partNumberCreator };

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const drawingDataSchema = mongoose.Schema({
+  partNumber: String,
   drawingData: [
     {
       ComponentTypeName: String,
