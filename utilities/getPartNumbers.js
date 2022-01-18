@@ -1,7 +1,6 @@
 const drawingData = require('../models/DrawingData');
 
-
-// function to convert array of drawing data into part number
+// function to collect all unique part numbers
 const partNumbers = () => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -21,11 +20,6 @@ const partNumbers = () => {
       reject (error)
     }
   })
-  
-
 }
-
-
-
 
 module.exports = { partNumbers }
