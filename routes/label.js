@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
+const { partNumbers } = require('../utilities/getPartNumbers');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+/* GET custom label page. */
+router.get('/', async function(req, res, next) {
+  const partNumbersList = await partNumbers()
+  res.render('label', { pageTitle: 'MEGABATTEN Custom Labels', partNumbersList})
 });
 
 module.exports = router;
