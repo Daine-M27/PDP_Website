@@ -8,24 +8,8 @@ const partNumbers = () => {
       const output = []
       const drawings = await drawingData.find()
 
-      drawings.forEach(drwArray => {
-        const pnArray = [];
-        // sort drawing array by order of apperance for part number
-        const drwArray2 = drwArray.drawingData.slice().sort(function(a, b){return a.OrderOfAppearance - b.OrderOfAppearance});
-        
-        //create partnumber
-        drwArray2.forEach(obj => {
-          if (obj.ExcludeFromPartNumber === 'false' && obj.ComponentTypeName !== 'Seperator-3') {
-            pnArray.push(obj.CatalogID)
-          }  
-        });
-
-        const pn = pnArray.join('')
-        
-        // check if PN already in array and push to output if not
-        if (!output.includes(pn)) {
-          output.push(pn)  
-        }
+      drawings.forEach(dwg => {
+        output.push(dwg.partNumber)
       });
       // output full list of unique part numbers
       resolve(output)

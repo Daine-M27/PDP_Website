@@ -4,6 +4,9 @@ const express = require('express');
 const drawingData = require('../models/DrawingData');
 const router = express.Router();
 
+/**
+ * Sheet class object 
+ */
 class Sheet {
   constructor( partOptions, sheetNumber ) {
       Object.assign(this, partOptions)
@@ -19,6 +22,11 @@ class Sheet {
     }
 }
 
+/**
+ * 
+ * @param {String} length 
+ * @returns returns number of sheets IE.. folded sheet or not
+ */
 const maxSheet = (length) => {
   if (parseInt(length) > 96) {
     return '5'
@@ -28,6 +36,11 @@ const maxSheet = (length) => {
   }
 }
 
+/**
+ * 
+ * @param {Object} bom 
+ * @returns calculated weight of all bom items
+ */
 const getWeight = (bom) => {
   let output = 0;
 
@@ -86,7 +99,7 @@ router.get('/:drawingId', async function(req, res) {
   }   
 });
 
-
+/* Post drawing */
 router.post('/postDrawing', async function(req, res) { 
   try {
     await drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData })
@@ -99,6 +112,8 @@ router.post('/postDrawing', async function(req, res) {
     res.status(500).end(`Error: ${error}`)
   }
 });
+
+
 
 module.exports = router;
 
