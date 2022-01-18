@@ -1,5 +1,5 @@
 const { getPipeData, chartRows, bomBuilder, reqObjBuilder, partNumberCreator } = require('../utilities/sheetBuilder');
-const { tempReqObject, tempSpecificationsObject, tempBomObject, tempCustomLabelObject } = require('../utilities/tempObjects');
+//const { tempReqObject, tempSpecificationsObject, tempBomObject, tempCustomLabelObject } = require('../utilities/tempObjects');
 const express = require('express');
 const drawingData = require('../models/DrawingData');
 const router = express.Router();
@@ -49,7 +49,7 @@ router.get('/:drawingId', async function(req, res) {
     const bomObject = await bomBuilder(drawing.drawingData);
 
     // get number of sheets
-    const numSheets = maxSheet(tempReqObject.pipeLength)
+    const numSheets = maxSheet(reqObject.pipeLength)
     
     // setup sheet1  
     const sheet1 = new Sheet(reqObject.selections, `SHEET 1 OF ${numSheets}`) 
