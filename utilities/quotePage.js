@@ -8,8 +8,11 @@ const partNumbers = () => {
       const output = []
       const drawings = await drawingData.find()
 
-      drawings.forEach(dwg => {
-        output.push(dwg.partNumber)
+      drawings.forEach(dwg => {        
+        // check if PN already in array and push to output if not
+        if (!output.includes(dwg.partNumber)) {
+          output.push(dwg.partNumber)  
+        }
       });
       // output full list of unique part numbers
       resolve(output)
