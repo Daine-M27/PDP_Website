@@ -12,6 +12,7 @@ const drawingRouter = require('./routes/drawing');
 const usersRouter = require('./routes/users');
 const choicesRouter = require('./routes/choices')
 const quoteRouter = require('./routes/quote');
+const labelRouter = require('./routes/label');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/drawing', drawingRouter);
 app.use('/users', usersRouter);
 app.use('/choices', choicesRouter);
 app.use('/quote', quoteRouter);
+app.use('/label', labelRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
