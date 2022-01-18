@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { partNumbers } = require('../utilities/quotePage');
+const { partNumbers } = require('../utilities/getPartNumbers');
 const quoteRequest = require('../models/QuoteRequests')
 const mail = require('../utilities/email')
 
