@@ -59,31 +59,8 @@ function deleteItem(idValue){
   }
 }
 
-
-function submitData(){
-  
-}
-
 // address autocomplete code
 var placeSearch, autocomplete;
-
-// var componentForm = {
-//   street_number: 'short_name',
-//   route: 'long_name',
-//   locality: 'long_name',
-//   administrative_area_level_1: 'short_name',
-//   country: 'long_name',
-//   postal_code: 'short_name'
-// };
-
-// var componentForm2 = {
-//   street_number2: 'short_name',
-//   route2: 'long_name',
-//   locality2: 'long_name',
-//   administrative_area_level_12: 'short_name',
-//   country2: 'long_name',
-//   postal_code2: 'short_name'
-// };
 
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
@@ -94,53 +71,8 @@ function initAutocomplete() {
 
   autocomplete2 = new google.maps.places.Autocomplete(
       /** @type {!HTMLInputElement} */(document.getElementById('customerautocomplete')),
-      {types: ['geocode']});
-  
-  // When the user selects an address from the dropdown, populate the address
-  // fields in the form.
-  // autocomplete.addListener('place_changed', fillInAddress);
-  // autocomplete2.addListener('place_changed', fillInAddress2);
+      {types: ['geocode']});  
 }
-
-// function fillInAddress() {
-//   // Get the place details from the autocomplete object.
-//   var place = autocomplete.getPlace();
-
-//   for (var component in componentForm) {
-//     document.getElementById(component).value = '';
-//     document.getElementById(component).disabled = false;
-//   }
-
-//   // Get each component of the address from the place details
-//   // and fill the corresponding field on the form.
-//   for (var i = 0; i < place.address_components.length; i++) {
-//     var addressType = place.address_components[i].types[0];
-//     if (componentForm[addressType]) {
-//       var val = place.address_components[i][componentForm[addressType]];
-//       document.getElementById(addressType).value = val;
-//     }
-//   }
-// }
-
-// function fillInAddress2() {
-//   // Get the place details from the autocomplete object.
-//   var place = autocomplete2.getPlace();
-
-//   for (var component in componentForm2) {
-//     document.getElementById(component).value = '';
-//     document.getElementById(component).disabled = false;
-//   }
-
-//   // Get each component of the address from the place details
-//   // and fill the corresponding field on the form.
-//   for (var i = 0; i < place.address_components.length; i++) {
-//     var addressType = place.address_components[i].types[0];
-//     if (componentForm2[addressType]) {
-//       var val = place.address_components[i][componentForm2[addressType]];
-//       document.getElementById(addressType).value = val;
-//     }
-//   }
-// }
 
 
 // Bias the autocomplete object to the user's geographical location,
