@@ -1,0 +1,45 @@
+extends layout
+
+
+block content
+  - var outlets = parseInt(numOutlets)
+  - var maxCir = parseInt(numCircuits)
+  //- function returns the remainder of max circuit divided by input
+  - function circuit(x, last){ return x % last + 1 }
+  #contents
+    .controls
+      button.controls-item(id='#btn_export_pdf' onclick='downloadLabelPDF()') Download PDF
+      button.controls-item(id='#label_page' onClick='window.location="/label"') New Label Sheet
+    br
+    #tabelBody 
+      table 
+        thead 
+          tr 
+            th(colspan='5') MEGABATTEN CUSTOM LABELING FORM 
+        tbody 
+          tr 
+            td(colspan='2' style='text-align: left;')= `Company: ${company}`
+            td(colspan='3' style='text-align: left;')= `Project: ${projectName}`
+          tr 
+            td(colspan='2' style='text-align: left;')= `Building: ${building}`
+            td(colspan='3' style='text-align: left;')= `Location: ${location}`
+          tr 
+            td(colspan='5' style='text-align: left;')= `Part Number: ${partNumber}`
+          tr
+            td(colspan='5' style='padding-top: 10px; background-color: lightgray')
+          tr 
+            td Outlet Position 
+            td Default Circuit
+            td Default Label 
+            td Custom Circuit
+            td Custom Label
+          - for(var r=0; r < outlets; r++)
+            //- -if(r === 25 || r === 50)
+            //-   - console.log(r, 'br')
+            //-   tr.pageBreak(style='height: 20px')
+            tr 
+              td !{r + 1}
+              td #{circuit(r, maxCir)}
+              td C#{circuit(r, maxCir)}
+              td !{customCircuitInput[r]}
+              td !{customLabelInput[r]}

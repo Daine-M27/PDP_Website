@@ -234,3 +234,26 @@ svg {
     box-shadow: 0 2.5em 0 0;
   }
 }
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+
+th {
+  text-align: center;
+  font-weight: bold;
+  padding: 4px;
+}
+
+td {
+  text-align: center;
+  padding: 4px;
+}
+
+td, th {
+  border: 1px solid black;
+}

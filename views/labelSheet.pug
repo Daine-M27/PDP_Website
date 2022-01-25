@@ -1,1 +1,67 @@
-p= `circuits: ${options.circuits}`
+
+- var outlets = parseInt(options.outlets)
+- var maxCir = parseInt(options.circuits)
+  //- function returns the remainder of max circuit divided by input
+- function circuit(x, last){ return x % last + 1 }
+- console.log(options)
+
+
+form(action="/label/printSheet", method="post" ) 
+  br
+  label(for="company") Company:
+  br
+  input(type="text", name="company" style="min-width:350px" required)
+  br
+  br
+  label(for="building") Building:
+  br
+  input(type="text", name="building" style="min-width:350px" required)
+  br
+  br
+  label(for="projectName") Project Name:
+  br
+  input(type="text", name="projectName" style="min-width:350px" required)
+  br
+  br
+  label(for="location") Location:
+  br
+  input(type="text", name="location" style="min-width:350px" required)
+  br
+  br
+  label(for="partNumber") Part Number: 
+  br
+  input(type="text", name="partNumberDisabled" style="min-width:350px" disabled required placeHolder=`${options.partNumber}`)
+  input(type="text", name="partNumber" style="min-width:350px" hidden value=`${options.partNumber}`)
+  input(type="text", name="numOutlets" style="min-width:350px" hidden value=`${options.outlets}`)
+  input(type="text", name="numCircuits" style="min-width:350px" hidden value=`${options.circuits}`)
+  br
+  br
+  table 
+    thead 
+      tr 
+        th Outlet Position 
+        th Default Circuit
+        th Default Label 
+        th Custom Circuit
+        th Custom Label 
+    tbody
+      - for(var r = 0; r < outlets ; r++)
+        tr 
+          td !{r+1}
+          td #{circuit(r, maxCir)}
+          td C#{circuit(r, maxCir)} 
+          td
+            label(for='customCircuitInput' style="display: hidden")
+            select(type="select" name="customCircuitInput" required style="margin-left:6px" )
+              option(value='' selected disabled hidden) -
+              - var n = 1;
+              while n <= maxCir
+                option(value=`${n}`)= `${n}`
+                - n++ 
+          td
+            label(for='customLabelInput' style="display: hidden")
+            input(type="text", name="customLabelInput" maxlength="8" required)
+  br
+  input(type="submit", value="Next")
+  
+  
