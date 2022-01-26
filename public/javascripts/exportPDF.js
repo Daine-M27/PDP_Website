@@ -30,10 +30,10 @@ function downloadLabelPDF() {
   var element = document.getElementById('tabelBody')
   var opt = {
     pagebrake: {
-      mode: 'avoid-all'
+      avoid: 'tr'
     },
-    margin: .50,
-    filename: 'Custom Labels',
+    margin: .49,
+    filename: 'Custom Labels.pdf',
     html2canvas: {
       scale: 2
     },

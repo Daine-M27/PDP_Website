@@ -34,9 +34,9 @@ block content
             td Custom Circuit
             td Custom Label
           - for(var r=0; r < outlets; r++)
-            //- -if(r === 25 || r === 50)
-            //-   - console.log(r, 'br')
-            //-   tr.pageBreak(style='height: 20px')
+            -if(r === 28 || r === 62)
+              - console.log(r, 'br')
+              tr.pageBreak(style='height: 32px')
             tr 
               td !{r + 1}
               td #{circuit(r, maxCir)}
