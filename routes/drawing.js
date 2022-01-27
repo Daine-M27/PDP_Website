@@ -1,5 +1,4 @@
 const { getPipeData, chartRows, bomBuilder, reqObjBuilder, partNumberCreator } = require('../utilities/sheetBuilder');
-//const { tempReqObject, tempSpecificationsObject, tempBomObject, tempCustomLabelObject } = require('../utilities/tempObjects');
 const express = require('express');
 const drawingData = require('../models/DrawingData');
 const router = express.Router();
