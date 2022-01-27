@@ -123,11 +123,11 @@ router.get('/loader/:sheet/:drawingId', async function(req, res) {
     let html;
     
     if (sheet === 'sheet1') {  
-      const bomObject = await bomBuilder(drawing.drawingData);
+      //const bomObject = [...drawing.bomData] //await bomBuilder(drawing.drawingData);
       const sheet1 = new Sheet(reqObject.selections, `SHEET 1 OF ${numSheets}`) 
-      sheet1.bomItems = [...bomObject] 
+      sheet1.bomItems = drawing.bomData 
       sheet1.specifications = JSON.parse(JSON.stringify(reqObject.specifications))
-      sheet1.weight = getWeight(bomObject)
+      sheet1.weight = getWeight(drawing.bomData)
       html = pug.renderFile(`${filePath}/drawingSheetOne.pug`, {  sheets: { sheet1 } })
 
     } else if (sheet === 'sheet2') {
@@ -144,7 +144,7 @@ router.get('/loader/:sheet/:drawingId', async function(req, res) {
       html = pug.renderFile(`${filePath}/drawingSheetFour.pug`, {  sheets: { sheet4 } })
 
     } else if (sheet === 'sheet5' && numSheets === '5') {
-      const bomObject = await bomBuilder(drawing.drawingData);
+      const bomObject = drawing.bomData //await bomBuilder(drawing.drawingData);
       const sheet5 = new Sheet(reqObject.selections, 'SHEET 5 OF 5')
       sheet5.foldSheetData = getPipeData(sheet5)
       sheet5.weight = getWeight(bomObject)
@@ -167,7 +167,8 @@ router.get('/loader/:sheet/:drawingId', async function(req, res) {
 /* Post drawing */
 router.post('/postDrawing', async function(req, res) { 
   try {
-    await drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData })
+    const bomObject = await bomBuilder(req.body.drawingData);
+    await drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData, bomData:bomObject })
       .then((response) => {
         res.status(200).end(`${response._id}`)
       })

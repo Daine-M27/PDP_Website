@@ -192,11 +192,11 @@ function bomBuilder(drawingArray) {
             // add to result object, if already exists in results increment quantity
             if (indexCheck === -1) {
               outputObjects.push({ // add item number, part number, description, and qty to bom result object
-                'partNo': entry.PartNumber,
-                'description': entry.Description,
-                'qty': entry.Quantity,
-                'weight': entry.Weight,
-                'orderBy': entry.OrderBy 
+                'PartNo': entry.PartNumber,
+                'Description': entry.Description,
+                'Qty': entry.Quantity,
+                'Weight': entry.Weight,
+                'OrderBy': entry.OrderBy 
               })
               //console.log(`PN: ${entry.PartNumber} W:${entry.Weight} Ord: ${entry.OrderBy}`);
               
@@ -208,7 +208,7 @@ function bomBuilder(drawingArray) {
         }  
       });
 
-      const sorted = outputObjects.slice().sort(function(a, b){return a.orderBy - b.orderBy})
+      const sorted = outputObjects.slice().sort(function(a, b){return a.OrderBy - b.OrderBy})
       // console.log(sorted);
       resolve(sorted)
     } catch (error) {
