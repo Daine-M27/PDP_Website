@@ -234,57 +234,60 @@ function partNumberCreator(drawingArray) {
 
 
 function reqObjBuilder(drawingArray) {
-  const partNumber = partNumberCreator(drawingArray)
-
-  const findComponent = (componentName, property) => {
-    const result = drawingArray.find( ({ComponentTypeName}) => ComponentTypeName === `${componentName}` )
+  return new Promise((resolve, reject) => {
+    try {      
+      const partNumber = partNumberCreator(drawingArray)
     
-    if (!result) {
-      return 'null'
-    } else {
-      return result[property]
+      const findComponent = (componentName, property) => {
+        const result = drawingArray.find( ({ComponentTypeName}) => ComponentTypeName === `${componentName}` )        
+        if (!result) {
+          return 'null'
+        } else {
+          return result[property]
+        }
+      }
+    
+      resolve ({
+        selections: {
+          color: findComponent("Color", "CatalogID"),
+          dataInput: findComponent("Data Input Type", "CatalogID"),
+          dataOutput: findComponent("Data Output Type", "CatalogID"),
+          dataPowerLocation: findComponent("Data Power Location", "CatalogID"),
+          dmxUniverses: findComponent("Universes", "CatalogID"),
+          endCap: findComponent("End Cap Type", "CatalogID"),
+          leadWhipLength: findComponent("Lead Length (ft)", "CatalogID"),
+          numberOfCircuits: findComponent("Circuits", "CatalogID"),
+          numberOfOutlets: findComponent("Outlets", "CatalogID"),
+          outletSpacing: findComponent("Outlet Spacing", "CatalogID"),
+          partNumber: partNumber,
+          pipeLength: findComponent("Length (in)", "CatalogID"),
+          pipeSize: findComponent("Pipe Size", "CatalogID"),
+          powerInputPosition: findComponent("Power Input Position", "CatalogID"),
+          powerInput: findComponent("Power Input Type", "CatalogID"),
+          powerOutput: findComponent("Power Output Type", "CatalogID"),
+          run1: findComponent("Run 1 Termination Outlet", "CatalogID"),
+          run2: findComponent("Run 2 Termination Outlet", "CatalogID"),
+          run3: findComponent("Run 3 Termination Outlet", "CatalogID"), 
+          run4: findComponent("Run 4 Termination Outlet", "CatalogID"),
+        },
+        specifications: {
+          color: findComponent("Color", "CatalogDescription"),
+          pipeSize: findComponent("Pipe Size", "CatalogDescription"),
+          pipeLength: findComponent("Length (in)", "CatalogDescription"),
+          powerInput: findComponent("Power Input Type", "CatalogDescription"),
+          leadLength: findComponent("Lead Length (ft)", "CatalogDescription"),
+          dataInput: findComponent("Data Input Type", "CatalogDescription"),
+          dataOutput: findComponent("Data Output Type", "CatalogDescription"),
+          numOutputs: findComponent("Outlets", "CatalogID"),
+          outputSpacing: findComponent("Outlet Spacing", "CatalogID"),
+          numCircuits: findComponent("Circuits", "CatalogID"),
+        },
+      })
+      //console.log(partNumber())
+    } catch (error) {
+      reject(error)
     }
-  }
-
-  
-  
-  return {
-    selections: {
-      color: findComponent("Color", "CatalogID"),
-      dataInput: findComponent("Data Input Type", "CatalogID"),
-      dataOutput: findComponent("Data Output Type", "CatalogID"),
-      dataPowerLocation: findComponent("Data Power Location", "CatalogID"),
-      dmxUniverses: findComponent("Universes", "CatalogID"),
-      endCap: findComponent("End Cap Type", "CatalogID"),
-      leadWhipLength: findComponent("Lead Length (ft)", "CatalogID"),
-      numberOfCircuits: findComponent("Circuits", "CatalogID"),
-      numberOfOutlets: findComponent("Outlets", "CatalogID"),
-      outletSpacing: findComponent("Outlet Spacing", "CatalogID"),
-      partNumber: partNumber,
-      pipeLength: findComponent("Length (in)", "CatalogID"),
-      pipeSize: findComponent("Pipe Size", "CatalogID"),
-      powerInputPosition: findComponent("Power Input Position", "CatalogID"),
-      powerInput: findComponent("Power Input Type", "CatalogID"),
-      powerOutput: findComponent("Power Output Type", "CatalogID"),
-      run1: findComponent("Run 1 Termination Outlet", "CatalogID"),
-      run2: findComponent("Run 2 Termination Outlet", "CatalogID"),
-      run3: findComponent("Run 3 Termination Outlet", "CatalogID"), 
-      run4: findComponent("Run 4 Termination Outlet", "CatalogID"),
-    },
-    specifications: {
-      color: findComponent("Color", "CatalogDescription"),
-      pipeSize: findComponent("Pipe Size", "CatalogDescription"),
-      pipeLength: findComponent("Length (in)", "CatalogDescription"),
-      powerInput: findComponent("Power Input Type", "CatalogDescription"),
-      leadLength: findComponent("Lead Length (ft)", "CatalogDescription"),
-      dataInput: findComponent("Data Input Type", "CatalogDescription"),
-      dataOutput: findComponent("Data Output Type", "CatalogDescription"),
-      numOutputs: findComponent("Outlets", "CatalogID"),
-      outputSpacing: findComponent("Outlet Spacing", "CatalogID"),
-      numCircuits: findComponent("Circuits", "CatalogID"),
-    },
-  };
-  //console.log(partNumber())
+  })
 
 }
 

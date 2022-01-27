@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  script.
+    var id = '!{dwgId}'
+  #contents(style='margin-bottom:10rem')
+    .controls
+      button.controls-item(id='#btn_export_pdf' onclick='downloadPDF()') Download PDF
+      button.controls-item(id='#configure_page' onClick='window.location="/configurator"') Configure New
+    #svgBody
+      #sheet1
+        .loaderMessage
+          h4= 'Sheet 1 Loading...'
+        .loader
+      #sheet2
+        .loaderMessage
+          h4= 'Sheet 2 Loading...'
+        .loader
+      #sheet3
+        .loaderMessage
+          h4= 'Sheet 3 Loading...'
+        .loader
+      #sheet4
+        .loaderMessage
+          h4= 'Sheet 4 Loading...'
+        .loader
+      #sheet5
+        .loaderMessage
+          h4= 'Sheet 5 Loading...'
+        .loader
+
+  append scripts
+    script(src='/javascripts/drawingLoader.js')

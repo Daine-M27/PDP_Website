@@ -1,0 +1,26 @@
+include mixins/drawingLegend
+//- include mixins/sheetOne
+//- include mixins/sheetTwo
+//- include mixins/sheetThree
+//- include mixins/sheetFour
+//- include mixins/sheetFourDMX
+include mixins/sheetFive
+
+
+
+each sheet, index in sheets
+  if index === 'sheet1'
+    +drawingLegend(sheet)(id=index)
+      +sheetOne(sheet)        
+  if index === 'sheet2'
+    +drawingLegend(sheet)(id=index)
+      +sheetTwo(sheet)
+  if index === 'sheet3'
+    +drawingLegend(sheet)(id=index)
+      +sheetThree(sheet)
+  if index === 'sheet4'
+    +drawingLegend(sheet)(id=index)
+      +sheetFourDMX(sheet)
+  if index === 'sheet5'
+    +drawingLegend(sheet)(id=index)
+      +sheetFive(sheet) 
