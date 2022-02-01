@@ -61,7 +61,7 @@ router.get('/:drawingId', async function(req, res) {
     const bomObject = await bomBuilder(drawing.drawingData);
 
     // get number of sheets
-    const numSheets = maxSheet(reqObject.pipeLength)
+    const numSheets = maxSheet(reqObject.selections.pipeLength)
     
     // setup sheet1  
     const sheet1 = new Sheet(reqObject.selections, `SHEET 1 OF ${numSheets}`) 
