@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
 const drawingDataSchema = mongoose.Schema({
-  partNumber: String,
-  drawingData: [
+  DrawingData: [
     {
       ComponentTypeName: String,
       OrderOfAppearance: String,
@@ -14,7 +13,10 @@ const drawingDataSchema = mongoose.Schema({
       ParentDecisionNodeID: String,
       ExcludeFromPartNumber: String
     }
-  ]  
+  ],
+  Html: String,   
+  HtmlStatus: Boolean,
+  PartNumber: String
 }, { timestamps: true });
 
 module.exports = mongoose.model(

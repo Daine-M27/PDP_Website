@@ -101,7 +101,7 @@ router.get('/:drawingId', async function(req, res) {
 /* Post drawing */
 router.post('/postDrawing', async function(req, res) { 
   try {
-    await drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData })
+    await drawingData.create({PartNumber: partNumberCreator(req.body.drawingData), DrawingData:req.body.drawingData })
       .then((response) => {
         res.status(200).end(`${response._id}`)
       })
