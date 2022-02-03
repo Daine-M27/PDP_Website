@@ -108,6 +108,7 @@ async function buildHtml(dwg_id) {
 /* GET drawing page. */
 router.get('/:drawingId', async function(req, res) {
   //console.log(req.params.drawingId);
+  buildHtml(req.params.drawingId)
   res.render('drawingLoader', { pageTitle: 'Drawing Page', dwgId: req.params.drawingId })
   
 });
@@ -127,9 +128,9 @@ router.get('/loader/:drawingId', async function(req, res) {
 })
 
 /* Post drawing */
-router.post('/postDrawing', async function(req, res) { 
+router.post('/postDrawing', function(req, res) { 
   try {
-    await drawingData.create(
+    drawingData.create(
       {
         PartNumber: partNumberCreator(req.body.drawingData), 
         DrawingData:req.body.drawingData,
@@ -137,7 +138,7 @@ router.post('/postDrawing', async function(req, res) {
       }
       )
       .then((response) => {
-        buildHtml(response._id)
+        
         res.status(200).end(`${response._id}`)
       })
     
