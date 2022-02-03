@@ -2,6 +2,9 @@ const { getPipeData, chartRows, bomBuilder, reqObjBuilder, partNumberCreator } =
 const express = require('express');
 const drawingData = require('../models/DrawingData');
 const router = express.Router();
+const pug = require('pug')
+const path = require('path')
+const filePath = path.join(__dirname, '../views')
 
 /**
  * Sheet class object 
@@ -52,13 +55,12 @@ const getWeight = (bom) => {
   return output.toFixed(2)
 }
 
-/* GET drawing page. */
-router.get('/:drawingId', async function(req, res) {
-  // console.log(req.params.drawingId, 'drawing page')
+async function buildHtml(dwg_id) {
+  //console.log(dwg_id, 'sheet builder')
   try {
-    const drawing = await drawingData.findById(req.params.drawingId).exec();
-    const reqObject = reqObjBuilder(drawing.drawingData);
-    const bomObject = await bomBuilder(drawing.drawingData);
+    const drawing = await drawingData.findById(dwg_id).exec();
+    const reqObject = reqObjBuilder(drawing.DrawingData);
+    const bomObject = await bomBuilder(drawing.DrawingData);
 
     // get number of sheets
     const numSheets = maxSheet(reqObject.selections.pipeLength)
@@ -77,7 +79,7 @@ router.get('/:drawingId', async function(req, res) {
 
     // setup sheet4
     const sheet4 = new Sheet(reqObject.selections, `SHEET 4 OF ${numSheets}`)
-    console.log(sheet4);
+    // console.log(sheet4);
     sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
     // sheet4.customLabels = [...tempCustomLabelObject]
     
@@ -86,23 +88,56 @@ router.get('/:drawingId', async function(req, res) {
       const sheet5 = new Sheet(reqObject.selections, 'SHEET 5 OF 5')
       sheet5.foldSheetData = getPipeData(sheet5)
       sheet5.weight = getWeight(bomObject)
-      res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
+      const html = pug.renderFile(`${filePath}/drawing.pug`, { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
+    
+      await drawingData.findOneAndUpdate({_id: `${drawing._id.toString()}`}, {Html: html, HtmlStatus: true})
+      
     }
     else {
-      res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4 } });
+      const html = pug.renderFile(`${filePath}/drawing.pug`, { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4 } });
+      
+      await drawingData.findOneAndUpdate({_id: `${drawing._id.toString()}`}, {Html: html, HtmlStatus: true})
+      
     } 
     
   } catch (error) {
     console.log(error)
-    res.render('error', { pageTitle: 'Something went wrong.', subTitle: 'Please contact The Light Source.' })
-  }   
+  }
+}
+
+/* GET drawing page. */
+router.get('/:drawingId', async function(req, res) {
+  //console.log(req.params.drawingId);
+  res.render('drawingLoader', { pageTitle: 'Drawing Page', dwgId: req.params.drawingId })
+  
 });
+
+router.get('/loader/:drawingId', async function(req, res) {
+  try {
+    const drawing = await drawingData.findById(req.params.drawingId).exec();
+    
+    if (drawing.HtmlStatus != true) {
+      res.send(drawing.HtmlStatus)
+    } else {
+      res.send(drawing.Html)
+    }
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 /* Post drawing */
 router.post('/postDrawing', async function(req, res) { 
   try {
-    await drawingData.create({PartNumber: partNumberCreator(req.body.drawingData), DrawingData:req.body.drawingData })
+    await drawingData.create(
+      {
+        PartNumber: partNumberCreator(req.body.drawingData), 
+        DrawingData:req.body.drawingData,
+        HtmlStatus: false
+      }
+      )
       .then((response) => {
+        buildHtml(response._id)
         res.status(200).end(`${response._id}`)
       })
     

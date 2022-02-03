@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  script.
+    var id = '!{dwgId}'
+  #contents(style='margin-bottom:10rem')
+    .controls
+      button.controls-item(id='#btn_export_pdf' onclick='downloadPDF()') Download PDF
+      button.controls-item(id='#configure_page' onClick='window.location="/configurator"') Configure New
+    #svgBody
+  .loaderMessage
+    h2= 'Drawing Loading'
+  .loader
+      
+
+  append scripts
+    script(src='/javascripts/drawingLoader.js')

@@ -1,4 +1,3 @@
-extends layout
 include mixins/drawingLegend
 include mixins/sheetOne
 include mixins/sheetTwo
@@ -8,25 +7,19 @@ include mixins/sheetFourDMX
 include mixins/sheetFive
 
 
-block content
-  #contents
-    .controls
-      button.controls-item(id='#btn_export_pdf' onclick='downloadPDF()') Download PDF
-      button.controls-item(id='#configure_page' onClick='window.location="/configurator"') Configure New
-    #svgBody
-      each sheet, index in sheets
-        if index === 'sheet1'
-          +drawingLegend(sheet)(id=index)
-            +sheetOne(sheet)        
-        if index === 'sheet2'
-          +drawingLegend(sheet)(id=index)
-            +sheetTwo(sheet)
-        if index === 'sheet3'
-          +drawingLegend(sheet)(id=index)
-            +sheetThree(sheet)
-        if index === 'sheet4'
-          +drawingLegend(sheet)(id=index)
-            +sheetFourDMX(sheet)
-        if index === 'sheet5'
-          +drawingLegend(sheet)(id=index)
-            +sheetFive(sheet) 
+each sheet, index in sheets
+  if index === 'sheet1'
+    +drawingLegend(sheet)(id=index)
+      +sheetOne(sheet)        
+  if index === 'sheet2'
+    +drawingLegend(sheet)(id=index)
+      +sheetTwo(sheet)
+  if index === 'sheet3'
+    +drawingLegend(sheet)(id=index)
+      +sheetThree(sheet)
+  if index === 'sheet4'
+    +drawingLegend(sheet)(id=index)
+      +sheetFourDMX(sheet)
+  if index === 'sheet5'
+    +drawingLegend(sheet)(id=index)
+      +sheetFive(sheet) 

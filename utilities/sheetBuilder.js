@@ -1,6 +1,3 @@
-//const pipeDataJson = require('../json/pipePaths.json')
-const pipeDrawingOrigin = {'x': 100, 'y': 600}
-const  { findStroke, findScale } = require('./measurements')
 const bomItems = require('../models/BOMItems')
 
 
@@ -62,8 +59,6 @@ function getPipeData(options) {
 }
 
 
-
-
 /**
  * This function returns an array of 3 arrays 
  * @param {*} totalRow 
@@ -82,75 +77,6 @@ function chartRows(totalRow){
   
   return chartArrays
 }
-
-
-/**
- * This function creates the pipe elements for the main drawing svg 
- * @param {object} pipeData 
- * @returns an array of elements
- */
-// function pipeAssembly(pipeData) {
-//   const pipeObjects = []
-//   const keys = Object.keys(pipeData)
-  
-//   let distance = 0
-//   // function for constructing G element for each pipe
-//   const pipeElement = (matrix, pathData) => {
-//     const pipeObject = {
-//       'transform': matrix,
-//       'paths': pathData,
-//       };    
-//     return pipeObject
-//   };
-
-//   keys.forEach((key) => {    
-//     if(pipeData[key] > 0){      
-//       const p = `${pipeData.properties.diameter}${key}` // key for pipe selection
-//       const pipeWidth = pipeDataJson[p].svgUnits.width  // offset to space pipes horizontally 
-      
-//       for (let i = 0; i < pipeData[key]; i++) {
-//         const pathData = JSON.parse(JSON.stringify(pipeDataJson[p].paths)) // copy of path data
-//         pipeObjects.push(pipeElement( matrixString(distance, 0), pathData ))
-//         distance = distance + pipeWidth
-//       }
-//     }
-//   })
-  
-//   return pipeObjects
-// }
-
-
-/**
- * This funciton takes in a set of selections from the user
- * and creates an output object with drawing specifications.
- * @param {object} options
- * @returns an array of elements 
- */
-// function sheetOne(options) {
-//   let elements = [];
-//   let mainTransform;
-//   const stroke = findStroke(options.pipeLength)
-//   const pipes = getPipeData(options)
-  
-//   // check for error in pipes
-//   if (!pipes.error) {
-//     const pipeResults = pipeAssembly(pipes)
-//     elements.push(...pipeResults)
-//   }
-    
-//   // set stroke based on pipe length
-//   elements.forEach(element => {
-//     element.paths.forEach(path => {
-//       path.style = path.style.replace('stroke-width:1', `stroke-width:${stroke}`)
-//     })  
-//   });
-
-//   // set main transform based on pipe size
-//   mainTransform = `translate(${pipeDrawingOrigin.x} ${pipeDrawingOrigin.y}) scale(${findScale(options.pipeLength)})`
-  
-//   return { mainTransform, elements }
-// }
-
 
  
 /**

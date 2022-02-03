@@ -214,7 +214,7 @@ function getDrawing(){
     dataObjects.drawingData.push(obj)    
   }) 
   $.post('/drawing/postDrawing', dataObjects, function(res){    
-    //console.log(res)
+    console.log(res)
     window.location.replace(`/drawing/${res}`)
   })
 }
