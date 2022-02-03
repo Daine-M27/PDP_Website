@@ -108,7 +108,6 @@ async function buildHtml(dwg_id) {
 /* GET drawing page. */
 router.get('/:drawingId', async function(req, res) {
   //console.log(req.params.drawingId);
-  buildHtml(req.params.drawingId)
   res.render('drawingLoader', { pageTitle: 'Drawing Page', dwgId: req.params.drawingId })
   
 });
@@ -138,7 +137,7 @@ router.post('/postDrawing', function(req, res) {
       }
       )
       .then((response) => {
-        
+        buildHtml(response._id)
         res.status(200).end(`${response._id}`)
       })
     
