@@ -16,9 +16,10 @@ const jobQueue = new Agenda({
 
 jobQueue.start();
 
-jobQueue.define('makeDrawing', (job) => {
+jobQueue.define('makeDrawing', (job, done) => {
   buildHtml(job.attrs.data)
   console.log('drawing created')
+  done()
 })
 
 
