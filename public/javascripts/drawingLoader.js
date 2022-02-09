@@ -22,8 +22,7 @@ function getData(){
         counter = 10;
         document.getElementById('svgBody').insertAdjacentHTML('beforeend', data);        
       }          
-    });
-    
+    });    
   } catch (error) {
     // need to add client output message    
     console.log(error)

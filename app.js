@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // database connection
 try {
-  mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@lsiproductconfigurator.5xm1k.mongodb.net/LSIProductConfigurator?retryWrites=true&w=majority&useUnifiedTopology=true&useNewUrlParser=true`)
+  mongoose.connect(process.env.DB_URI)
   console.log('DB Connected')
 } catch (error) {
   console.log(error)

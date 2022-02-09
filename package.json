@@ -8,6 +8,7 @@
     "debug": "nodemon --inspect ./bin/www"
   },
   "dependencies": {
+    "agenda": "^4.2.1",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

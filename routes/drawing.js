@@ -1,10 +1,26 @@
-const { getPipeData, chartRows, bomBuilder, reqObjBuilder, partNumberCreator } = require('../utilities/sheetBuilder');
 const express = require('express');
-const drawingData = require('../models/DrawingData');
 const router = express.Router();
+const Agenda = require('agenda');
+const { getPipeData, chartRows, bomBuilder, reqObjBuilder, partNumberCreator } = require('../utilities/sheetBuilder');
+const drawingData = require('../models/DrawingData');
 const pug = require('pug')
 const path = require('path')
 const filePath = path.join(__dirname, '../views')
+
+const jobQueue = new Agenda({
+  db: {
+    address: process.env.DB_URI,
+    collection: 'drawingJobs',
+  },
+});
+
+jobQueue.start();
+
+jobQueue.define('makeDrawing', (job) => {
+  buildHtml(job.attrs.data)
+  console.log('drawing created')
+})
+
 
 /**
  * Sheet class object 
@@ -137,7 +153,8 @@ router.post('/postDrawing', function(req, res) {
       }
       )
       .then((response) => {
-        buildHtml(response._id)
+        // buildHtml(response._id)
+        jobQueue.now('makeDrawing', response._id)
         res.status(200).end(`${response._id}`)
       })
     
