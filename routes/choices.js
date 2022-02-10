@@ -4,20 +4,30 @@ const choices = require('../models/ProductComponentOptions')
 
 
 /* GET first choice */
-router.get('/firstChoice', async function(req, res) {
+router.get('/firstChoice', function(req, res) {
   try {
-    const firstChoice = await choices.findOne({ ComponentTypeName: 'Series' }).exec()
-    res.json(firstChoice)
+    choices.findOne({ ComponentTypeName: 'Series' }, function (err, docs) {
+      if(err){
+        throw err;
+      } else {
+        res.json(docs)
+      }      
+    })
   } catch (error) {
     res.status(400).send('Error getting first choice')
   }
 });
 
 /* GET next choice */
-router.get('/nextChoice/:ChildDecisionNodeID', async function(req, res) {
+router.get('/nextChoice/:ChildDecisionNodeID', function(req, res) {
   try {
-    const nextChoice = await choices.findOne({ ParentDecisionNodeID: req.params.ChildDecisionNodeID }).exec()
-    res.json(nextChoice)
+    choices.findOne({ ParentDecisionNodeID: req.params.ChildDecisionNodeID }, function (err, docs) {
+      if(err){
+        throw err;
+      } else {
+        res.json(docs)
+      }
+    })
   } catch (error) {
     res.status(400).send('Error getting next choice')
   }
