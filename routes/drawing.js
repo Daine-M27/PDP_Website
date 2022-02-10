@@ -58,42 +58,46 @@ router.get('/:drawingId', function(req, res) {
   console.log('building drawing');
   try {
     drawingData.findById(req.params.drawingId, function(err, drawing) {
-      const reqObject = reqObjBuilder(drawing.drawingData);
-      bomBuilder(drawing.drawingData).then((bomObject) => {
-        // get number of sheets
-        const numSheets = maxSheet(reqObject.selections.pipeLength)
-        
-        // setup sheet1  
-        const sheet1 = new Sheet(reqObject.selections, `SHEET 1 OF ${numSheets}`) 
-        sheet1.bomItems = [...bomObject] 
-        sheet1.specifications = JSON.parse(JSON.stringify(reqObject.specifications))
-        sheet1.weight = getWeight(bomObject) 
-    
-        // setup sheet2
-        const sheet2 = new Sheet(reqObject.selections, `SHEET 2 OF ${numSheets}`)
-    
-        // setup sheet3
-        const sheet3 = new Sheet(reqObject.selections, `SHEET 3 OF ${numSheets}`)
-    
-        // setup sheet4
-        const sheet4 = new Sheet(reqObject.selections, `SHEET 4 OF ${numSheets}`)
-        sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
-        // sheet4.customLabels = [...tempCustomLabelObject]
-        
-        // setup sheet5
-        if (parseInt(reqObject.selections.pipeLength) > 96) {
-          const sheet5 = new Sheet(reqObject.selections, 'SHEET 5 OF 5')
-          sheet5.foldSheetData = getPipeData(sheet5)
-          sheet5.weight = getWeight(bomObject)
-          res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
-        }
-        else {
-          res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4 } });
-        } 
-      });  
+      if (err) {
+        throw err;
+      } else {
+        const reqObject = reqObjBuilder(drawing.drawingData);
+        bomBuilder(drawing.drawingData).then((bomObject) => {
+          // get number of sheets
+          const numSheets = maxSheet(reqObject.selections.pipeLength)
+          
+          // setup sheet1  
+          const sheet1 = new Sheet(reqObject.selections, `SHEET 1 OF ${numSheets}`) 
+          sheet1.bomItems = [...bomObject] 
+          sheet1.specifications = JSON.parse(JSON.stringify(reqObject.specifications))
+          sheet1.weight = getWeight(bomObject) 
+      
+          // setup sheet2
+          const sheet2 = new Sheet(reqObject.selections, `SHEET 2 OF ${numSheets}`)
+      
+          // setup sheet3
+          const sheet3 = new Sheet(reqObject.selections, `SHEET 3 OF ${numSheets}`)
+      
+          // setup sheet4
+          const sheet4 = new Sheet(reqObject.selections, `SHEET 4 OF ${numSheets}`)
+          sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
+          // sheet4.customLabels = [...tempCustomLabelObject]
+          
+          // setup sheet5
+          if (parseInt(reqObject.selections.pipeLength) > 96) {
+            const sheet5 = new Sheet(reqObject.selections, 'SHEET 5 OF 5')
+            sheet5.foldSheetData = getPipeData(sheet5)
+            sheet5.weight = getWeight(bomObject)
+            res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
+          }
+          else {
+            res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4 } });
+          } 
+        });        
+      }
     })  
   } catch (error) {
-    console.log(error)
+    console.log('catch:' + error)
     res.render('error', { pageTitle: 'Something went wrong.', subTitle: 'Please contact The Light Source.' })
   }   
 });
