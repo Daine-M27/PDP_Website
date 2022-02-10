@@ -99,13 +99,15 @@ router.get('/:drawingId', async function(req, res) {
 });
 
 /* Post drawing */
-router.post('/postDrawing', async function(req, res) { 
+router.post('/postDrawing', function(req, res) { 
   try {
-    await drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData })
-      .then((response) => {
+    drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData }, function(error, response) {
+      if(error) {
+        throw error;
+      } else {
         res.status(200).end(`${response._id}`)
-      })
-    
+      }
+    })
   } catch (error) {
     console.log(error);
     res.status(500).end(`Error: ${error}`)
