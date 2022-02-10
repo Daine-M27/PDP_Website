@@ -62,8 +62,6 @@ function getPipeData(options) {
 }
 
 
-
-
 /**
  * This function returns an array of 3 arrays 
  * @param {*} totalRow 
@@ -82,75 +80,6 @@ function chartRows(totalRow){
   
   return chartArrays
 }
-
-
-/**
- * This function creates the pipe elements for the main drawing svg 
- * @param {object} pipeData 
- * @returns an array of elements
- */
-// function pipeAssembly(pipeData) {
-//   const pipeObjects = []
-//   const keys = Object.keys(pipeData)
-  
-//   let distance = 0
-//   // function for constructing G element for each pipe
-//   const pipeElement = (matrix, pathData) => {
-//     const pipeObject = {
-//       'transform': matrix,
-//       'paths': pathData,
-//       };    
-//     return pipeObject
-//   };
-
-//   keys.forEach((key) => {    
-//     if(pipeData[key] > 0){      
-//       const p = `${pipeData.properties.diameter}${key}` // key for pipe selection
-//       const pipeWidth = pipeDataJson[p].svgUnits.width  // offset to space pipes horizontally 
-      
-//       for (let i = 0; i < pipeData[key]; i++) {
-//         const pathData = JSON.parse(JSON.stringify(pipeDataJson[p].paths)) // copy of path data
-//         pipeObjects.push(pipeElement( matrixString(distance, 0), pathData ))
-//         distance = distance + pipeWidth
-//       }
-//     }
-//   })
-  
-//   return pipeObjects
-// }
-
-
-/**
- * This funciton takes in a set of selections from the user
- * and creates an output object with drawing specifications.
- * @param {object} options
- * @returns an array of elements 
- */
-// function sheetOne(options) {
-//   let elements = [];
-//   let mainTransform;
-//   const stroke = findStroke(options.pipeLength)
-//   const pipes = getPipeData(options)
-  
-//   // check for error in pipes
-//   if (!pipes.error) {
-//     const pipeResults = pipeAssembly(pipes)
-//     elements.push(...pipeResults)
-//   }
-    
-//   // set stroke based on pipe length
-//   elements.forEach(element => {
-//     element.paths.forEach(path => {
-//       path.style = path.style.replace('stroke-width:1', `stroke-width:${stroke}`)
-//     })  
-//   });
-
-//   // set main transform based on pipe size
-//   mainTransform = `translate(${pipeDrawingOrigin.x} ${pipeDrawingOrigin.y}) scale(${findScale(options.pipeLength)})`
-  
-//   return { mainTransform, elements }
-// }
-
 
  
 /**
@@ -175,42 +104,48 @@ function bomBuilder(drawingArray) {
 
       const productComponentIds = getIds(drawingArray, 'ProductComponentTypeID')
       const catalogIds = getIds(drawingArray, 'CatalogIdentifierID')
-      const bomObjects = await bomItems.find()
-      const outputObjects = [];
-
-      bomObjects.forEach(entry => {
-        const componentTypeIDsLength = entry.ComponentTypeIDs.length;
-        const matchingCompIds = intersection(productComponentIds, entry.ComponentTypeIDs)
-        
-        // match all entrys in componentTypeIds array with productComponentIds array contents
-        if (matchingCompIds.length === componentTypeIDsLength) {
-          const matchingCatalogIds = intersection(catalogIds, entry.CatalogIDs)
+      
+      bomItems.find({}, function(err, bomObjects) {
+        if (err) {
+          throw err
+        } else {
+          const outputObjects = [];
           
-          // match as many catalogIds as the entry contains componentTypeIds ... if 3 componentTypeIds, match at least 3 of the catalogIds and so on
-          if(matchingCatalogIds.length >= componentTypeIDsLength){
-            const indexCheck = outputObjects.findIndex(object => object.partNo === entry.PartNumber)
-            // add to result object, if already exists in results increment quantity
-            if (indexCheck === -1) {
-              outputObjects.push({ // add item number, part number, description, and qty to bom result object
-                'partNo': entry.PartNumber,
-                'description': entry.Description,
-                'qty': entry.Quantity,
-                'weight': entry.Weight,
-                'orderBy': entry.OrderBy 
-              })
-              //console.log(`PN: ${entry.PartNumber} W:${entry.Weight} Ord: ${entry.OrderBy}`);
+          bomObjects.forEach(entry => {
+            const componentTypeIDsLength = entry.ComponentTypeIDs.length;
+            const matchingCompIds = intersection(productComponentIds, entry.ComponentTypeIDs)
+            
+            // match all entrys in componentTypeIds array with productComponentIds array contents
+            if (matchingCompIds.length === componentTypeIDsLength) {
+              const matchingCatalogIds = intersection(catalogIds, entry.CatalogIDs)
               
-            } else {
-              outputObjects[indexCheck].qty = outputObjects[indexCheck].qty + entry.Quantity
-
-            }            
-          }
-        }  
-      });
-
-      const sorted = outputObjects.slice().sort(function(a, b){return a.orderBy - b.orderBy})
-      // console.log(sorted);
-      resolve(sorted)
+              // match as many catalogIds as the entry contains componentTypeIds ... if 3 componentTypeIds, match at least 3 of the catalogIds and so on
+              if(matchingCatalogIds.length >= componentTypeIDsLength){
+                const indexCheck = outputObjects.findIndex(object => object.partNo === entry.PartNumber)
+                // add to result object, if already exists in results increment quantity
+                if (indexCheck === -1) {
+                  outputObjects.push({ // add item number, part number, description, and qty to bom result object
+                    'partNo': entry.PartNumber,
+                    'description': entry.Description,
+                    'qty': entry.Quantity,
+                    'weight': entry.Weight,
+                    'orderBy': entry.OrderBy 
+                  })
+                  //console.log(`PN: ${entry.PartNumber} W:${entry.Weight} Ord: ${entry.OrderBy}`);
+                  
+                } else {
+                  outputObjects[indexCheck].qty = outputObjects[indexCheck].qty + entry.Quantity
+    
+                }            
+              }
+            }  
+          });
+    
+          const sorted = outputObjects.slice().sort(function(a, b){return a.orderBy - b.orderBy})
+          // console.log(sorted);
+          resolve(sorted) 
+        }
+      })
     } catch (error) {
       reject(error)
     }
