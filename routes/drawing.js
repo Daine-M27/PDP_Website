@@ -53,45 +53,45 @@ const getWeight = (bom) => {
 }
 
 /* GET drawing page. */
-router.get('/:drawingId', async function(req, res) {
+router.get('/:drawingId', function(req, res) {
   // console.log(req.params.drawingId, 'drawing page')
+  console.log('building drawing');
   try {
-    const drawing = await drawingData.findById(req.params.drawingId).exec();
-    const reqObject = reqObjBuilder(drawing.drawingData);
-    const bomObject = await bomBuilder(drawing.drawingData);
-
-    // get number of sheets
-    const numSheets = maxSheet(reqObject.selections.pipeLength)
+    drawingData.findById(req.params.drawingId, function(err, drawing) {
+      const reqObject = reqObjBuilder(drawing.drawingData);
+      bomBuilder(drawing.drawingData).then((bomObject) => {
+        // get number of sheets
+        const numSheets = maxSheet(reqObject.selections.pipeLength)
+        
+        // setup sheet1  
+        const sheet1 = new Sheet(reqObject.selections, `SHEET 1 OF ${numSheets}`) 
+        sheet1.bomItems = [...bomObject] 
+        sheet1.specifications = JSON.parse(JSON.stringify(reqObject.specifications))
+        sheet1.weight = getWeight(bomObject) 
     
-    // setup sheet1  
-    const sheet1 = new Sheet(reqObject.selections, `SHEET 1 OF ${numSheets}`) 
-    sheet1.bomItems = [...bomObject] 
-    sheet1.specifications = JSON.parse(JSON.stringify(reqObject.specifications))
-    sheet1.weight = getWeight(bomObject) 
-
-    // setup sheet2
-    const sheet2 = new Sheet(reqObject.selections, `SHEET 2 OF ${numSheets}`)
-
-    // setup sheet3
-    const sheet3 = new Sheet(reqObject.selections, `SHEET 3 OF ${numSheets}`)
-
-    // setup sheet4
-    const sheet4 = new Sheet(reqObject.selections, `SHEET 4 OF ${numSheets}`)
-    console.log(sheet4);
-    sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
-    // sheet4.customLabels = [...tempCustomLabelObject]
+        // setup sheet2
+        const sheet2 = new Sheet(reqObject.selections, `SHEET 2 OF ${numSheets}`)
     
-    // setup sheet5
-    if (parseInt(reqObject.selections.pipeLength) > 96) {
-      const sheet5 = new Sheet(reqObject.selections, 'SHEET 5 OF 5')
-      sheet5.foldSheetData = getPipeData(sheet5)
-      sheet5.weight = getWeight(bomObject)
-      res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
-    }
-    else {
-      res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4 } });
-    } 
+        // setup sheet3
+        const sheet3 = new Sheet(reqObject.selections, `SHEET 3 OF ${numSheets}`)
     
+        // setup sheet4
+        const sheet4 = new Sheet(reqObject.selections, `SHEET 4 OF ${numSheets}`)
+        sheet4.outletPositions = [...chartRows(sheet4.numberOfOutlets)]
+        // sheet4.customLabels = [...tempCustomLabelObject]
+        
+        // setup sheet5
+        if (parseInt(reqObject.selections.pipeLength) > 96) {
+          const sheet5 = new Sheet(reqObject.selections, 'SHEET 5 OF 5')
+          sheet5.foldSheetData = getPipeData(sheet5)
+          sheet5.weight = getWeight(bomObject)
+          res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4, sheet5 } });
+        }
+        else {
+          res.render('drawing', { pageTitle: 'Drawing Page', sheets: { sheet1, sheet2, sheet3, sheet4 } });
+        } 
+      });  
+    })  
   } catch (error) {
     console.log(error)
     res.render('error', { pageTitle: 'Something went wrong.', subTitle: 'Please contact The Light Source.' })
@@ -100,6 +100,7 @@ router.get('/:drawingId', async function(req, res) {
 
 /* Post drawing */
 router.post('/postDrawing', function(req, res) { 
+ console.log('postDrawing'); 
   try {
     drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData }, function(error, response) {
       if(error) {

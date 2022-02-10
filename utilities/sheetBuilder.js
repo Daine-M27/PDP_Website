@@ -68,8 +68,9 @@ function getPipeData(options) {
  * @returns 
  */
 function chartRows(totalRow){
-  var totalArray = [];
-  var chartArrays = []
+  console.log('getting chart rows');
+  const totalArray = [];
+  const chartArrays = []
   for(var i = 0; i < totalRow; i++){
     totalArray.push(i+1)
   } 
@@ -88,7 +89,8 @@ function chartRows(totalRow){
  * @returns array
  */
 function bomBuilder(drawingArray) {
-  return new Promise(async (resolve, reject) => {
+  console.log('building bom');
+  return new Promise((resolve, reject) => {
     try {
       const getIds = (obj, keyName) => {
         const results = [];
@@ -154,6 +156,7 @@ function bomBuilder(drawingArray) {
 
 
 function partNumberCreator(drawingArray) {
+  console.log('creating part number');
   // sort drawing array by order of apperance for part number
   const drwArry2 = drawingArray.slice().sort(function(a, b){return a.OrderOfAppearance - b.OrderOfAppearance});
   const pnArray = [];
@@ -169,6 +172,7 @@ function partNumberCreator(drawingArray) {
 
 
 function reqObjBuilder(drawingArray) {
+  console.log('building req object')
   const partNumber = partNumberCreator(drawingArray)
 
   const findComponent = (componentName, property) => {
