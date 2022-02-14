@@ -7,9 +7,10 @@ const mail = require('../utilities/email')
 
 
 // get quote page
-router.get('/', async function(req, res){
-  const partNumbersList = await partNumbers()
-  res.render('quote', { pageTitle: 'MEGABATTEN Quote', partNumbersList})
+router.get('/', function(req, res){
+  partNumbers().then((partNumbersList) => {
+    res.render('quote', { pageTitle: 'MEGABATTEN Quote', partNumbersList})
+  })
 })
 
 
