@@ -2,7 +2,7 @@ mixin endCaps(length, diameter, type, position)
   - var moveX
   - if(length <= 96)
     - moveX = length * 15 - 37.5
-  - if(length > 96)
+  - else if(length > 96)
     - moveX = 1527.5
   
   - if( type === 'R' ) 
@@ -17,7 +17,7 @@ mixin endCaps(length, diameter, type, position)
       path(d='m-2.54211 0.2693v28.5189m2.6249 0v-14.2594m0 0v-14.2595m-16.8749 14.2586a14.2502 14.2595 0 0 0 14.2502 14.2594m0-28.5189a14.2502 14.2595 0 0 0-14.2502 14.2595m14.2501 14.2603h2.6249m0-28.5189h-2.6249' style='fill:none;stroke-linecap:round;stroke-width:.536768;stroke:#000000')
 
 
-  - if( type === 'F' ) 
+  - else if( type === 'F' ) 
     g(transform=`translate(${moveX} 0)` )
       path(d='m38.7064 28.7881v-28.5189m-0.9379-5e-5v14.2594m0 0v14.2595m1.875-27.5808v26.6426m-0.9372-27.5808h-0.9375m0 28.5189h0.9375m0.945-27.5815a0.937512 0.938122 0 0 0-0.9375-0.93813m0 28.5189a0.937512 0.938122 0 0 0 0.9375-0.93813' style='fill:none;stroke-linecap:round;stroke-width:.8;stroke:#000000')
       path(d='m38.7064 141.288v-28.5189m-0.9379-5e-5v14.2594m0 0v14.2595m1.875-27.5808v26.6426m-0.9372-27.5808h-0.9375m0 28.5189h0.9375m0.945-27.5815a0.937512 0.938122 0 0 0-0.9375-0.93813m0 28.5189a0.937512 0.938122 0 0 0 0.9375-0.93813' style='fill:none;stroke-linecap:round;stroke-width:.8;stroke:#000000')
