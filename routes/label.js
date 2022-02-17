@@ -67,7 +67,7 @@ router.post('/printSheet', async function(req, res) {
       ProjectName: projectName,
       Location: location,
       PartNumber: partNumber,
-      customCircuitInput: customCircuitInput,
+      CustomCircuitInput: customCircuitInput,
       CustomLabelInput: customLabelInput
     })
     .then((response) => {
