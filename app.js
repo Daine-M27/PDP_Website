@@ -4,8 +4,9 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mongoose = require('mongoose')
-const compression = require('compression')
+const mongoose = require('mongoose');
+const compression = require('compression');
+const CachePugTemplates = require('cache-pug-templates');
 
 const indexRouter = require('./routes/index');
 const drawingRouter = require('./routes/drawing');
@@ -18,8 +19,12 @@ const app = express();
 
 app.disable('x-powered-by');
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+const views = path.join(__dirname, 'views')
+app.set('views', views );
 app.set('view engine', 'pug');
+
+const cache = new CachePugTemplates({ app, views, concurrency: 10, interval: 5000 })
+cache.start();
 
 app.use(compression());
 app.use(logger('dev'));

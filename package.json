@@ -8,6 +8,7 @@
     "debug": "nodemon --inspect ./bin/www"
   },
   "dependencies": {
+    "cache-pug-templates": "^2.0.3",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
