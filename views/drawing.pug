@@ -1,11 +1,10 @@
 extends layout
 include mixins/drawingLegend
-include mixins/sheetOne
-include mixins/sheetTwo
-include mixins/sheetThree
-include mixins/sheetFour
-include mixins/sheetFourDMX
-include mixins/sheetFive
+
+
+
+
+
 
 
 block content
@@ -16,17 +15,22 @@ block content
     #svgBody
       each sheet, index in sheets
         if index === 'sheet1'
+          include mixins/sheetOne
           +drawingLegend(sheet)(id=index)
             +sheetOne(sheet)        
-        if index === 'sheet2'
+        else if index === 'sheet2'
+          include mixins/sheetTwo
           +drawingLegend(sheet)(id=index)
             +sheetTwo(sheet)
-        if index === 'sheet3'
+        else if index === 'sheet3'
+          include mixins/sheetThree
           +drawingLegend(sheet)(id=index)
             +sheetThree(sheet)
-        if index === 'sheet4'
+        else if index === 'sheet4'
+          include mixins/sheetFourDMX
           +drawingLegend(sheet)(id=index)
             +sheetFourDMX(sheet)
-        if index === 'sheet5'
+        else if index === 'sheet5'
+          include mixins/sheetFive
           +drawingLegend(sheet)(id=index)
             +sheetFive(sheet) 
