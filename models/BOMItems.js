@@ -32,7 +32,7 @@ const bomItemsSchema = mongoose.Schema({
   _isSelected: Boolean,
   CatalogIDs: [],
   ComponentTypeIDs: []
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model(
   "bomItems",

@@ -56,7 +56,7 @@ const componenteOptionSchema = mongoose.Schema({
   ProductSeriesID: Number,  
   SelectedCatalog: Number,
   VisibilityOrderBy: Number  
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model(
   "componentOptions",

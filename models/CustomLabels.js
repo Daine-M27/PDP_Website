@@ -10,7 +10,7 @@ const customLabelSchema = mongoose.Schema({
   PartNumber: String,  
   CustomCircuitInput: [],
   CustomLabelInput: []
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model(
   "customLabels",

@@ -17,7 +17,7 @@ const quoteRequestSchema = mongoose.Schema({
     }
   ],
   DateCreated: String
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model(
   "quoteRequest",
