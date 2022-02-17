@@ -23,7 +23,7 @@ const views = path.join(__dirname, 'views')
 app.set('views', views );
 app.set('view engine', 'pug');
 
-const cache = new CachePugTemplates({ app, views})
+const cache = new CachePugTemplates({ app, views, concurrency: 3 })
 cache.start();
 
 app.use(compression());
