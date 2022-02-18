@@ -10,7 +10,7 @@ const CachePugTemplates = require('cache-pug-templates');
 
 const indexRouter = require('./routes/index');
 const drawingRouter = require('./routes/drawing');
-const usersRouter = require('./routes/users');
+//const usersRouter = require('./routes/users');
 const choicesRouter = require('./routes/choices')
 const quoteRouter = require('./routes/quote');
 const labelRouter = require('./routes/label');
@@ -44,7 +44,7 @@ try {
 // routers
 app.use('/', indexRouter);
 app.use('/drawing', drawingRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 app.use('/choices', choicesRouter);
 app.use('/quote', quoteRouter);
 app.use('/label', labelRouter);
