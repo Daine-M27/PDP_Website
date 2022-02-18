@@ -59,7 +59,8 @@ router.get('/:drawingId', function(req, res) {
   try {
     drawingData.findById(req.params.drawingId, function(err, drawing) {
       if (err) {
-        throw err;
+        console.log('catch:' + err)
+        res.render('error', { pageTitle: 'Error', title: 'This drawing ID does not exist.', subTitle: 'Please contact us at 704-504-8399' })
       } else {
         const reqObject = reqObjBuilder(drawing.drawingData);
         bomBuilder(drawing.drawingData).then((bomObject) => {
