@@ -109,7 +109,8 @@ router.post('/postDrawing', function(req, res) {
   try {
     drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData }, function(error, response) {
       if(error) {
-        throw error;
+        console.log(error)
+        res.status(500).end()
       } else {
         res.status(200).end(`${response._id}`)
       }
