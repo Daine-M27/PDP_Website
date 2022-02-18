@@ -62,7 +62,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', { pageTitle: 'Error', title: 'Sorry this page does not exist.', subTitle: 'Please contact us at 704-504-8399' });
+  res.render('error', { pageTitle: '404 Error', title: 'Sorry this page does not exist.', subTitle: 'Please contact us at 704-504-8399' });
 });
 
 module.exports = app;
