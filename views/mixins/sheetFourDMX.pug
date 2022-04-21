@@ -33,7 +33,7 @@ mixin sheetFourDMX(options)
   - var outlets = parseInt(options.numberOfOutlets)
   - var maxCir = parseInt(options.numberOfCircuits)
     //- function returns the remainder of max circuit divided by input
-  - function circuit(x, last){ return x % last + 1 }
+  - function circuit(pos, last){ return (pos - 1) % last + 1 }
 
   if outlets <= 25
     - columnXaxis = [ '676.865' ]
@@ -69,10 +69,10 @@ mixin sheetFourDMX(options)
             tspan(x='45' y='68.594101') !{position}
           //-default circuit label text
           text(text-anchor='middle' style='font-family:Arial;font-size:12.5px;')
-            tspan(x='130' y='68.594101') #{circuit(r, maxCir)}
+            tspan(x='130' y='68.594101') #{circuit(position, maxCir)}
           //-default label text
           text(text-anchor='middle' style='font-family:Arial;font-size:12.5px;')
-            tspan(x='216' y='68.594101') C#{circuit(r, maxCir)}
+            tspan(x='216' y='68.594101') C#{circuit(position, maxCir)}
          
           rect(x='.449997' y='51.55' width='86.2623' height='25' rx='0' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
           rect(x='86.7123' y='51.55' width='86.2629' height='25' rx='5.68434e-14' ry='12.5' style='fill:none;stroke-width:.8;stroke:#000000')
