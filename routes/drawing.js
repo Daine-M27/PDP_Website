@@ -63,6 +63,7 @@ router.get('/:drawingId', function(req, res) {
         res.render('error', { pageTitle: 'Error', title: 'This drawing ID does not exist.', subTitle: 'Please contact us at 704-504-8399' })
       } else {
         const reqObject = reqObjBuilder(drawing.drawingData);
+        console.log(reqObject)
         bomBuilder(drawing.drawingData).then((bomObject) => {
           // get number of sheets
           const numSheets = maxSheet(reqObject.selections.pipeLength)
@@ -105,7 +106,8 @@ router.get('/:drawingId', function(req, res) {
 
 /* Post drawing */
 router.post('/postDrawing', function(req, res) { 
- console.log('postDrawing'); 
+ console.log('postDrawing');
+ console.log(req.body.drawingData) 
   try {
     drawingData.create({partNumber: partNumberCreator(req.body.drawingData), drawingData:req.body.drawingData }, function(error, response) {
       if(error) {

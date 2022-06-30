@@ -77,7 +77,7 @@ function addChoiceRow(componentData){
     
   }
 
-  if (componentData.ComponentTypeName.includes('Lead Length') && componentData.Catalogs.length < 2) {
+  if (componentData.ComponentTypeName.includes('Lead/Whip Length (ft)') && componentData.Catalogs.length < 2) {
     componentData.ComponentAvailableOnWebsite = false
     console.log(componentData.ComponentAvailableOnWebsite, ':' ,componentData.ComponentTypeName) 
   }
