@@ -102,6 +102,16 @@ function addChoiceRow(componentData){
       selectValue = componentData.Catalogs[indexPosition].CatalogID
       simSelection(elemId, selectValue)
     }
+    else if(componentData.ComponentTypeName.includes('Power Input Position')){
+      const indexPosition = componentData.Catalogs.findIndex(object => object.CatalogID === 'E')
+      selectValue = componentData.Catalogs[indexPosition].CatalogID
+      simSelection(elemId, selectValue)
+    }
+    else if(componentData.ComponentTypeName.includes('Data Power Location')){
+      const indexPosition = componentData.Catalogs.findIndex(object => object.CatalogID === 'I')
+      selectValue = componentData.Catalogs[indexPosition].CatalogID
+      simSelection(elemId, selectValue)
+    }
     else {
       // get length and universes
       const pipeLength = parseInt(JSON.parse($('[name="Length (in)"] + .selection').attr('data-object')).CatalogID)
