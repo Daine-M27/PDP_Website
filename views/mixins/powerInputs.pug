@@ -44,7 +44,9 @@ mixin powerInputs(type, length, diameter, position)
   //- conduit box positoin on page relative to length of pipes
   - if (type === 'C')
     include ./svgData/conduitBox
-    - if (length === '48')
+    - if (length === '32')
+      +C1(820, 340)
+    - else if (length === '48')
       +C1(900, 340)
     - else if (length === '64')
       +C1(1020, 340)

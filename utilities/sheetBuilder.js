@@ -183,9 +183,7 @@ function reqObjBuilder(drawingArray) {
     } else {
       return result[property]
     }
-  }
-
-  
+  }  
   
   return {
     selections: {

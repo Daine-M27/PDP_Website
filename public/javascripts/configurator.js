@@ -139,7 +139,7 @@ function addChoiceRow(componentData){
       if(componentName.includes('Run 3')) {selectedRun = 3}
 
       const termOutlet = selectedRun * (Math.ceil(numOutlets / totalRuns()))
-      // console.log(termOutlet)
+      console.log(termOutlet)
       simSelection(elemId, termOutlet)   
     }  
   }
