@@ -9,7 +9,7 @@ const partNumbers = () => {
         drawings.forEach(dwg => {        
           // check if PN already in array and push to output if not
           if (!output.includes(dwg.partNumber)) {
-            output.push(dwg.partNumber)  
+            output.push({partNumber: dwg.partNumber, drawingId: dwg.id})  
           }
         });
         // output full list of unique part numbers

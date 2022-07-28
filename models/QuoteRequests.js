@@ -13,7 +13,8 @@ const quoteRequestSchema = mongoose.Schema({
     {
       PartNumber: String,
       CustomLabeling: String,
-      Quantity: String
+      Quantity: String,
+      Link: String
     }
   ],
   DateCreated: String

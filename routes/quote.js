@@ -21,14 +21,22 @@ router.post('/', async function(req, res){
     const quoteItems = []
     
     for (let i = 1; i <= Object.keys(itemsObject).length / 3; i++) {
-      quoteItems.push({'PartNumber': itemsObject[`item-${i}-pn`],'CustomLabeling': itemsObject[`item-${i}-cl`], 'Quantity': itemsObject[`item-${i}-qty`]})  
+      quoteItems.push({
+        PartNumber: itemsObject[`item-${i}-pn`],
+        CustomLabeling: itemsObject[`item-${i}-cl`],
+        Quantity: itemsObject[`item-${i}-qty`],
+        Link: `localhost:3000/drawing/${itemsObject[`item-${i}-id`]}`
+      });
     }
     
+    const proAddr = `${data['project-street-address']}., ${data['project-city']}, ${data['project-state']} ${data['project-zip']} `
+    const cusAddr = `${data['customer-city']}, ${data['customer-state']}`
+
     const qr = new quoteRequest({
       ProjectName: data['project-name'],
-      ProjectAddress: data['project-address'],
+      ProjectAddress: proAddr,
       CustomerName: data['customer-name'],
-      CustomerAddress: data['customer-address'],
+      CustomerAddress: cusAddr,
       CustomerEmail: data['customer-email'],
       ContactEmail: data['contact-email'],
       ContactPhoneNumber: data['contact-phone'],

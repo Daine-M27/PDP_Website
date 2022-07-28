@@ -6,6 +6,9 @@ function addBatten() {
   const pnValue = document.getElementById('battenInput').value;
   const qtyValue = document.getElementById('battenQty').value;
   const clabeling = document.getElementById('clabeling').value;
+   
+  const dataId = document.getElementById(`option${pnValue}`).getAttribute('data-id')
+  // console.log(dataId)
 
   if (!pnValue) {
     alert('Please choose a MEGABATTEN!')
@@ -25,6 +28,7 @@ function addBatten() {
       <input type="text" id="batten${numBattens}Qty" name="item-${numBattens}-qty" style="max-width:25px"></input>
       <label for="item-${numBattens}-cl" style="margin-left: 35px"> Custom Labeling:
       <input type="text" id="batten${numBattens}cl" name="item-${numBattens}-cl" style="max-width:20px"></input>
+      <input type="text" id="batten${numBattens}id" name="item-${numBattens}-id" hidden></input>
       <br>
       <button type="button" onclick="deleteItem('quoteItem${numBattens}')" style="margin-top: 6px"> Remove Item
     </li>
@@ -33,6 +37,7 @@ function addBatten() {
     document.getElementById(`batten${numBattens}`).value = `${pnValue}`
     document.getElementById(`batten${numBattens}Qty`).value = `${qtyValue}`
     document.getElementById(`batten${numBattens}cl`).value = `${clabeling}`
+    document.getElementById(`batten${numBattens}id`).value = `${dataId}`
     // increment number of items in bom
     numBattens++
     // reset batten input field
@@ -60,36 +65,36 @@ function deleteItem(idValue){
 }
 
 // address autocomplete code
-var placeSearch, autocomplete;
+// var placeSearch, autocomplete;
 
-function initAutocomplete() {
-  // Create the autocomplete object, restricting the search to geographical
-  // location types.
-  autocomplete = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */(document.getElementById('projectautocomplete')),
-      {types: ['geocode']});
+// function initAutocomplete() {
+//   // Create the autocomplete object, restricting the search to geographical
+//   // location types.
+//   autocomplete = new google.maps.places.Autocomplete(
+//       /** @type {!HTMLInputElement} */(document.getElementById('projectautocomplete')),
+//       {types: ['geocode']});
 
-  autocomplete2 = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */(document.getElementById('customerautocomplete')),
-      {types: ['geocode']});  
-}
+//   autocomplete2 = new google.maps.places.Autocomplete(
+//       /** @type {!HTMLInputElement} */(document.getElementById('customerautocomplete')),
+//       {types: ['geocode']});  
+// }
 
 
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
-function geolocate() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      var circle = new google.maps.Circle({
-        center: geolocation,
-        radius: position.coords.accuracy
-      });
-      autocomplete.setBounds(circle.getBounds());
-      autocomplete2.setBounds(circle.getBounds());
-    });
-  }
-}
+// // Bias the autocomplete object to the user's geographical location,
+// // as supplied by the browser's 'navigator.geolocation' object.
+// function geolocate() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       var geolocation = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//       };
+//       var circle = new google.maps.Circle({
+//         center: geolocation,
+//         radius: position.coords.accuracy
+//       });
+//       autocomplete.setBounds(circle.getBounds());
+//       autocomplete2.setBounds(circle.getBounds());
+//     });
+//   }
+// }

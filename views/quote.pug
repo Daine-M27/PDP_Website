@@ -9,9 +9,16 @@ block content
       input(type="text", name="project-name" style="min-width:350px" required)
       br
       br
-      label(for="project-address") Project Address:
+      label() Project Address:
       br
-      input#projectautocomplete(type="text", name="project-address" style="min-width:350px" onfocus="geolocate()" required)
+      input#projectStreetAddress(type="text", name="project-street-address" style="width: 350px; margin-bottom: 6px", placeholder="Street")
+      br
+      input#projectCity(type="text", name="project-city" style="width: 180px; margin-right: 6px;", placeholder="City", required)
+      input#projectState(type="text", name="project-state" style="width: 50px; margin-right: 6px;", placeholder="State", required)
+      input#projectZip(type="text", name="project-zip" style="width: 92px;", placeholder="Zip")
+      
+      
+      //- input#projectautocomplete(type="text", name="project-address" style="min-width:350px" onfocus="geolocate()" required)
       br
       br
       div(style='border-bottom: 1px solid lightgray')
@@ -27,9 +34,16 @@ block content
       input#customerCompany(type="text", name="customer-company" style="min-width:350px" required)
       br
       br
-      label(for="customer-address") Customer Address:
+      label(for="customer-email") Customer Email:
       br
-      input#customerautocomplete(type="text", name="customer-address" style="min-width:350px" required)
+      input#customerEmail(type="text", name="customer-email" style="min-width:350px" required)
+      br
+      br
+      label() Customer Address:
+      br
+      input#customerCity(type="text", name="customer-city" style="width: 180px; margin-right: 6px;", placeholder="City", required)
+      input#customerState(type="text", name="customer-state" style="width: 50px; margin-right: 6px;", placeholder="State", required)
+      
       br
       br
       div(style='border-bottom: 1px solid lightgray')
@@ -60,7 +74,7 @@ block content
       input#battenInput(list="battensData" name="batten-Input" placeHolder="Begin typing to filter list" style="min-width:350px; margin-bottom:6px; margin-top:6px" onfocus='this.value=""' )
       datalist#battensData
         each pn in partNumbersList 
-          option(value=`${pn}`)
+          option(id=`option${pn.partNumber}` value=`${pn.partNumber}` data-id=`${pn.drawingId}`)
       br
       label(for="batten-Qty" style="") Qty: 
       select#battenQty(type="select" name="batten-Qty" required style="margin-left:6px" )
@@ -96,5 +110,5 @@ block content
   br
   br
   append scripts
-    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZoaqn0TMf3xGHbbrtiyK2eB_gclHfRfA&libraries=places&callback=initAutocomplete' async='' defer='')
+    //- script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZoaqn0TMf3xGHbbrtiyK2eB_gclHfRfA&libraries=places&callback=initAutocomplete' async='' defer='')
     script(src='/javascripts/quote.js')
