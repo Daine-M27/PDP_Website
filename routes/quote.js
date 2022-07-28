@@ -25,7 +25,7 @@ router.post('/', async function(req, res){
         PartNumber: itemsObject[`item-${i}-pn`],
         CustomLabeling: itemsObject[`item-${i}-cl`],
         Quantity: itemsObject[`item-${i}-qty`],
-        Link: `localhost:3000/drawing/${itemsObject[`item-${i}-id`]}`
+        Link: `${req.get('host')}/drawing/${itemsObject[`item-${i}-id`]}`
       });
     }
     
