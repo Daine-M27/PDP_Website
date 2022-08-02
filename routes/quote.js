@@ -29,15 +29,16 @@ router.post('/', async function(req, res){
       });
     }
     
-    const proAddr = `${data['project-street-address']}., ${data['project-city']}, ${data['project-state']} ${data['project-zip']} `
-    const cusAddr = `${data['customer-city']}, ${data['customer-state']}`
+    const proAddr = `${data['project-street-address']}, ${data['project-street-address-two']}, ${data['project-city']}, ${data['project-state']} ${data['project-zip']} `
+    const cusAddr = `${data['customer-street-address']}, ${data['customer-street-address-two']}, ${data['customer-city']}, ${data['customer-state']} ${data['customer-zip']} `
 
     const qr = new quoteRequest({
       ProjectName: data['project-name'],
-      ProjectAddress: proAddr,
+      ProjectAddress: proAddr,      
       CustomerName: data['customer-name'],
+      CustomerCompany: data['customer-company'],
       CustomerAddress: cusAddr,
-      CustomerEmail: data['customer-email'],
+      // CustomerEmail: data['customer-email'],
       ContactEmail: data['contact-email'],
       ContactPhoneNumber: data['contact-phone'],
       IsBidJob: data['bid-job'],
@@ -57,7 +58,7 @@ router.post('/', async function(req, res){
         Project Name = ${qr.ProjectName},
         Project Address = ${qr.ProjectAddress},
         Customer Name = ${qr.CustomerName},
-        Customer Email = ${qr.CustomerEmail},
+        Customer Company = ${qr.CustomerCompany},
         Customer Address = ${qr.CustomerAddress},
         Contact Email = ${qr.ContactEmail},
         Contact Phone Number = ${qr.ContactPhoneNumber},

@@ -13,6 +13,8 @@ block content
       br
       input#projectStreetAddress(type="text", name="project-street-address" style="width: 350px; margin-bottom: 6px", placeholder="Street")
       br
+      input#projectStreetAddressTwo(type="text", name="project-street-address-two" style="width: 350px; margin-bottom: 6px", placeholder="Street 2 ")
+      br
       input#projectCity(type="text", name="project-city" style="width: 180px; margin-right: 6px;", placeholder="City", required)
       input#projectState(type="text", name="project-state" style="width: 50px; margin-right: 6px;", placeholder="State", required)
       input#projectZip(type="text", name="project-zip" style="width: 92px;", placeholder="Zip")
@@ -34,16 +36,20 @@ block content
       input#customerCompany(type="text", name="customer-company" style="min-width:350px" required)
       br
       br
-      label(for="customer-email") Customer Email:
-      br
-      input#customerEmail(type="text", name="customer-email" style="min-width:350px" required)
-      br
-      br
+      //- label(for="customer-email") Customer Email:
+      //- br
+      //- input#customerEmail(type="text", name="customer-email" style="min-width:350px" required)
+      //- br
+      //- br
       label() Customer Address:
+      br
+      input#customerStreetAddress(type="text", name="customer-street-address" style="width: 350px; margin-bottom: 6px", placeholder="Street")
+      br
+      input#customerStreetAddressTwo(type="text", name="customer-street-address-two" style="width: 350px; margin-bottom: 6px", placeholder="Street 2")
       br
       input#customerCity(type="text", name="customer-city" style="width: 180px; margin-right: 6px;", placeholder="City", required)
       input#customerState(type="text", name="customer-state" style="width: 50px; margin-right: 6px;", placeholder="State", required)
-      
+      input#customerZip(type="text", name="customer-zip" style="width: 92px;", placeholder="Zip")
       br
       br
       div(style='border-bottom: 1px solid lightgray')
